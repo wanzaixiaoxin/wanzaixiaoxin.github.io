@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[learn markdown]]></title>
+    <url>%2F2018%2F02%2F22%2Flearn-markdown%2F</url>
+    <content type="text"><![CDATA[测试JavaScript代码1234var ihubo = &#123; nickName : "草依山", site : "http://jser.me" &#125; 学会使用百度 知道自己想要什么 组合想要的东西的关键词 联想可能相关的词汇以备用 将想要知道的输入到搜索框 在搜索结果中寻找自己想要的 过滤匹配并且可信的搜索结果 如果没有找到，变换关键词重新尝试 测试c++代码1234567891011121314151617181920212223242526272829 #include&lt;iostream&gt; using namespace std; const double PI = 3.1415926; class Base &#123; public: void set(int v) &#123; val= v; &#125; int get() &#123; return val; &#125; private: int val; &#125;; int main()&#123; cout&lt;&lt;"hello world"&lt;&lt;endl; Base b; b.set(100); cout&lt;&lt;b.get()&lt;&lt;endl; return 0; &#125; 测试Python代码1print "hello"]]></content>
+      <categories>
+        <category>学习markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[new year]]></title>
+    <url>%2F2018%2F02%2F12%2Fnew-year%2F</url>
+    <content type="text"><![CDATA[穿石坡湖在书院之上 在苍天之下 在眼眸之中 在多年之后]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[just for test]]></title>
+    <url>%2F2018%2F02%2F12%2Fjust-for-test%2F</url>
+    <content type="text"><![CDATA[Just for test,但是我觉得这挺酷的]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[你好，这是我的第一篇博客，使用hexo+github]]></title>
+    <url>%2F2018%2F02%2F12%2F%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%BD%BF%E7%94%A8hexo-github%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F02%2F12%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
