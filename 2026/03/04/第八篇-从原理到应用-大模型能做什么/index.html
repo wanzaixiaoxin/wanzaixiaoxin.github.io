@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第八篇：从原理到应用——大模型能做什么 | Code &amp; Poets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="大模型科普系列（8&#x2F;9）   复习：大模型的训练上一篇我们详细讲了大模型的训练三阶段：  预训练：学习语言和世界知识 有监督微调（SFT）：学会遵循指令 强化学习对齐（RLHF）：对齐人类价值观  训练完成后，大模型能做什么？它有什么局限？ 这就是今天要讲的内容。  大模型的本质在讲应用之前，我们先理解大模型的本质： 大模型是一个超级大的”下一个词预测器”。 当你输入”今天天气”，它计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八篇：从原理到应用——大模型能做什么">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="大模型科普系列（8&#x2F;9）   复习：大模型的训练上一篇我们详细讲了大模型的训练三阶段：  预训练：学习语言和世界知识 有监督微调（SFT）：学会遵循指令 强化学习对齐（RLHF）：对齐人类价值观  训练完成后，大模型能做什么？它有什么局限？ 这就是今天要讲的内容。  大模型的本质在讲应用之前，我们先理解大模型的本质： 大模型是一个超级大的”下一个词预测器”。 当你输入”今天天气”，它计">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-04T02:35:00.000Z">
+<meta property="article:modified_time" content="2026-03-04T11:14:29.267Z">
+<meta property="article:author" content="wanzaixiaoxin">
+<meta property="article:tag" content="大模型科普">
+<meta property="article:tag" content="大模型应用">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Code &amp; Poets</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">给小学生讲清楚什么是大模型</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第八篇-从原理到应用-大模型能做什么" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/" class="article-date">
+  <time class="dt-published" datetime="2026-03-04T02:35:00.000Z" itemprop="datePublished">2026-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第八篇：从原理到应用——大模型能做什么
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>大模型科普系列（8&#x2F;9）</p>
+</blockquote>
+<hr>
+<h2 id="复习：大模型的训练"><a href="#复习：大模型的训练" class="headerlink" title="复习：大模型的训练"></a>复习：大模型的训练</h2><p>上一篇我们详细讲了大模型的训练三阶段：</p>
+<ol>
+<li><strong>预训练</strong>：学习语言和世界知识</li>
+<li><strong>有监督微调（SFT）</strong>：学会遵循指令</li>
+<li><strong>强化学习对齐（RLHF）</strong>：对齐人类价值观</li>
+</ol>
+<p>训练完成后，大模型能做什么？它有什么局限？</p>
+<p>这就是今天要讲的内容。</p>
+<hr>
+<h2 id="大模型的本质"><a href="#大模型的本质" class="headerlink" title="大模型的本质"></a>大模型的本质</h2><p>在讲应用之前，我们先理解大模型的本质：</p>
+<p><strong>大模型是一个超级大的”下一个词预测器”。</strong></p>
+<p>当你输入”今天天气”，它计算的是：</p>
+<blockquote>
+<p>在训练数据里，”今天天气”后面最可能出现什么词？</p>
+</blockquote>
+<p>然后选概率最高的那个，接着再算下一个词……直到生成完整的回答。</p>
+<h3 id="这解释了为什么大模型能”创作”"><a href="#这解释了为什么大模型能”创作”" class="headerlink" title="这解释了为什么大模型能”创作”"></a>这解释了为什么大模型能”创作”</h3><p>它不是在”思考”，而是在”预测”。</p>
+<p>但神奇的是：</p>
+<ul>
+<li>当预测能力足够强，它看起来就像”理解”了</li>
+<li>当训练数据足够多，它”记住”了海量知识</li>
+<li>当模型足够大，它涌现出了”推理”能力</li>
+</ul>
+<hr>
+<h2 id="大模型的应用场景"><a href="#大模型的应用场景" class="headerlink" title="大模型的应用场景"></a>大模型的应用场景</h2><h3 id="1-对话和问答"><a href="#1-对话和问答" class="headerlink" title="1. 对话和问答"></a>1. 对话和问答</h3><p><strong>代表产品：</strong> ChatGPT、Claude、文心一言</p>
+<p><strong>能做什么：</strong></p>
+<ul>
+<li>回答各种问题（知识、生活、学习）</li>
+<li>进行多轮对话，记住上下文</li>
+<li>用不同的语气、风格回答</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户：用小学生能听懂的话解释量子力学</span><br><span class="line">AI：想象你有一个魔法硬币...</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-内容创作"><a href="#2-内容创作" class="headerlink" title="2. 内容创作"></a>2. 内容创作</h3><p><strong>能做什么：</strong></p>
+<ul>
+<li>写文章、博客、小说</li>
+<li>写诗歌、歌词</li>
+<li>写邮件、报告</li>
+<li>头脑风暴、提供创意</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户：写一篇关于春天的散文</span><br><span class="line">AI：春风拂过，万物复苏...</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-编程辅助"><a href="#3-编程辅助" class="headerlink" title="3. 编程辅助"></a>3. 编程辅助</h3><p><strong>代表产品：</strong> GitHub Copilot、Cursor</p>
+<p><strong>能做什么：</strong></p>
+<ul>
+<li>代码补全</li>
+<li>根据注释生成代码</li>
+<li>解释代码功能</li>
+<li>找出代码bug</li>
+<li>代码重构建议</li>
+</ul>
+<h3 id="4-翻译"><a href="#4-翻译" class="headerlink" title="4. 翻译"></a>4. 翻译</h3><p><strong>能做什么：</strong></p>
+<ul>
+<li>多语言互译</li>
+<li>保持原文风格和语气</li>
+<li>翻译专业术语</li>
+</ul>
+<h3 id="5-文本摘要"><a href="#5-文本摘要" class="headerlink" title="5. 文本摘要"></a>5. 文本摘要</h3><p><strong>能做什么：</strong></p>
+<ul>
+<li>长文摘要</li>
+<li>提取关键信息</li>
+<li>生成不同长度的摘要</li>
+</ul>
+<h3 id="6-教育辅导"><a href="#6-教育辅导" class="headerlink" title="6. 教育辅导"></a>6. 教育辅导</h3><p><strong>能做什么：</strong></p>
+<ul>
+<li>解释概念</li>
+<li>解答习题</li>
+<li>制定学习计划</li>
+<li>模拟考试</li>
+</ul>
+<h3 id="7-多模态应用"><a href="#7-多模态应用" class="headerlink" title="7. 多模态应用"></a>7. 多模态应用</h3><p><strong>代表产品：</strong> GPT-4V、Gemini、DALL-E</p>
+<p><strong>能做什么：</strong></p>
+<ul>
+<li><strong>看图说话</strong>：描述图片内容</li>
+<li><strong>图像理解</strong>：分析图表、解答数学题（看图）</li>
+<li><strong>图像生成</strong>：根据文字描述生成图片</li>
+</ul>
+<hr>
+<h2 id="大模型的局限"><a href="#大模型的局限" class="headerlink" title="大模型的局限"></a>大模型的局限</h2><h3 id="1-幻觉（Hallucination）"><a href="#1-幻觉（Hallucination）" class="headerlink" title="1. 幻觉（Hallucination）"></a>1. 幻觉（Hallucination）</h3><p>大模型会一本正经地胡说八道：</p>
+<ul>
+<li>编造不存在的论文和作者</li>
+<li>给出错误的数学答案</li>
+<li>混淆事实</li>
+</ul>
+<p><strong>为什么会幻觉？</strong></p>
+<p>因为大模型不是在”知道”，而是在”预测”。它预测的是”这句话听起来像真的”，而不是”这是真的”。</p>
+<h3 id="2-知识截止"><a href="#2-知识截止" class="headerlink" title="2. 知识截止"></a>2. 知识截止</h3><p>大模型的知识来自训练数据，而训练数据有<strong>截止日期</strong>。</p>
+<ul>
+<li>GPT-4的知识截止到2023年底</li>
+<li>之后发生的事情它不知道</li>
+</ul>
+<h3 id="3-没有真正的理解"><a href="#3-没有真正的理解" class="headerlink" title="3. 没有真正的理解"></a>3. 没有真正的理解</h3><p>大模型不理解它说的话的含义。它只是根据统计规律，生成”最可能”的文本。</p>
+<h3 id="4-推理能力有限"><a href="#4-推理能力有限" class="headerlink" title="4. 推理能力有限"></a>4. 推理能力有限</h3><p>虽然大模型有一定的推理能力，但在复杂推理任务上仍会犯错。</p>
+<h3 id="5-偏见和有害内容"><a href="#5-偏见和有害内容" class="headerlink" title="5. 偏见和有害内容"></a>5. 偏见和有害内容</h3><p>训练数据来自互联网，包含了人类的偏见。</p>
+<hr>
+<h2 id="如何正确使用大模型"><a href="#如何正确使用大模型" class="headerlink" title="如何正确使用大模型"></a>如何正确使用大模型</h2><h3 id="✅-应该做的"><a href="#✅-应该做的" class="headerlink" title="✅ 应该做的"></a>✅ 应该做的</h3><ol>
+<li><strong>验证重要信息</strong>：对关键事实，要交叉验证</li>
+<li><strong>提供上下文</strong>：给模型足够的背景信息</li>
+<li><strong>明确指令</strong>：告诉模型你想要什么格式、风格</li>
+<li><strong>迭代优化</strong>：第一次回答不满意，继续追问、调整</li>
+</ol>
+<h3 id="❌-不应该做的"><a href="#❌-不应该做的" class="headerlink" title="❌ 不应该做的"></a>❌ 不应该做的</h3><ol>
+<li><strong>盲目相信</strong>：不要把大模型的输出当成绝对真理</li>
+<li><strong>用于高风险决策</strong>：医疗、法律、金融等，需要专业判断</li>
+<li><strong>输入敏感信息</strong>：你的数据可能被用于训练</li>
+</ol>
+<hr>
+<h2 id="提示工程（Prompt-Engineering）"><a href="#提示工程（Prompt-Engineering）" class="headerlink" title="提示工程（Prompt Engineering）"></a>提示工程（Prompt Engineering）</h2><p>为了获得更好的输出，人们发展出了”提示工程”。</p>
+<h3 id="技巧一：明确角色"><a href="#技巧一：明确角色" class="headerlink" title="技巧一：明确角色"></a>技巧一：明确角色</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你是一位经验丰富的Python程序员，请帮我...</span><br></pre></td></tr></table></figure>
+
+<h3 id="技巧二：提供示例"><a href="#技巧二：提供示例" class="headerlink" title="技巧二：提供示例"></a>技巧二：提供示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请把以下句子翻译成法语：</span><br><span class="line">例子：</span><br><span class="line">英文：Hello</span><br><span class="line">法文：Bonjour</span><br></pre></td></tr></table></figure>
+
+<h3 id="技巧三：分步骤"><a href="#技巧三：分步骤" class="headerlink" title="技巧三：分步骤"></a>技巧三：分步骤</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请按以下步骤解答这道数学题...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告"></a>下一篇预告</h2><p>这是系列的最后一篇。我们会用一张思维导图总结所有知识。</p>
+<p><strong>敬请期待：《第九篇：总结——一张图看懂AI技术栈》</strong></p>
+<hr>
+<h2 id="小测验"><a href="#小测验" class="headerlink" title="小测验"></a>小测验</h2><ol>
+<li>大模型的本质是什么？</li>
+<li>举出5个大模型的应用场景</li>
+<li>什么是”幻觉”？为什么会发生？</li>
+</ol>
+<hr>
+<p><em>本系列文章力求通俗易懂，如果发现哪里讲得不清楚，欢迎反馈！</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/" data-id="cmmbxwnm8000axzse9by84tzi" data-title="第八篇：从原理到应用——大模型能做什么" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" rel="tag">大模型应用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%B9%9D%E7%AF%87-%E6%80%BB%E7%BB%93-%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%87%82AI%E6%8A%80%E6%9C%AF%E6%A0%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          第九篇：总结——一张图看懂AI技术栈
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%B8%83%E7%AF%87-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%83%E6%88%90%E7%9A%84-%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">第七篇：大模型是怎么练成的——训练三阶段</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transformer/" rel="tag">Transformer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" rel="tag">大模型应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" rel="tag">大模型训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Transformer/" style="font-size: 10px;">Transformer</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" style="font-size: 10px;">大模型应用</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" style="font-size: 20px;">大模型科普</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">大模型训练</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">神经网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B9%9D%E7%AF%87-%E6%80%BB%E7%BB%93-%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%87%82AI%E6%8A%80%E6%9C%AF%E6%A0%88/">第九篇：总结——一张图看懂AI技术栈</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/">第八篇：从原理到应用——大模型能做什么</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B8%83%E7%AF%87-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%83%E6%88%90%E7%9A%84-%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/">第七篇：大模型是怎么练成的——训练三阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/">第六篇：强化学习——让AI学会&#34;做得更好&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%BA%94%E7%AF%87-Transformer-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%91%E5%8A%A8%E6%9C%BA/">第五篇：Transformer——大模型的发动机</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 wanzaixiaoxin<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
