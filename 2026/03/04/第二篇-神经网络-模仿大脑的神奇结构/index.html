@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第二篇：神经网络——模仿大脑的神奇结构 | Code &amp; Poets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="大模型科普系列（2&#x2F;9）   复习：我们学到了什么？上一篇我们讲了机器学习——让机器像小狗一样，通过看例子自己学习规律，而不是人直接告诉它规则。 但还有一个问题：机器是怎么”学”的？它的”大脑”长什么样？ 这就是今天要讲的神经网络。  从人脑说起人类的大脑是一个神奇的器官。  大约有 860亿个神经元 每个神经元通过突触与其他神经元连接 当信号经过某些路径时，连接会变强——这就是”学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二篇：神经网络——模仿大脑的神奇结构">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E4%BA%8C%E7%AF%87-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%A8%A1%E4%BB%BF%E5%A4%A7%E8%84%91%E7%9A%84%E7%A5%9E%E5%A5%87%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="大模型科普系列（2&#x2F;9）   复习：我们学到了什么？上一篇我们讲了机器学习——让机器像小狗一样，通过看例子自己学习规律，而不是人直接告诉它规则。 但还有一个问题：机器是怎么”学”的？它的”大脑”长什么样？ 这就是今天要讲的神经网络。  从人脑说起人类的大脑是一个神奇的器官。  大约有 860亿个神经元 每个神经元通过突触与其他神经元连接 当信号经过某些路径时，连接会变强——这就是”学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-04T02:05:00.000Z">
+<meta property="article:modified_time" content="2026-03-04T11:10:52.399Z">
+<meta property="article:author" content="wanzaixiaoxin">
+<meta property="article:tag" content="大模型科普">
+<meta property="article:tag" content="神经网络">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Code &amp; Poets</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">给小学生讲清楚什么是大模型</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第二篇-神经网络-模仿大脑的神奇结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/04/%E7%AC%AC%E4%BA%8C%E7%AF%87-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%A8%A1%E4%BB%BF%E5%A4%A7%E8%84%91%E7%9A%84%E7%A5%9E%E5%A5%87%E7%BB%93%E6%9E%84/" class="article-date">
+  <time class="dt-published" datetime="2026-03-04T02:05:00.000Z" itemprop="datePublished">2026-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第二篇：神经网络——模仿大脑的神奇结构
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>大模型科普系列（2&#x2F;9）</p>
+</blockquote>
+<hr>
+<h2 id="复习：我们学到了什么？"><a href="#复习：我们学到了什么？" class="headerlink" title="复习：我们学到了什么？"></a>复习：我们学到了什么？</h2><p>上一篇我们讲了机器学习——让机器像小狗一样，通过看例子自己学习规律，而不是人直接告诉它规则。</p>
+<p>但还有一个问题：机器是怎么”学”的？它的”大脑”长什么样？</p>
+<p>这就是今天要讲的<strong>神经网络</strong>。</p>
+<hr>
+<h2 id="从人脑说起"><a href="#从人脑说起" class="headerlink" title="从人脑说起"></a>从人脑说起</h2><p>人类的大脑是一个神奇的器官。</p>
+<ul>
+<li>大约有 <strong>860亿个神经元</strong></li>
+<li>每个神经元通过<strong>突触</strong>与其他神经元连接</li>
+<li>当信号经过某些路径时，连接会变强——这就是”学习”的物理基础</li>
+</ul>
+<p>科学家想：能不能造一个类似的结构，让机器也能”学习”？</p>
+<p>于是，<strong>人工神经网络</strong>诞生了。</p>
+<hr>
+<h2 id="神经网络的基本结构"><a href="#神经网络的基本结构" class="headerlink" title="神经网络的基本结构"></a>神经网络的基本结构</h2><p>想象一个工厂流水线：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原材料 → 第一车间 → 第二车间 → 第三车间 → 成品</span><br></pre></td></tr></table></figure>
+
+<p>神经网络也是类似的结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 → 第一层 → 第二层 → 第三层 → 输出</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-神经元（Neuron）"><a href="#1-神经元（Neuron）" class="headerlink" title="1. 神经元（Neuron）"></a>1. 神经元（Neuron）</h3><p>每个”车间”里有很多<strong>神经元</strong>，它们是神经网络的基本单位。</p>
+<p>一个神经元的工作很简单：</p>
+<ol>
+<li>接收几个数字（输入）</li>
+<li>做一些数学运算</li>
+<li>输出一个数字（输出）</li>
+</ol>
+<p>就像一个小工人：收到零件，加工一下，传给下一个人。</p>
+<h3 id="2-层（Layer）"><a href="#2-层（Layer）" class="headerlink" title="2. 层（Layer）"></a>2. 层（Layer）</h3><p>神经元排成一排，就形成了一层。</p>
+<p>神经网络通常有三类层：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>作用</th>
+<th>比喻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>输入层</strong></td>
+<td>接收原始数据</td>
+<td>原材料入口</td>
+</tr>
+<tr>
+<td><strong>隐藏层</strong></td>
+<td>处理数据，提取特征</td>
+<td>加工车间</td>
+</tr>
+<tr>
+<td><strong>输出层</strong></td>
+<td>给出最终结果</td>
+<td>成品出口</td>
+</tr>
+</tbody></table>
+<h3 id="3-连接和权重（Connection-Weight）"><a href="#3-连接和权重（Connection-Weight）" class="headerlink" title="3. 连接和权重（Connection &amp; Weight）"></a>3. 连接和权重（Connection &amp; Weight）</h3><p>层与层之间的神经元是连在一起的，每条连接线都有一个<strong>权重</strong>。</p>
+<p><strong>权重是什么？</strong> 就是这条连接线的”重要程度”。</p>
+<p>举个例子：</p>
+<ul>
+<li>输入：”4条腿”、”会汪汪叫”、”有尾巴”</li>
+<li>判断：”这是狗吗？”</li>
+</ul>
+<p>“会汪汪叫”这个特征可能很重要（权重高），”有尾巴”可能没那么重要（权重低）。</p>
+<p><strong>训练神经网络，本质上就是调整这些权重的过程。</strong></p>
+<hr>
+<h2 id="一个具体的例子：识别手写数字"><a href="#一个具体的例子：识别手写数字" class="headerlink" title="一个具体的例子：识别手写数字"></a>一个具体的例子：识别手写数字</h2><p>让我们看一个实际的例子：识别手写数字”8”。</p>
+<h3 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h3><p>一张手写数字的图片，比如 28×28 像素。</p>
+<p>每个像素的亮度就是一个数字（0&#x3D;黑，255&#x3D;白），总共 28×28&#x3D;784 个数字。</p>
+<p>这就是输入层的 784 个神经元。</p>
+<h3 id="隐藏层"><a href="#隐藏层" class="headerlink" title="隐藏层"></a>隐藏层</h3><p>假设有一层隐藏层，有 128 个神经元。</p>
+<p>每个隐藏层神经元都会”看”所有输入，但关注的重点不同：</p>
+<ul>
+<li>神经元A可能关注”有没有两个圆圈”</li>
+<li>神经元B可能关注”中间有没有连接”</li>
+<li>神经元C可能关注”整体形状是不是对称的”</li>
+</ul>
+<h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>有 10 个神经元，分别代表数字 0-9。</p>
+<p>哪个神经元的输出值最大，就说明模型认为”最可能是这个数字”。</p>
+<p>比如输出可能是：</p>
+<ul>
+<li>0: 0.01</li>
+<li>1: 0.02</li>
+<li>…</li>
+<li>8: 0.95  ← 最高！</li>
+<li>9: 0.01</li>
+</ul>
+<p>模型判断：这是数字 8！</p>
+<hr>
+<h2 id="神经元内部的数学（可选读）"><a href="#神经元内部的数学（可选读）" class="headerlink" title="神经元内部的数学（可选读）"></a>神经元内部的数学（可选读）</h2><p>好奇神经元到底在算什么？这里简单介绍一下：</p>
+<p>一个神经元接收输入 $x_1, x_2, x_3…$，每个输入有对应的权重 $w_1, w_2, w_3…$</p>
+<p>计算步骤：</p>
+<ol>
+<li><p><strong>加权求和</strong>：$z &#x3D; w_1×x_1 + w_2×x_2 + w_3×x_3 + … + b$</p>
+<ul>
+<li>$b$ 是偏置（bias），可以理解为”基础门槛”</li>
+</ul>
+</li>
+<li><p><strong>激活函数</strong>：$output &#x3D; f(z)$</p>
+<ul>
+<li>把结果通过一个非线性函数，增加表达能力</li>
+</ul>
+</li>
+</ol>
+<p>常见的激活函数：</p>
+<ul>
+<li><strong>ReLU</strong>：如果 $z &gt; 0$ 就输出 $z$，否则输出 0（简单粗暴，但很有效）</li>
+<li><strong>Sigmoid</strong>：把任何数字压缩到 0-1 之间（像概率）</li>
+</ul>
+<p><strong>为什么需要激活函数？</strong> 如果没有它，多层神经网络就等价于一层，失去了”深度”的意义。</p>
+<hr>
+<h2 id="神经网络是怎么学习的？"><a href="#神经网络是怎么学习的？" class="headerlink" title="神经网络是怎么学习的？"></a>神经网络是怎么学习的？</h2><p>现在我们知道了神经网络的结构，但关键问题是：<strong>权重是怎么确定的？</strong></p>
+<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><ol>
+<li><strong>初始化</strong>：随机设置所有权重</li>
+<li><strong>前向传播</strong>：输入数据，计算输出</li>
+<li><strong>计算误差</strong>：对比输出和正确答案，算出”差了多少”</li>
+<li><strong>反向传播</strong>：根据误差，调整每个权重（让误差变小）</li>
+<li><strong>重复</strong>：用很多数据，重复步骤2-4，直到误差足够小</li>
+</ol>
+<h3 id="反向传播（Backpropagation）"><a href="#反向传播（Backpropagation）" class="headerlink" title="反向传播（Backpropagation）"></a>反向传播（Backpropagation）</h3><p>这是神经网络学习的核心算法。</p>
+<p>想象你在玩”猜数字”游戏：</p>
+<ul>
+<li>我猜 50</li>
+<li>你说”太小了”</li>
+<li>我调整到 75</li>
+<li>你说”太大了”</li>
+<li>我调整到 62</li>
+<li>…直到猜中</li>
+</ul>
+<p>反向传播就是自动化的”调整”过程。它用<strong>梯度下降</strong>的方法，计算每个权重对最终误差的影响，然后朝着减小误差的方向调整。</p>
+<hr>
+<h2 id="神经网络的优点和局限"><a href="#神经网络的优点和局限" class="headerlink" title="神经网络的优点和局限"></a>神经网络的优点和局限</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li><strong>通用性强</strong>：同样的结构，可以处理图像、语音、文本等各种问题</li>
+<li><strong>自动特征提取</strong>：不需要人工设计规则，网络自己学习什么是重要特征</li>
+<li><strong>容错性好</strong>：部分神经元损坏，整体还能工作（像人脑）</li>
+</ol>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><ol>
+<li><strong>需要大量数据</strong>：小数据集训练不出好效果</li>
+<li><strong>计算量大</strong>：训练需要很多计算资源</li>
+<li><strong>黑盒问题</strong>：很难解释”为什么这样判断”</li>
+<li><strong>容易过拟合</strong>：可能死记硬背训练数据，泛化能力差</li>
+</ol>
+<hr>
+<h2 id="从神经网络到深度学习"><a href="#从神经网络到深度学习" class="headerlink" title="从神经网络到深度学习"></a>从神经网络到深度学习</h2><p>我们刚才讲的神经网络只有<strong>一层隐藏层</strong>，这叫做<strong>浅层神经网络</strong>。</p>
+<p>如果隐藏层有很多层（比如10层、100层），就叫做<strong>深度神经网络</strong>，对应的领域就是<strong>深度学习</strong>。</p>
+<p><strong>为什么层数多了就厉害？</strong> 这就是我们下一篇要讲的内容。</p>
+<hr>
+<h2 id="动手试一试"><a href="#动手试一试" class="headerlink" title="动手试一试"></a>动手试一试</h2><ol>
+<li><p><strong>TensorFlow Playground</strong></p>
+<ul>
+<li>网址：<a target="_blank" rel="noopener" href="https://playground.tensorflow.org/">https://playground.tensorflow.org/</a></li>
+<li>可视化地搭建和训练神经网络，非常直观</li>
+</ul>
+</li>
+<li><p><strong>3Blue1Brown 神经网络系列视频</strong></p>
+<ul>
+<li>B站搜索”神经网络”，有高质量的中文翻译版</li>
+<li>用动画讲解反向传播，非常清晰</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告"></a>下一篇预告</h2><p>现在我们知道了神经网络的基本结构。但如果只有一层隐藏层，能力是有限的。</p>
+<p>下一篇，我们会讲<strong>深度学习</strong>——当神经网络的层数越来越多，会发生什么神奇的事情？</p>
+<p><strong>敬请期待：《第三篇：深度学习——层数多了就聪明了》</strong></p>
+<hr>
+<h2 id="小测验"><a href="#小测验" class="headerlink" title="小测验"></a>小测验</h2><ol>
+<li>神经网络的三类层分别是什么？</li>
+<li>“权重”在神经网络中起什么作用？</li>
+<li>为什么需要激活函数？</li>
+<li>反向传播的作用是什么？</li>
+</ol>
+<hr>
+<p><em>本系列文章力求通俗易懂，如果发现哪里讲得不清楚，欢迎反馈！</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E4%BA%8C%E7%AF%87-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%A8%A1%E4%BB%BF%E5%A4%A7%E8%84%91%E7%9A%84%E7%A5%9E%E5%A5%87%E7%BB%93%E6%9E%84/" data-id="cmmbxwnm60006xzsegzphci1u" data-title="第二篇：神经网络——模仿大脑的神奇结构" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%B8%89%E7%AF%87-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B1%82%E6%95%B0%E5%A4%9A%E4%BA%86%E5%B0%B1%E8%81%AA%E6%98%8E%E4%BA%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          第三篇：深度学习——层数多了就聪明了
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%B8%80%E7%AF%87-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%AE%A9%E6%9C%BA%E5%99%A8%E5%83%8F%E5%B0%8F%E7%8B%97%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">第一篇：机器学习——让机器像小狗一样学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transformer/" rel="tag">Transformer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" rel="tag">大模型应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" rel="tag">大模型训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Transformer/" style="font-size: 10px;">Transformer</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" style="font-size: 10px;">大模型应用</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" style="font-size: 20px;">大模型科普</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">大模型训练</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">神经网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B9%9D%E7%AF%87-%E6%80%BB%E7%BB%93-%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%87%82AI%E6%8A%80%E6%9C%AF%E6%A0%88/">第九篇：总结——一张图看懂AI技术栈</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/">第八篇：从原理到应用——大模型能做什么</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B8%83%E7%AF%87-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%83%E6%88%90%E7%9A%84-%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/">第七篇：大模型是怎么练成的——训练三阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/">第六篇：强化学习——让AI学会&#34;做得更好&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%BA%94%E7%AF%87-Transformer-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%91%E5%8A%A8%E6%9C%BA/">第五篇：Transformer——大模型的发动机</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 wanzaixiaoxin<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
