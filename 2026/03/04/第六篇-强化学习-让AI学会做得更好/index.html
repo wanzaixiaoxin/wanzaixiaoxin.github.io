@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第六篇：强化学习——让AI学会&#34;做得更好&#34; | Code &amp; Poets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="大模型科普系列（6&#x2F;9）   复习：Transformer架构上一篇我们讲了Transformer——大模型的”发动机”。 它通过注意力机制，让模型能高效处理长文本，捕捉词与词之间的关系。 但还有一个问题：怎么让模型不仅”能生成”，而且”生成得好”？ 这就是强化学习发挥作用的地方。  故事：训练海豚做特技想象你在海洋馆工作，要训练一只海豚做特技。 方法一：告诉它规则你说：”先跳起来，转">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第六篇：强化学习——让AI学会&quot;做得更好&quot;">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="大模型科普系列（6&#x2F;9）   复习：Transformer架构上一篇我们讲了Transformer——大模型的”发动机”。 它通过注意力机制，让模型能高效处理长文本，捕捉词与词之间的关系。 但还有一个问题：怎么让模型不仅”能生成”，而且”生成得好”？ 这就是强化学习发挥作用的地方。  故事：训练海豚做特技想象你在海洋馆工作，要训练一只海豚做特技。 方法一：告诉它规则你说：”先跳起来，转">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-04T02:25:00.000Z">
+<meta property="article:modified_time" content="2026-03-04T11:13:18.990Z">
+<meta property="article:author" content="wanzaixiaoxin">
+<meta property="article:tag" content="大模型科普">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Code &amp; Poets</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">给小学生讲清楚什么是大模型</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第六篇-强化学习-让AI学会做得更好" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/" class="article-date">
+  <time class="dt-published" datetime="2026-03-04T02:25:00.000Z" itemprop="datePublished">2026-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第六篇：强化学习——让AI学会&#34;做得更好&#34;
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>大模型科普系列（6&#x2F;9）</p>
+</blockquote>
+<hr>
+<h2 id="复习：Transformer架构"><a href="#复习：Transformer架构" class="headerlink" title="复习：Transformer架构"></a>复习：Transformer架构</h2><p>上一篇我们讲了Transformer——大模型的”发动机”。</p>
+<p>它通过注意力机制，让模型能高效处理长文本，捕捉词与词之间的关系。</p>
+<p>但还有一个问题：怎么让模型不仅”能生成”，而且”生成得好”？</p>
+<p>这就是<strong>强化学习</strong>发挥作用的地方。</p>
+<hr>
+<h2 id="故事：训练海豚做特技"><a href="#故事：训练海豚做特技" class="headerlink" title="故事：训练海豚做特技"></a>故事：训练海豚做特技</h2><p>想象你在海洋馆工作，要训练一只海豚做特技。</p>
+<h3 id="方法一：告诉它规则"><a href="#方法一：告诉它规则" class="headerlink" title="方法一：告诉它规则"></a>方法一：告诉它规则</h3><p>你说：”先跳起来，转360度，然后钻过那个圈。”</p>
+<p>海豚：？？？</p>
+<p>显然，海豚听不懂人类的语言规则。</p>
+<h3 id="方法二：奖励和惩罚"><a href="#方法二：奖励和惩罚" class="headerlink" title="方法二：奖励和惩罚"></a>方法二：奖励和惩罚</h3><p>你换一种方式：</p>
+<ul>
+<li>海豚做了一个动作 → 给一条小鱼（奖励）</li>
+<li>动作做得不好 → 没有鱼（惩罚）</li>
+</ul>
+<p>海豚为了获得更多小鱼，会不断尝试：</p>
+<ul>
+<li>跳起来？有鱼！记下来</li>
+<li>转圈？有鱼！记下来</li>
+<li>钻圈？很多鱼！记下来</li>
+</ul>
+<p>慢慢地，海豚学会了复杂的特技序列。</p>
+<p><strong>这就是强化学习。</strong></p>
+<hr>
+<h2 id="什么是强化学习？"><a href="#什么是强化学习？" class="headerlink" title="什么是强化学习？"></a>什么是强化学习？</h2><p>强化学习（Reinforcement Learning, RL）是一种机器学习方法：</p>
+<p><strong>让智能体（Agent）通过与环境交互，根据奖励或惩罚来学习最优行为策略。</strong></p>
+<h3 id="核心要素"><a href="#核心要素" class="headerlink" title="核心要素"></a>核心要素</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>海豚训练</th>
+<th>AI训练</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>智能体（Agent）</strong></td>
+<td>海豚</td>
+<td>大模型</td>
+</tr>
+<tr>
+<td><strong>环境（Environment）</strong></td>
+<td>海洋馆水池</td>
+<td>对话场景</td>
+</tr>
+<tr>
+<td><strong>动作（Action）</strong></td>
+<td>跳、转、钻</td>
+<td>生成回答</td>
+</tr>
+<tr>
+<td><strong>奖励（Reward）</strong></td>
+<td>小鱼</td>
+<td>分数</td>
+</tr>
+<tr>
+<td><strong>策略（Policy）</strong></td>
+<td>做特技的方法</td>
+<td>生成回答的方式</td>
+</tr>
+</tbody></table>
+<h3 id="与其他学习方法的对比"><a href="#与其他学习方法的对比" class="headerlink" title="与其他学习方法的对比"></a>与其他学习方法的对比</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>学习方式</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>监督学习</strong></td>
+<td>给定输入和正确答案，学习映射</td>
+<td>图像分类（输入图片，输出”这是猫”）</td>
+</tr>
+<tr>
+<td><strong>无监督学习</strong></td>
+<td>只有输入，自己发现结构</td>
+<td>聚类（把相似的东西分到一组）</td>
+</tr>
+<tr>
+<td><strong>强化学习</strong></td>
+<td>通过试错，根据奖励学习</td>
+<td>玩游戏、机器人控制、大模型对齐</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="强化学习的经典案例"><a href="#强化学习的经典案例" class="headerlink" title="强化学习的经典案例"></a>强化学习的经典案例</h2><h3 id="AlphaGo"><a href="#AlphaGo" class="headerlink" title="AlphaGo"></a>AlphaGo</h3><p>2016年，DeepMind的AlphaGo战胜了世界围棋冠军李世石。</p>
+<p>AlphaGo的训练分两步：</p>
+<ol>
+<li><strong>监督学习</strong>：学习人类棋谱，模仿人类下棋</li>
+<li><strong>强化学习</strong>：自己和自己下棋，赢了得正分，输了得负分</li>
+</ol>
+<p>通过数百万局自我对弈，AlphaGo发现了人类从未想到过的棋路。</p>
+<h3 id="OpenAI-Five"><a href="#OpenAI-Five" class="headerlink" title="OpenAI Five"></a>OpenAI Five</h3><p>OpenAI的Dota 2 AI，通过强化学习学会了：</p>
+<ul>
+<li>5个AI英雄配合</li>
+<li>复杂的战术和策略</li>
+<li>甚至学会了”假装撤退然后反打”这种心理战术</li>
+</ul>
+<h3 id="机器人控制"><a href="#机器人控制" class="headerlink" title="机器人控制"></a>机器人控制</h3><p>波士顿动力的机器人走路、跳跃、后空翻，很多都是用强化学习训练的：</p>
+<ul>
+<li>动作稳定 → 奖励</li>
+<li>摔倒 → 惩罚</li>
+<li>不断尝试，直到学会走路</li>
+</ul>
+<hr>
+<h2 id="强化学习的核心概念"><a href="#强化学习的核心概念" class="headerlink" title="强化学习的核心概念"></a>强化学习的核心概念</h2><h3 id="1-奖励函数（Reward-Function）"><a href="#1-奖励函数（Reward-Function）" class="headerlink" title="1. 奖励函数（Reward Function）"></a>1. 奖励函数（Reward Function）</h3><p>定义什么是”好”的行为。</p>
+<p><strong>设计好的奖励函数很难：</strong></p>
+<ul>
+<li>如果奖励”走得快”，机器人可能学会”摔倒然后滑行”</li>
+<li>如果奖励”收集金币”，游戏AI可能学会”反复进出同一个房间刷金币”</li>
+</ul>
+<p>这叫<strong>奖励黑客（Reward Hacking）</strong>——AI找到了漏洞，而不是真正学会任务。</p>
+<h3 id="2-探索与利用（Exploration-vs-Exploitation）"><a href="#2-探索与利用（Exploration-vs-Exploitation）" class="headerlink" title="2. 探索与利用（Exploration vs Exploitation）"></a>2. 探索与利用（Exploration vs Exploitation）</h3><ul>
+<li><strong>利用（Exploitation）</strong>：用已知最好的方法，获得确定的奖励</li>
+<li><strong>探索（Exploration）</strong>：尝试新方法，可能获得更大奖励，也可能失败</li>
+</ul>
+<p>平衡探索和利用是强化学习的核心挑战。</p>
+<p>就像去餐厅：</p>
+<ul>
+<li>利用：去你最喜欢的店，确定好吃</li>
+<li>探索：尝试新店，可能发现更好的，也可能踩雷</li>
+</ul>
+<h3 id="3-价值函数（Value-Function）"><a href="#3-价值函数（Value-Function）" class="headerlink" title="3. 价值函数（Value Function）"></a>3. 价值函数（Value Function）</h3><p>估计”当前状态有多好”。</p>
+<p>不是看眼前的奖励，而是看<strong>长期累积的奖励</strong>。</p>
+<p>就像下棋：</p>
+<ul>
+<li>眼前吃一个子（小奖励）</li>
+<li>但可能导致后面输棋（大惩罚）</li>
+<li>价值函数要能看到长远</li>
+</ul>
+<h3 id="4-策略（Policy）"><a href="#4-策略（Policy）" class="headerlink" title="4. 策略（Policy）"></a>4. 策略（Policy）</h3><p>智能体的行为策略：在当前状态下，应该采取什么动作？</p>
+<p>策略可以是：</p>
+<ul>
+<li><strong>确定性策略</strong>：给定状态，总是采取同一个动作</li>
+<li><strong>随机性策略</strong>：给定状态，按概率分布选择动作</li>
+</ul>
+<hr>
+<h2 id="强化学习在大模型中的应用：RLHF"><a href="#强化学习在大模型中的应用：RLHF" class="headerlink" title="强化学习在大模型中的应用：RLHF"></a>强化学习在大模型中的应用：RLHF</h2><p>现在我们来讲强化学习在大模型中的关键应用：</p>
+<p><strong>RLHF &#x3D; Reinforcement Learning from Human Feedback（基于人类反馈的强化学习）</strong></p>
+<h3 id="为什么要用RLHF？"><a href="#为什么要用RLHF？" class="headerlink" title="为什么要用RLHF？"></a>为什么要用RLHF？</h3><p>大模型预训练后，能生成流畅的文本，但存在一些问题：</p>
+<ul>
+<li>可能生成有害内容</li>
+<li>可能胡说八道（幻觉）</li>
+<li>可能不理解用户的真实意图</li>
+</ul>
+<p><strong>怎么定义”好的回答”？很难写规则。</strong></p>
+<h3 id="RLHF的三步走"><a href="#RLHF的三步走" class="headerlink" title="RLHF的三步走"></a>RLHF的三步走</h3><h4 id="第一步：训练奖励模型（Reward-Model）"><a href="#第一步：训练奖励模型（Reward-Model）" class="headerlink" title="第一步：训练奖励模型（Reward Model）"></a>第一步：训练奖励模型（Reward Model）</h4><ol>
+<li>让大模型对同一个问题生成多个回答</li>
+<li>人类标注员对这些回答排序：A比B好，B比C好</li>
+<li>用这些数据训练一个”奖励模型”——它能模仿人类的偏好，给回答打分</li>
+</ol>
+<h4 id="第二步：用强化学习训练大模型"><a href="#第二步：用强化学习训练大模型" class="headerlink" title="第二步：用强化学习训练大模型"></a>第二步：用强化学习训练大模型</h4><ol>
+<li>大模型生成回答</li>
+<li>奖励模型给这个回答打分</li>
+<li>用PPO（Proximal Policy Optimization）算法调整大模型的参数</li>
+<li>目标是：让奖励模型的分数越来越高</li>
+</ol>
+<h4 id="第三步：迭代优化"><a href="#第三步：迭代优化" class="headerlink" title="第三步：迭代优化"></a>第三步：迭代优化</h4><p>不断重复，直到大模型的回答符合人类偏好。</p>
+<h3 id="RLHF的效果"><a href="#RLHF的效果" class="headerlink" title="RLHF的效果"></a>RLHF的效果</h3><p>经过RLHF的模型（如ChatGPT）：</p>
+<ul>
+<li>更有帮助（Helpful）</li>
+<li>更诚实（Honest）</li>
+<li>更无害（Harmless）</li>
+</ul>
+<p>这就是ChatGPT比GPT-3更”好用”的关键原因。</p>
+<hr>
+<h2 id="强化学习的挑战"><a href="#强化学习的挑战" class="headerlink" title="强化学习的挑战"></a>强化学习的挑战</h2><h3 id="1-样本效率低"><a href="#1-样本效率低" class="headerlink" title="1. 样本效率低"></a>1. 样本效率低</h3><p>需要大量的试错才能学会。</p>
+<p>AlphaGo下了数百万盘棋，Dota AI玩了数千年游戏时间。</p>
+<h3 id="2-奖励设计困难"><a href="#2-奖励设计困难" class="headerlink" title="2. 奖励设计困难"></a>2. 奖励设计困难</h3><p>如前所述，设计好的奖励函数很难，容易有漏洞。</p>
+<h3 id="3-不稳定"><a href="#3-不稳定" class="headerlink" title="3. 不稳定"></a>3. 不稳定</h3><p>训练过程可能不稳定，有时候学得好好的，突然就变差了。</p>
+<h3 id="4-可解释性差"><a href="#4-可解释性差" class="headerlink" title="4. 可解释性差"></a>4. 可解释性差</h3><p>很难解释”为什么采取这个动作”。</p>
+<hr>
+<h2 id="动手试一试"><a href="#动手试一试" class="headerlink" title="动手试一试"></a>动手试一试</h2><ol>
+<li><p><strong>OpenAI Gym</strong></p>
+<ul>
+<li>经典的强化学习实验环境</li>
+<li>可以训练AI玩各种小游戏</li>
+</ul>
+</li>
+<li><p><strong>观看AlphaGo纪录片</strong></p>
+<ul>
+<li>Netflix上有《AlphaGo》纪录片</li>
+<li>了解强化学习创造历史的过程</li>
+</ul>
+</li>
+<li><p><strong>体验RLHF</strong></p>
+<ul>
+<li>有些平台允许你给AI的回答打分</li>
+<li>你就是在参与RLHF的数据收集！</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="下一篇预告"><a href="#下一篇预告" class="headerlink" title="下一篇预告"></a>下一篇预告</h2><p>现在我们知道了强化学习，以及它在大模型对齐中的作用。</p>
+<p>下一篇，我们把所有知识串起来，详细讲解大模型的<strong>完整训练流程</strong>——从预训练到RLHF。</p>
+<p><strong>敬请期待：《第七篇：大模型是怎么练成的——训练三阶段》</strong></p>
+<hr>
+<h2 id="小测验"><a href="#小测验" class="headerlink" title="小测验"></a>小测验</h2><ol>
+<li>强化学习的四个核心要素是什么？</li>
+<li>什么是”奖励黑客”？能举个例子吗？</li>
+<li>探索和利用的区别是什么？</li>
+<li>RLHF的三个步骤是什么？</li>
+</ol>
+<hr>
+<p><em>本系列文章力求通俗易懂，如果发现哪里讲得不清楚，欢迎反馈！</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wanzaixiaoxin.github.io/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/" data-id="cmmbxwnma000exzseeftr6z2z" data-title="第六篇：强化学习——让AI学会&#34;做得更好&#34;" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%B8%83%E7%AF%87-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%83%E6%88%90%E7%9A%84-%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          第七篇：大模型是怎么练成的——训练三阶段
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/03/04/%E7%AC%AC%E4%BA%94%E7%AF%87-Transformer-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%91%E5%8A%A8%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">第五篇：Transformer——大模型的发动机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Transformer/" rel="tag">Transformer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" rel="tag">大模型应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" rel="tag">大模型科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" rel="tag">大模型训练</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Transformer/" style="font-size: 10px;">Transformer</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" style="font-size: 10px;">大模型应用</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%A7%91%E6%99%AE/" style="font-size: 20px;">大模型科普</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/" style="font-size: 10px;">大模型训练</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">神经网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B9%9D%E7%AF%87-%E6%80%BB%E7%BB%93-%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%87%82AI%E6%8A%80%E6%9C%AF%E6%A0%88/">第九篇：总结——一张图看懂AI技术栈</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AB%E7%AF%87-%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%BA%94%E7%94%A8-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88/">第八篇：从原理到应用——大模型能做什么</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%B8%83%E7%AF%87-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%83%E6%88%90%E7%9A%84-%E8%AE%AD%E7%BB%83%E4%B8%89%E9%98%B6%E6%AE%B5/">第七篇：大模型是怎么练成的——训练三阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E5%85%AD%E7%AF%87-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-%E8%AE%A9AI%E5%AD%A6%E4%BC%9A%E5%81%9A%E5%BE%97%E6%9B%B4%E5%A5%BD/">第六篇：强化学习——让AI学会&#34;做得更好&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/04/%E7%AC%AC%E4%BA%94%E7%AF%87-Transformer-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%91%E5%8A%A8%E6%9C%BA/">第五篇：Transformer——大模型的发动机</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 wanzaixiaoxin<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
