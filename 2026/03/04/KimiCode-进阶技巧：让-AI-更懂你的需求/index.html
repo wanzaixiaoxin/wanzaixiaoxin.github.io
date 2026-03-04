@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="作者">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="KimiCode 进阶技巧：让 AI 更懂你的需求 同样的工具，不同的人用，效果天差地别。这里有几个让 KimiCode 产出质量翻倍的方法。  技巧一：给 AI 一个「角色」不要只说”帮我写代码”，告诉它你是谁、要做什么。 ❌ 普通写法： 1写一个登录页面  ✅ 进阶写法： 1234567你是一位有 10 年经验的前端工程师，擅长用户体验设计。请为一个 B2B 管理后台设计登录页面，要求：- 专">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KimiCode 进阶技巧：让 AI 更懂你的需求">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/04/KimiCode-%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7%EF%BC%9A%E8%AE%A9-AI-%E6%9B%B4%E6%87%82%E4%BD%A0%E7%9A%84%E9%9C%80%E6%B1%82/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="KimiCode 进阶技巧：让 AI 更懂你的需求 同样的工具，不同的人用，效果天差地别。这里有几个让 KimiCode 产出质量翻倍的方法。  技巧一：给 AI 一个「角色」不要只说”帮我写代码”，告诉它你是谁、要做什么。 ❌ 普通写法： 1写一个登录页面  ✅ 进阶写法： 1234567你是一位有 10 年经验的前端工程师，擅长用户体验设计。请为一个 B2B 管理后台设计登录页面，要求：- 专">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-03-04T11:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-04T09:26:40.642Z">
+<meta property="article:author" content="作者">
+<meta property="article:tag" content="Kimi">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="进阶技巧">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>KimiCode 进阶技巧：让 AI 更懂你的需求 - Code &amp; Poets</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wanzaixiaoxin.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Code &amp; Poets</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Startseite</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archiv</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Kategorien</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Schlagwörter</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>Über</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="KimiCode 进阶技巧：让 AI 更懂你的需求"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-04 19:00" pubdate>
+          March 4, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">KimiCode 进阶技巧：让 AI 更懂你的需求</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="KimiCode-进阶技巧：让-AI-更懂你的需求"><a href="#KimiCode-进阶技巧：让-AI-更懂你的需求" class="headerlink" title="KimiCode 进阶技巧：让 AI 更懂你的需求"></a>KimiCode 进阶技巧：让 AI 更懂你的需求</h1><blockquote>
+<p>同样的工具，不同的人用，效果天差地别。这里有几个让 KimiCode 产出质量翻倍的方法。</p>
+</blockquote>
+<h2 id="技巧一：给-AI-一个「角色」"><a href="#技巧一：给-AI-一个「角色」" class="headerlink" title="技巧一：给 AI 一个「角色」"></a>技巧一：给 AI 一个「角色」</h2><p>不要只说”帮我写代码”，告诉它你是谁、要做什么。</p>
+<p><strong>❌ 普通写法：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">写一个登录页面<br></code></pre></td></tr></table></figure>
+
+<p><strong>✅ 进阶写法：</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">你是一位有 10 年经验的前端工程师，擅长用户体验设计。<br><br>请为一个 B2B 管理后台设计登录页面，要求：<br><span class="hljs-bullet">- </span>专业、简洁的风格，符合企业级产品调性<br><span class="hljs-bullet">- </span>包含邮箱、密码输入，记住登录状态选项<br><span class="hljs-bullet">- </span>错误提示要明显但不突兀<br><span class="hljs-bullet">- </span>支持响应式布局<br></code></pre></td></tr></table></figure>
+
+<p><strong>差异：</strong> 角色设定让 AI 自动带入专业视角，输出更符合场景。</p>
+<h2 id="技巧二：用「结构」代替「描述」"><a href="#技巧二：用「结构」代替「描述」" class="headerlink" title="技巧二：用「结构」代替「描述」"></a>技巧二：用「结构」代替「描述」</h2><p>人类喜欢形容词，AI 更喜欢结构化信息。</p>
+<p><strong>❌ 模糊描述：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">做一个好看的仪表盘，有很多数据图表<br></code></pre></td></tr></table></figure>
+
+<p><strong>✅ 结构化描述：</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">做一个数据仪表盘页面，布局如下：<br><br>【顶部区域】<br><span class="hljs-bullet">- </span>标题：运营数据概览<br><span class="hljs-bullet">- </span>时间筛选器：今日/本周/本月<br><br>【KPI 卡片区域 - 横向 4 列】<br><span class="hljs-bullet">- </span>总用户数 | 数字 | 环比 +12%<br><span class="hljs-bullet">- </span>日活跃用户 | 数字 | 环比 -3%<br><span class="hljs-bullet">- </span>平均使用时长 | 数字 | 环比 +5%<br><span class="hljs-bullet">- </span>转化率 | 百分比 | 环比 +8%<br><br>【图表区域 - 左右分栏】<br><span class="hljs-bullet">- </span>左侧（60%）：近 30 天用户趋势折线图<br><span class="hljs-bullet">- </span>右侧（40%）：用户来源分布饼图<br><br>【底部区域】<br><span class="hljs-bullet">- </span>最近 10 条用户操作记录表格<br></code></pre></td></tr></table></figure>
+
+<p><strong>差异：</strong> 结构清晰，AI 能准确还原布局意图。</p>
+<h2 id="技巧三：提供「参考」和「约束」"><a href="#技巧三：提供「参考」和「约束」" class="headerlink" title="技巧三：提供「参考」和「约束」"></a>技巧三：提供「参考」和「约束」</h2><p><strong>参考（Reference）：</strong></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">设计风格参考 Notion 的简洁白色系，或者参考 https<span class="hljs-punctuation">:</span><span class="hljs-comment">//example.com 的布局</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>约束（Constraint）：</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">技术约束：<br><span class="hljs-bullet">- </span>只能用原生 HTML/CSS/JS，不引入外部框架<br><span class="hljs-bullet">- </span>总代码量控制在 300 行以内<br><span class="hljs-bullet">- </span>兼容 Chrome 和 Safari 最新两版<br></code></pre></td></tr></table></figure>
+
+<p>两者结合，AI 在有限空间里发挥，结果更可控。</p>
+<h2 id="技巧四：迭代时「定位问题」而非「全盘否定」"><a href="#技巧四：迭代时「定位问题」而非「全盘否定」" class="headerlink" title="技巧四：迭代时「定位问题」而非「全盘否定」"></a>技巧四：迭代时「定位问题」而非「全盘否定」</h2><p><strong>❌ 低效反馈：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">不对，重新写<br></code></pre></td></tr></table></figure>
+
+<p><strong>✅ 高效反馈：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">功能没问题，但有两个细节要调：<br><span class="hljs-bullet">1.</span> 按钮颜色太深了，换成 #4A90D9 这种蓝色<br><span class="hljs-bullet">2.</span> 表格在手机上会溢出，需要横向滚动<br></code></pre></td></tr></table></figure>
+
+<p><strong>进阶 —— 用行号定位：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">第<span class="hljs-number"> 45 </span>行的函数逻辑有问题，当输入为空字符串时应该返回<span class="hljs-number"> 0 </span>而不是 NaN<br></code></pre></td></tr></table></figure>
+
+<h2 id="技巧五：让-AI-「解释」再-「修改」"><a href="#技巧五：让-AI-「解释」再-「修改」" class="headerlink" title="技巧五：让 AI 「解释」再 「修改」"></a>技巧五：让 AI 「解释」再 「修改」</h2><p>遇到复杂逻辑，先让 AI 解释清楚，再动手改。</p>
+<p><strong>输入：</strong></p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit">请解释一下这段代码的逻辑，特别是第 23<span class="hljs-string">-30</span> 行的数据处理部分<br></code></pre></td></tr></table></figure>
+
+<p>理解后再说：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">明白了。那能不能改成用 <span class="hljs-built_in">Map</span> 而不是对象来存储，提高查找效率？<br></code></pre></td></tr></table></figure>
+
+<h2 id="实战：用进阶技巧重构一个组件"><a href="#实战：用进阶技巧重构一个组件" class="headerlink" title="实战：用进阶技巧重构一个组件"></a>实战：用进阶技巧重构一个组件</h2><p><strong>场景：</strong> 做一个文件上传组件</p>
+<p><strong>第一轮（基础）：</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">你是一位前端专家。请写一个文件上传组件，要求：<br><br>【功能】<br><span class="hljs-bullet">- </span>支持拖拽上传和点击上传<br><span class="hljs-bullet">- </span>显示上传进度条<br><span class="hljs-bullet">- </span>支持多文件同时上传<br><span class="hljs-bullet">- </span>上传完成后显示文件列表，可删除<br><br>【样式】<br><span class="hljs-bullet">- </span>参考 Dropbox 的简洁风格<br><span class="hljs-bullet">- </span>拖拽区域要有明显的视觉反馈<br><span class="hljs-bullet">- </span>进度条用渐变色<br><br>【约束】<br><span class="hljs-bullet">- </span>用原生 JS 实现，不依赖第三方库<br><span class="hljs-bullet">- </span>代码模块化，方便复用<br></code></pre></td></tr></table></figure>
+
+<p><strong>第二轮（优化）：</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">整体不错，优化几点：<br><br><span class="hljs-bullet">1.</span> 拖拽区域（第 15-25 行）：<br><span class="hljs-bullet">   -</span> 拖拽进入时边框变蓝 + 背景轻微变灰<br><span class="hljs-bullet">   -</span> 加一句提示文字&quot;释放以上传文件&quot;<br><br><span class="hljs-bullet">2.</span> 文件列表（第 40-60 行）：<br><span class="hljs-bullet">   -</span> 每个文件项显示文件大小（自动转换 KB/MB）<br><span class="hljs-bullet">   -</span> 上传失败的文件用红色边框标识<br><br><span class="hljs-bullet">3.</span> 添加一个&quot;清空已完成&quot;按钮<br></code></pre></td></tr></table></figure>
+
+<p><strong>第三轮（完善）：</strong></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">最后加几个细节：<br><span class="hljs-bullet">- </span>文件大小限制 10MB，超限给出友好提示<br><span class="hljs-bullet">- </span>图片文件上传前显示缩略图<br><span class="hljs-bullet">- </span>添加键盘快捷键：Ctrl+U 触发上传，Delete 删除选中文件<br></code></pre></td></tr></table></figure>
+
+<h2 id="常见错误描述-vs-正确描述"><a href="#常见错误描述-vs-正确描述" class="headerlink" title="常见错误描述 vs 正确描述"></a>常见错误描述 vs 正确描述</h2><table>
+<thead>
+<tr>
+<th>❌ 错误</th>
+<th>✅ 正确</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“界面好看点”</td>
+<td>“用卡片式布局，圆角 8px，阴影 0 2px 8px rgba(0,0,0,0.1)”</td>
+</tr>
+<tr>
+<td>“响应式设计”</td>
+<td>“桌面端三列布局，平板端两列，手机端单列”</td>
+</tr>
+<tr>
+<td>“加载快一点”</td>
+<td>“首屏加载控制在 1s 内，图片懒加载，JS 异步加载”</td>
+</tr>
+<tr>
+<td>“兼容性好”</td>
+<td>“支持 Chrome 90+、Firefox 88+、Safari 14+”</td>
+</tr>
+<tr>
+<td>“代码规范”</td>
+<td>“使用 ES6+ 语法，变量用 camelCase，注释说明函数用途”</td>
+</tr>
+</tbody></table>
+<h2 id="建立自己的「Prompt-模板」"><a href="#建立自己的「Prompt-模板」" class="headerlink" title="建立自己的「Prompt 模板」"></a>建立自己的「Prompt 模板」</h2><p>把常用的描述结构整理成模板，下次直接用：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs markdown">【角色】你是一位<span class="hljs-strong">____</span><span class="hljs-strong">__专家</span><br><span class="hljs-strong">【场景】为__</span><span class="hljs-strong">____</span>设计/开发<span class="hljs-strong">____</span>__<br>【功能需求】<br><span class="hljs-bullet">1.</span> <br><span class="hljs-bullet">2.</span> <br><span class="hljs-bullet">3.</span> <br>【样式要求】<br><span class="hljs-bullet">-</span> 参考风格：<br><span class="hljs-bullet">-</span> 主色调：<br><span class="hljs-bullet">-</span> 布局：<br>【技术约束】<br><span class="hljs-bullet">-</span> <br><span class="hljs-bullet">-</span> <br>【其他】<br><span class="hljs-bullet">-</span> <br></code></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>技巧</th>
+<th>核心</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>角色设定</td>
+<td>让 AI 带入专业视角</td>
+</tr>
+<tr>
+<td>结构描述</td>
+<td>用格式代替形容词</td>
+</tr>
+<tr>
+<td>参考 + 约束</td>
+<td>给方向，也画边界</td>
+</tr>
+<tr>
+<td>精准反馈</td>
+<td>定位问题，具体修改</td>
+</tr>
+<tr>
+<td>先解释后修改</td>
+<td>确保理解再动手</td>
+</tr>
+</tbody></table>
+<p>这些技巧不仅适用于 KimiCode，和任何 AI 工具对话都有效。</p>
+<hr>
+<p><strong>系列文章：</strong></p>
+<ul>
+<li><a href="/2026/03/04/KimiCode-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9A5-%E5%88%86%E9%92%9F%E5%86%99%E5%87%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE/">KimiCode 快速上手：5 分钟写出第一个项目</a></li>
+<li><a href="/2026/03/04/KimiCode-%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BE%85%E5%8A%9E%E6%B8%85%E5%8D%95%E5%BA%94%E7%94%A8/">KimiCode 实战：从零搭建一个待办清单应用</a></li>
+</ul>
+<hr>
+<p><em>有问题或想分享你的 KimiCode 使用心得？欢迎留言。</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Kimi/" class="print-no-link">#Kimi</a>
+      
+        <a href="/tags/AI%E7%BC%96%E7%A8%8B/" class="print-no-link">#AI编程</a>
+      
+        <a href="/tags/%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" class="print-no-link">#进阶技巧</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>KimiCode 进阶技巧：让 AI 更懂你的需求</div>
+      <div>https://wanzaixiaoxin.github.io/2026/03/04/KimiCode-进阶技巧：让-AI-更懂你的需求/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>作者</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>March 4, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/04/KimiCode-%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BE%85%E5%8A%9E%E6%B8%85%E5%8D%95%E5%BA%94%E7%94%A8/" title="KimiCode 实战：从零搭建一个待办清单应用">
+                        <span class="hidden-mobile">KimiCode 实战：从零搭建一个待办清单应用</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
+</body>
+</html>
