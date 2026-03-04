@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="作者">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="大模型选型指南：不同场景该用哪个 6 个大模型，各有优劣。看完这篇，知道什么时候该用谁。  快速决策表   场景 首选 备选 避免    生产级后端开发 DeepSeek 3.2 Kimi 2.5 MiniMax 2.5   前端视觉效果 MiniMax 2.5 Qwen 3.5 GLM5   代码审查重构 Kimi 2.5 DeepSeek 3.2 Doubao 2.0   快速原型验证 GLM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型选型指南：不同场景该用哪个">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/05/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B%E6%8C%87%E5%8D%97%EF%BC%9A%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E8%AF%A5%E7%94%A8%E5%93%AA%E4%B8%AA/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="大模型选型指南：不同场景该用哪个 6 个大模型，各有优劣。看完这篇，知道什么时候该用谁。  快速决策表   场景 首选 备选 避免    生产级后端开发 DeepSeek 3.2 Kimi 2.5 MiniMax 2.5   前端视觉效果 MiniMax 2.5 Qwen 3.5 GLM5   代码审查重构 Kimi 2.5 DeepSeek 3.2 Doubao 2.0   快速原型验证 GLM">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-03-05T06:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-04T09:40:05.783Z">
+<meta property="article:author" content="作者">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="大模型对比">
+<meta property="article:tag" content="选型指南">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>大模型选型指南：不同场景该用哪个 - Code &amp; Poets</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wanzaixiaoxin.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Code &amp; Poets</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Startseite</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archiv</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Kategorien</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Schlagwörter</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>Über</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="大模型选型指南：不同场景该用哪个"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-05 14:00" pubdate>
+          March 5, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">大模型选型指南：不同场景该用哪个</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="大模型选型指南：不同场景该用哪个"><a href="#大模型选型指南：不同场景该用哪个" class="headerlink" title="大模型选型指南：不同场景该用哪个"></a>大模型选型指南：不同场景该用哪个</h1><blockquote>
+<p>6 个大模型，各有优劣。看完这篇，知道什么时候该用谁。</p>
+</blockquote>
+<h2 id="快速决策表"><a href="#快速决策表" class="headerlink" title="快速决策表"></a>快速决策表</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>首选</th>
+<th>备选</th>
+<th>避免</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生产级后端开发</td>
+<td>DeepSeek 3.2</td>
+<td>Kimi 2.5</td>
+<td>MiniMax 2.5</td>
+</tr>
+<tr>
+<td>前端视觉效果</td>
+<td>MiniMax 2.5</td>
+<td>Qwen 3.5</td>
+<td>GLM5</td>
+</tr>
+<tr>
+<td>代码审查重构</td>
+<td>Kimi 2.5</td>
+<td>DeepSeek 3.2</td>
+<td>Doubao 2.0</td>
+</tr>
+<tr>
+<td>快速原型验证</td>
+<td>GLM5</td>
+<td>Doubao 2.0</td>
+<td>-</td>
+</tr>
+<tr>
+<td>多语言项目</td>
+<td>Qwen 3.5</td>
+<td>DeepSeek 3.2</td>
+<td>MiniMax 2.5</td>
+</tr>
+<tr>
+<td>复杂系统设计</td>
+<td>Kimi 2.5</td>
+<td>DeepSeek 3.2</td>
+<td>Doubao 2.0</td>
+</tr>
+<tr>
+<td>算法竞赛</td>
+<td>Kimi 2.5</td>
+<td>DeepSeek 3.2</td>
+<td>GLM5</td>
+</tr>
+<tr>
+<td>创意编程&#x2F;艺术</td>
+<td>MiniMax 2.5</td>
+<td>Kimi 2.5</td>
+<td>GLM5</td>
+</tr>
+</tbody></table>
+<h2 id="场景详解"><a href="#场景详解" class="headerlink" title="场景详解"></a>场景详解</h2><h3 id="场景一：创业公司-MVP-开发"><a href="#场景一：创业公司-MVP-开发" class="headerlink" title="场景一：创业公司 MVP 开发"></a>场景一：创业公司 MVP 开发</h3><p><strong>需求特点：</strong></p>
+<ul>
+<li>时间紧，需要快速出成果</li>
+<li>代码质量要求中等</li>
+<li>可能需要频繁修改</li>
+</ul>
+<p><strong>推荐方案：</strong></p>
+<p><strong>阶段 1：原型验证（1-3 天）</strong></p>
+<ul>
+<li>使用 <strong>GLM5</strong> 或 <strong>Doubao 2.0</strong></li>
+<li>快速生成可用代码</li>
+<li>不用太关注细节</li>
+</ul>
+<p><strong>阶段 2：功能完善（1-2 周）</strong></p>
+<ul>
+<li>切换到 <strong>DeepSeek 3.2</strong></li>
+<li>重构核心模块</li>
+<li>添加异常处理和日志</li>
+</ul>
+<p><strong>阶段 3：上线准备（3-5 天）</strong></p>
+<ul>
+<li>使用 <strong>Kimi 2.5</strong> 进行代码审查</li>
+<li>安全检查、性能优化</li>
+<li>补充测试用例</li>
+</ul>
+<p><strong>成本估算：</strong></p>
+<ul>
+<li>原型阶段：¥10-20</li>
+<li>完善阶段：¥50-100</li>
+<li>审查阶段：¥30-50</li>
+<li><strong>总计：¥90-170</strong></li>
+</ul>
+<h3 id="场景二：企业级项目开发"><a href="#场景二：企业级项目开发" class="headerlink" title="场景二：企业级项目开发"></a>场景二：企业级项目开发</h3><p><strong>需求特点：</strong></p>
+<ul>
+<li>代码质量要求高</li>
+<li>需要长期维护</li>
+<li>团队协作开发</li>
+</ul>
+<p><strong>推荐方案：</strong></p>
+<p><strong>架构设计 → Kimi 2.5</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">提示词模板：<br>&quot;你是一位资深架构师，请为[业务场景]设计系统架构。<br><br>要求：<br><span class="hljs-bullet">1.</span> 使用[技术栈]<br><span class="hljs-bullet">2.</span> 支持[并发量]并发<br><span class="hljs-bullet">3.</span> 考虑扩展性和可维护性<br><span class="hljs-bullet">4.</span> 输出架构图（文字描述）和核心模块设计&quot;<br></code></pre></td></tr></table></figure>
+
+<p><strong>核心开发 → DeepSeek 3.2</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown">提示词模板：<br>&quot;基于以下架构设计，实现[模块名称]。<br><br>[粘贴 Kimi 的架构设计]<br><br>要求：<br><span class="hljs-bullet">1.</span> 完整的异常处理<br><span class="hljs-bullet">2.</span> 详细的注释和文档字符串<br><span class="hljs-bullet">3.</span> 包含单元测试<br><span class="hljs-bullet">4.</span> 符合[团队代码规范]&quot;<br></code></pre></td></tr></table></figure>
+
+<p><strong>代码审查 → Kimi 2.5 + DeepSeek 3.2</strong></p>
+<ul>
+<li>先用 Kimi 做整体审查</li>
+<li>再用 DeepSeek 检查安全漏洞</li>
+</ul>
+<h3 id="场景三：个人开发者-副业项目"><a href="#场景三：个人开发者-副业项目" class="headerlink" title="场景三：个人开发者&#x2F;副业项目"></a>场景三：个人开发者&#x2F;副业项目</h3><p><strong>需求特点：</strong></p>
+<ul>
+<li>预算有限</li>
+<li>一人全栈</li>
+<li>追求性价比</li>
+</ul>
+<p><strong>推荐方案：</strong></p>
+<p><strong>免费&#x2F;低成本组合：</strong></p>
+<ul>
+<li>复杂任务：Kimi（免费额度充足）</li>
+<li>简单任务：GLM5（价格便宜）</li>
+<li>前端美化：MiniMax 2.5（创意强）</li>
+</ul>
+<p><strong>月预算 ¥50 分配：</strong></p>
+<ul>
+<li>Kimi 2.5：¥20（核心功能）</li>
+<li>DeepSeek 3.2：¥20（质量保证）</li>
+<li>MiniMax 2.5：¥10（视觉效果）</li>
+</ul>
+<h3 id="场景四：教育培训"><a href="#场景四：教育培训" class="headerlink" title="场景四：教育培训"></a>场景四：教育培训</h3><p><strong>需求特点：</strong></p>
+<ul>
+<li>需要详细解释</li>
+<li>代码要易读</li>
+<li>适合初学者理解</li>
+</ul>
+<p><strong>推荐方案：</strong></p>
+<p><strong>教学代码生成 → Kimi 2.5</strong></p>
+<ul>
+<li>解释最清晰</li>
+<li>善用类比</li>
+<li>步骤分解详细</li>
+</ul>
+<p><strong>练习题生成 → DeepSeek 3.2</strong></p>
+<ul>
+<li>题目质量高</li>
+<li>难度梯度合理</li>
+<li>答案解析完整</li>
+</ul>
+<p><strong>可视化演示 → MiniMax 2.5</strong></p>
+<ul>
+<li>动画效果生动</li>
+<li>学生更易理解</li>
+</ul>
+<h3 id="场景五：算法竞赛-面试准备"><a href="#场景五：算法竞赛-面试准备" class="headerlink" title="场景五：算法竞赛&#x2F;面试准备"></a>场景五：算法竞赛&#x2F;面试准备</h3><p><strong>推荐方案：</strong></p>
+<p><strong>算法题解答 → Kimi 2.5</strong></p>
+<ul>
+<li>复杂度分析准确</li>
+<li>多种解法对比</li>
+<li>易错点提示</li>
+</ul>
+<p><strong>面试模拟 → DeepSeek 3.2</strong></p>
+<ul>
+<li>追问深入</li>
+<li>场景设计真实</li>
+<li>反馈专业</li>
+</ul>
+<h3 id="场景六：跨平台应用开发"><a href="#场景六：跨平台应用开发" class="headerlink" title="场景六：跨平台应用开发"></a>场景六：跨平台应用开发</h3><p><strong>需求特点：</strong></p>
+<ul>
+<li>需要多语言代码</li>
+<li>保持一致性</li>
+<li>平台特性适配</li>
+</ul>
+<p><strong>推荐方案：</strong></p>
+<p><strong>主逻辑开发 → Qwen 3.5</strong></p>
+<ul>
+<li>用 Python&#x2F;JavaScript 实现核心逻辑</li>
+</ul>
+<p><strong>平台适配 → Qwen 3.5</strong></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;将以下 Python 代码转换为 Swift，</span><br>保持逻辑一致，使用 Swift 惯用写法：<br><br>[粘贴代码]<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>性能优化 → DeepSeek 3.2</strong></p>
+<ul>
+<li>各平台性能调优</li>
+<li>内存管理优化</li>
+</ul>
+<h2 id="避坑指南"><a href="#避坑指南" class="headerlink" title="避坑指南"></a>避坑指南</h2><h3 id="❌-不要这样做"><a href="#❌-不要这样做" class="headerlink" title="❌ 不要这样做"></a>❌ 不要这样做</h3><p><strong>1. 一个模型用到底</strong></p>
+<ul>
+<li>每个模型都有短板</li>
+<li>组合使用效果更好</li>
+</ul>
+<p><strong>2. 忽视上下文长度</strong></p>
+<ul>
+<li>长代码用 Kimi（支持 200K）</li>
+<li>短代码用 DeepSeek（质量更高）</li>
+</ul>
+<p><strong>3. 盲目追求免费</strong></p>
+<ul>
+<li>免费额度有限</li>
+<li>重要任务值得付费</li>
+</ul>
+<p><strong>4. 不验证就上线</strong></p>
+<ul>
+<li>AI 代码可能有 bug</li>
+<li>必须人工审查</li>
+</ul>
+<h3 id="✅-最佳实践"><a href="#✅-最佳实践" class="headerlink" title="✅ 最佳实践"></a>✅ 最佳实践</h3><p><strong>1. 建立模型分工表</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">| 任务类型 | 使用模型 | 原因 |<br>|---------|---------|------|<br>| 架构设计 | Kimi | 长上下文 |<br>| 核心代码 | DeepSeek | 质量高 |<br>| 前端样式 | MiniMax | 视觉好 |<br>| 代码审查 | Kimi | 细致 |<br></code></pre></td></tr></table></figure>
+
+<p><strong>2. 设置质量关卡</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">AI</span> 生成代码 → 人工审查 → 单元测试 → 集成测试 → 上线<br></code></pre></td></tr></table></figure>
+
+<p><strong>3. 保留修改记录</strong></p>
+<ul>
+<li>记录每个版本的提示词</li>
+<li>方便回溯和优化</li>
+</ul>
+<p><strong>4. 持续学习</strong></p>
+<ul>
+<li>关注模型更新</li>
+<li>新模型可能更适合你的场景</li>
+</ul>
+<h2 id="成本计算器"><a href="#成本计算器" class="headerlink" title="成本计算器"></a>成本计算器</h2><p><strong>假设每月使用 100 万 tokens：</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>输入 500K</th>
+<th>输出 500K</th>
+<th>月费用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GLM5</td>
+<td>¥0.5</td>
+<td>¥1.0</td>
+<td><strong>¥1.5</strong></td>
+</tr>
+<tr>
+<td>DeepSeek 3.2</td>
+<td>¥0.5</td>
+<td>¥1.0</td>
+<td><strong>¥1.5</strong></td>
+</tr>
+<tr>
+<td>Doubao 2.0</td>
+<td>¥0.4</td>
+<td>¥1.0</td>
+<td><strong>¥1.4</strong></td>
+</tr>
+<tr>
+<td>Qwen 3.5</td>
+<td>¥0.5</td>
+<td>¥1.0</td>
+<td><strong>¥1.5</strong></td>
+</tr>
+<tr>
+<td>MiniMax 2.5</td>
+<td>¥0.5</td>
+<td>¥1.0</td>
+<td><strong>¥1.5</strong></td>
+</tr>
+<tr>
+<td>Kimi 2.5</td>
+<td>¥0.5</td>
+<td>¥1.0</td>
+<td><strong>¥1.5</strong></td>
+</tr>
+</tbody></table>
+<p><strong>结论：</strong> 价格差异不大，按质量选，不按价格选。</p>
+<h2 id="未来趋势预测"><a href="#未来趋势预测" class="headerlink" title="未来趋势预测"></a>未来趋势预测</h2><p><strong>2026 年可能的变化：</strong></p>
+<ol>
+<li><strong>DeepSeek</strong> 可能继续领先，但优势缩小</li>
+<li><strong>Kimi</strong> 长上下文能力会更强（ rumored 支持 1M tokens）</li>
+<li><strong>Qwen</strong> 开源生态会继续扩大</li>
+<li><strong>MiniMax</strong> 多模态能力会更突出</li>
+<li><strong>GLM&#x2F;Doubao</strong> 可能通过价格战抢占市场</li>
+</ol>
+<p><strong>建议：</strong></p>
+<ul>
+<li>不要锁定单一模型</li>
+<li>保持关注，定期重新评估</li>
+<li>建立模型切换的灵活性</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>一句话建议：</strong></p>
+<table>
+<thead>
+<tr>
+<th>你是谁</th>
+<th>用哪个</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>追求极致质量</td>
+<td>DeepSeek 3.2</td>
+</tr>
+<tr>
+<td>处理大型项目</td>
+<td>Kimi 2.5</td>
+</tr>
+<tr>
+<td>做创意&#x2F;视觉</td>
+<td>MiniMax 2.5</td>
+</tr>
+<tr>
+<td>预算紧张</td>
+<td>GLM5</td>
+</tr>
+<tr>
+<td>全栈开发</td>
+<td>组合使用</td>
+</tr>
+</tbody></table>
+<p><strong>记住：</strong> 模型是工具，不是答案。最终代码质量取决于使用工具的人。</p>
+<hr>
+<p><strong>系列文章：</strong></p>
+<ul>
+<li><a href="/2026/03/05/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%9AGLM5-vs-DeepSeek-3-2/">大模型代码实战：GLM5 vs DeepSeek 3.2</a></li>
+<li><a href="/2026/03/05/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%9ADoubao-2-0-vs-Qwen-3-5/">大模型代码实战：Doubao 2.0 vs Qwen 3.5</a></li>
+<li><a href="/2026/03/05/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%EF%BC%9AMiniMax-2-5-vs-Kimi-2-5/">大模型代码实战：MiniMax 2.5 vs Kimi 2.5</a></li>
+<li><a href="/2026/03/05/%E5%85%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E8%83%BD%E5%8A%9B%E6%A8%AA%E8%AF%84/">六大模型代码能力横评</a></li>
+</ul>
+<hr>
+<p><em>你现在的主力模型是哪个？有切换的打算吗？</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="category-chain-item">技术分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AI%E7%BC%96%E7%A8%8B/" class="print-no-link">#AI编程</a>
+      
+        <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94/" class="print-no-link">#大模型对比</a>
+      
+        <a href="/tags/%E9%80%89%E5%9E%8B%E6%8C%87%E5%8D%97/" class="print-no-link">#选型指南</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>大模型选型指南：不同场景该用哪个</div>
+      <div>https://wanzaixiaoxin.github.io/2026/03/05/大模型选型指南：不同场景该用哪个/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>作者</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>March 5, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/05/%E5%85%AD%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E8%83%BD%E5%8A%9B%E6%A8%AA%E8%AF%84/" title="六大模型代码能力横评">
+                        <span class="hidden-mobile">六大模型代码能力横评</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
+</body>
+</html>
