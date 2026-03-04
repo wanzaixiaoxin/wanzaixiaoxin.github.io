@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kimi Code 新手入门：从踩坑到上手的真实记录 | Code &amp; Poets</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
+    .meta { color: #999; margin-bottom: 30px; }
+    pre { background: #f5f5f5; padding: 15px; overflow-x: auto; border-radius: 5px; }
+    code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; }
+    blockquote { border-left: 4px solid #ddd; margin: 0; padding-left: 20px; color: #666; }
+    img { max-width: 100%; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 10px; }
+    th { background: #f5f5f5; }
+    a { color: #0066cc; }
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <article>
+    <h1>Kimi Code 新手入门：从踩坑到上手的真实记录</h1>
+    <div class="meta">
+      2026-03-04
+      
+        <span style="background:#f0f0f0;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:5px;">AI</span>
+      
+        <span style="background:#f0f0f0;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:5px;">编程工具</span>
+      
+        <span style="background:#f0f0f0;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:5px;">Kimi</span>
+      
+        <span style="background:#f0f0f0;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:5px;">新手教程</span>
+      
+        <span style="background:#f0f0f0;padding:2px 8px;border-radius:3px;font-size:0.8em;margin-right:5px;">踩坑记录</span>
+      
+    </div>
+    <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>作为一个非科班出身的编程爱好者，我第一次听说 Kimi Code 是在一个技术群里。看着别人晒出的 AI 生成代码截图，我既羡慕又怀疑：<strong>这玩意儿真的靠谱吗？</strong></p>
+<p>三个月后的今天，我可以负责任地说：<strong>靠谱，但前提是你要知道怎么用。</strong></p>
+<p>这篇文章记录了我从完全新手到日常使用的真实历程，包括踩过的坑、积累的心得，希望能帮到你。</p>
+<hr>
+<h2 id="第一章：第一次尝试（踩坑篇）"><a href="#第一章：第一次尝试（踩坑篇）" class="headerlink" title="第一章：第一次尝试（踩坑篇）"></a>第一章：第一次尝试（踩坑篇）</h2><h3 id="坑1：期望过高，想一步到位"><a href="#坑1：期望过高，想一步到位" class="headerlink" title="坑1：期望过高，想一步到位"></a>坑1：期望过高，想一步到位</h3><p><strong>当时的我：</strong></p>
+<blockquote>
+<p>“帮我写一个电商网站，要有用户系统、支付功能、后台管理”</p>
+</blockquote>
+<p><strong>结果：</strong><br>Kimi 确实生成了一堆代码，但我完全跑不起来。各种报错，依赖缺失，配置文件对不上…</p>
+<p><strong>教训：</strong><br>AI 不是神仙，它需要你提供清晰的、可执行的需求。大而全的描述 &#x3D; 大而全的坑。</p>
+<h3 id="坑2：不检查就复制粘贴"><a href="#坑2：不检查就复制粘贴" class="headerlink" title="坑2：不检查就复制粘贴"></a>坑2：不检查就复制粘贴</h3><p><strong>场景：</strong><br>我需要处理一个 CSV 文件，Kimi 生成了这样的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># 处理数据...</span></span><br><span class="line">df.to_csv(<span class="string">&#x27;output.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>看起来没问题对吧？但我的文件路径是 <code>./data/input.csv</code>，而且编码是 GBK，不是 UTF-8。</p>
+<p><strong>结果：</strong><br><code>FileNotFoundError</code> + <code>UnicodeDecodeError</code> 双重暴击。</p>
+<p><strong>教训：</strong><br>AI 生成的代码是<strong>模板</strong>，不是<strong>现成品</strong>。路径、编码、环境变量这些细节一定要自己检查。</p>
+<h3 id="坑3：泄露敏感信息"><a href="#坑3：泄露敏感信息" class="headerlink" title="坑3：泄露敏感信息"></a>坑3：泄露敏感信息</h3><p><strong>危险操作：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我把这段代码发给 Kimi 问问题</span></span><br><span class="line">api_key = <span class="string">&quot;sk-1234567890abcdef&quot;</span>  <span class="comment"># 我的真实 API Key！</span></span><br><span class="line">headers = &#123;<span class="string">&quot;Authorization&quot;</span>: <span class="string">f&quot;Bearer <span class="subst">&#123;api_key&#125;</span>&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>后果：</strong><br>虽然 Kimi 不会恶意使用，但敏感信息一旦发出去就不可控了。后来我才知道，应该用占位符：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api_key = <span class="string">&quot;YOUR_API_KEY_HERE&quot;</span>  <span class="comment"># 这样才是安全的</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第二章：渐入佳境（心得篇）"><a href="#第二章：渐入佳境（心得篇）" class="headerlink" title="第二章：渐入佳境（心得篇）"></a>第二章：渐入佳境（心得篇）</h2><h3 id="心得1：从小任务开始"><a href="#心得1：从小任务开始" class="headerlink" title="心得1：从小任务开始"></a>心得1：从小任务开始</h3><p><strong>现在的我会这样：</strong></p>
+<p><strong>第一步：</strong> 先让 Kimi 写个最简单的版本</p>
+<blockquote>
+<p>“写一个函数，读取 CSV 文件并返回前10行”</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">preview_csv</span>(<span class="params">filepath</span>):</span><br><span class="line">    df = pd.read_csv(filepath)</span><br><span class="line">    <span class="keyword">return</span> df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：</strong> 逐步添加需求</p>
+<blockquote>
+<p>“很好，现在加上异常处理，如果文件不存在要提示用户”</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">preview_csv</span>(<span class="params">filepath</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(filepath):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;错误：文件 <span class="subst">&#123;filepath&#125;</span> 不存在&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        df = pd.read_csv(filepath)</span><br><span class="line">        <span class="keyword">return</span> df.head(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;读取文件出错：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第三步：</strong> 继续优化</p>
+<blockquote>
+<p>“再添加编码自动检测功能”</p>
+</blockquote>
+<p><strong>好处：</strong></p>
+<ul>
+<li>每一步都可控，出了问题知道在哪</li>
+<li>能学到为什么要这样写</li>
+<li>最终代码质量更高</li>
+</ul>
+<h3 id="心得2：学会提问的艺术"><a href="#心得2：学会提问的艺术" class="headerlink" title="心得2：学会提问的艺术"></a>心得2：学会提问的艺术</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>不好的提问</th>
+<th>好的提问</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>问题描述</td>
+<td>模糊</td>
+<td>具体</td>
+</tr>
+<tr>
+<td>上下文</td>
+<td>缺失</td>
+<td>提供关键信息（文件大小）</td>
+</tr>
+<tr>
+<td>期望结果</td>
+<td>不明确</td>
+<td>清晰（逐块读取）</td>
+</tr>
+</tbody></table>
+<h3 id="心得3：把-Kimi-当成结对编程的搭档"><a href="#心得3：把-Kimi-当成结对编程的搭档" class="headerlink" title="心得3：把 Kimi 当成结对编程的搭档"></a>心得3：把 Kimi 当成结对编程的搭档</h3><p><strong>我会这样对话：</strong></p>
+<p><strong>我：</strong> 我想写一个定时任务，每天早上9点发送邮件</p>
+<p><strong>Kimi：</strong> [生成代码]</p>
+<p><strong>我：</strong> 如果邮件发送失败，我希望重试3次，每次间隔5分钟</p>
+<p><strong>Kimi：</strong> [添加重试逻辑]</p>
+<p><strong>我：</strong> 重试都失败了怎么办？我想记录到日志文件里</p>
+<p><strong>Kimi：</strong> [添加日志记录]</p>
+<p><strong>感受：</strong><br>就像有个耐心的同事在旁边，你提出想法，他帮你实现，你再提改进意见，循环往复。</p>
+<hr>
+<h2 id="第三章：实战案例（完整流程）"><a href="#第三章：实战案例（完整流程）" class="headerlink" title="第三章：实战案例（完整流程）"></a>第三章：实战案例（完整流程）</h2><h3 id="需求：制作一个个人记账小工具"><a href="#需求：制作一个个人记账小工具" class="headerlink" title="需求：制作一个个人记账小工具"></a>需求：制作一个个人记账小工具</h3><p><strong>Step 1：明确最小可用版本（MVP）</strong></p>
+<ul>
+<li>能记录一笔支出（金额、类别、备注）</li>
+<li>能查看今天的所有支出</li>
+<li>数据存在本地 JSON 文件里</li>
+</ul>
+<p><strong>Step 2：让 Kimi 生成基础代码</strong></p>
+<blockquote>
+<p>“帮我写一个 Python 记账工具，功能：1.添加支出记录 2.查看今日支出 3.数据存 JSON 文件。用函数封装，每个功能一个函数。”</p>
+</blockquote>
+<p><strong>Kimi 生成的代码：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">DATA_FILE = <span class="string">&quot;expenses.json&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_data</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;加载数据&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(DATA_FILE):</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(DATA_FILE, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">return</span> json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_data</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;保存数据&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(DATA_FILE, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        json.dump(data, f, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_expense</span>(<span class="params">amount, category, note=<span class="string">&quot;&quot;</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;添加支出&quot;&quot;&quot;</span></span><br><span class="line">    data = load_data()</span><br><span class="line">    today = datetime.now().strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> today <span class="keyword">not</span> <span class="keyword">in</span> data:</span><br><span class="line">        data[today] = []</span><br><span class="line">    </span><br><span class="line">    expense = &#123;</span><br><span class="line">        <span class="string">&quot;time&quot;</span>: datetime.now().strftime(<span class="string">&quot;%H:%M:%S&quot;</span>),</span><br><span class="line">        <span class="string">&quot;amount&quot;</span>: amount,</span><br><span class="line">        <span class="string">&quot;category&quot;</span>: category,</span><br><span class="line">        <span class="string">&quot;note&quot;</span>: note</span><br><span class="line">    &#125;</span><br><span class="line">    data[today].append(expense)</span><br><span class="line">    save_data(data)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;已记录：<span class="subst">&#123;category&#125;</span> - <span class="subst">&#123;amount&#125;</span>元&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_today</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示今日支出&quot;&quot;&quot;</span></span><br><span class="line">    data = load_data()</span><br><span class="line">    today = datetime.now().strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> today <span class="keyword">not</span> <span class="keyword">in</span> data <span class="keyword">or</span> <span class="keyword">not</span> data[today]:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;今天还没有支出记录&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;\n=== <span class="subst">&#123;today&#125;</span> 支出明细 ===&quot;</span>)</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> data[today]:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;item[<span class="string">&#x27;time&#x27;</span>]&#125;</span> | <span class="subst">&#123;item[<span class="string">&#x27;category&#x27;</span>]&#125;</span> | <span class="subst">&#123;item[<span class="string">&#x27;amount&#x27;</span>]&#125;</span>元 | <span class="subst">&#123;item[<span class="string">&#x27;note&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line">        total += item[<span class="string">&#x27;amount&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;\n今日总计：<span class="subst">&#123;total&#125;</span>元&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3-5：测试、迭代、最终版本</strong>（过程略）</p>
+<hr>
+<h2 id="第四章：避坑清单（建议收藏）"><a href="#第四章：避坑清单（建议收藏）" class="headerlink" title="第四章：避坑清单（建议收藏）"></a>第四章：避坑清单（建议收藏）</h2><h3 id="安全类"><a href="#安全类" class="headerlink" title="安全类"></a>安全类</h3><ul>
+<li><input disabled="" type="checkbox"> 永远不要发送真实密码、API Key、Token</li>
+<li><input disabled="" type="checkbox"> 检查生成的代码是否有 SQL 注入、XSS 等安全风险</li>
+<li><input disabled="" type="checkbox"> 涉及文件操作时，确认路径是否正确</li>
+</ul>
+<h3 id="代码质量类"><a href="#代码质量类" class="headerlink" title="代码质量类"></a>代码质量类</h3><ul>
+<li><input disabled="" type="checkbox"> 检查异常处理是否完善</li>
+<li><input disabled="" type="checkbox"> 确认依赖库是否需要安装（<code>pip install xxx</code>）</li>
+<li><input disabled="" type="checkbox"> 大文件处理时，确认是流式读取还是一次性加载</li>
+<li><input disabled="" type="checkbox"> 检查是否有死循环或递归过深的问题</li>
+</ul>
+<h3 id="功能类"><a href="#功能类" class="headerlink" title="功能类"></a>功能类</h3><ul>
+<li><input disabled="" type="checkbox"> 边界条件测试（空输入、极大值、极小值）</li>
+<li><input disabled="" type="checkbox"> 中文编码问题（特别是 Windows 系统）</li>
+<li><input disabled="" type="checkbox"> 时区问题（涉及时间计算时）</li>
+</ul>
+<hr>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>三个月下来，Kimi Code 已经成为我编程时离不开的工具。但我也越来越清楚：<strong>AI 是放大器，不是替代品。</strong></p>
+<p><strong>它能放大你的能力：</strong></p>
+<ul>
+<li>让新手更快入门</li>
+<li>让老手更高效</li>
+<li>让创意更快落地</li>
+</ul>
+<p><strong>但它不能替代你的思考：</strong></p>
+<ul>
+<li>需求分析还是要自己做</li>
+<li>架构设计还是要自己定</li>
+<li>代码审查还是要自己把关</li>
+</ul>
+<p>希望这篇记录对你有帮助。如果你也是新手，别害怕踩坑，每个坑都是成长的机会。</p>
+<p><strong>加油，祝你编程愉快！</strong></p>
+<hr>
+<h2 id="附录：常用提示词模板"><a href="#附录：常用提示词模板" class="headerlink" title="附录：常用提示词模板"></a>附录：常用提示词模板</h2><p><strong>1. 代码解释</strong></p>
+<blockquote>
+<p>“请解释这段代码的作用，特别是第 X 行的原理”</p>
+</blockquote>
+<p><strong>2. 代码优化</strong></p>
+<blockquote>
+<p>“这段代码运行很慢，帮我优化性能。数据量大约是 X 条记录”</p>
+</blockquote>
+<p><strong>3. 添加测试</strong></p>
+<blockquote>
+<p>“为这段代码编写单元测试，使用 pytest 框架”</p>
+</blockquote>
+<p><strong>4. 转换语言</strong></p>
+<blockquote>
+<p>“把这段 Python 代码改成 JavaScript，保持功能一致”</p>
+</blockquote>
+<p><strong>5. 生成文档</strong></p>
+<blockquote>
+<p>“为这段代码生成 API 文档，包含参数说明和示例”</p>
+</blockquote>
+<hr>
+<p><strong>本文作者：</strong> wanzaixiaoxin<br><strong>发布时间：</strong> 2026年3月4日<br><strong>版权声明：</strong> 欢迎转载，请注明出处</p>
+
+  </article>
+  <hr>
+  <p><a href="/">← 返回首页</a></p>
+</body>
+</html>
