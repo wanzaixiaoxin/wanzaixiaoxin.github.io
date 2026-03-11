@@ -1,12 +1,25 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>AI小侦探：机器如何像人类一样学习？ | Code &amp; Poets</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="开篇提问你有没有想过——机器人也需要上学吗？ 如果你教小狗握手，它可能要练 100 次才会。但如果你教一个 AI 识别猫的照片，它只需要看 几千张 就能学会，而且永远不会忘记！ 今天，我们就来当一回”AI小侦探”，看看机器是怎样学习的。 一、学习的三种方式人类学习有三种主要方式，AI 也一样： 1. 有监督学习——有老师教场景：你学画画，老师给你一张范本，说”这里要涂红色”，然后给你打分。 AI">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小新">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="开篇提问你有没有想过——机器人也需要上学吗？ 如果你教小狗握手，它可能要练 100 次才会。但如果你教一个 AI 识别猫的照片，它只需要看 几千张 就能学会，而且永远不会忘记！ 今天，我们就来当一回”AI小侦探”，看看机器是怎样学习的。 一、学习的三种方式人类学习有三种主要方式，AI 也一样： 1. 有监督学习——有老师教场景：你学画画，老师给你一张范本，说”这里要涂红色”，然后给你打分。 AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI小侦探：机器如何像人类一样学习？">
 <meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/index.html">
@@ -17,29 +30,61 @@
 <meta property="article:modified_time" content="2026-03-10T11:33:43.727Z">
 <meta property="article:author" content="小新">
 <meta property="article:tag" content="机器学习, 深度学习, 儿童科普">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
   
+  <title>AI小侦探：机器如何像人类一样学习？ - Code &amp; Poets</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" >
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" >
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" >
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" >
+
+
+
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" >
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" >
   
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" >
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wanzaixiaoxin.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
 
   
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
 <meta name="generator" content="Hexo 8.1.1">
 
 <script type="application/ld+json" id="hexo-seo-schema">[
@@ -116,69 +161,301 @@
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Code &amp; Poets</a>
-      </h1>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Startseite</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archiv</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Kategorien</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Schlagwörter</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>Über</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>Startseite</span>
+                </div>
+              </a>
+            </div>
+          
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>Archiv</span>
+                </div>
+              </a>
+            </div>
+          
         
-      </nav>
-      <nav id="sub-nav">
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>Kategorien</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>Schlagwörter</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>Über</span>
+                </div>
+              </a>
+            </div>
+          
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>Suchen</span>
+              </div>
+            </a>
+          </div>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="Hell"
+               data-label-dark="Dunkel">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">Dunkel</span>
+              </div>
+            </a>
+          </div>
+        
       </div>
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-2026-03-10-AI小侦探：机器如何像人类一样学习？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/" class="article-date">
-  <time class="dt-published" datetime="2026-03-09T16:00:00.000Z" itemprop="datePublished">2026-03-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a>
-  </div>
+  
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="AI小侦探：机器如何像人类一样学习？"></span>
+          
+        </div>
+
         
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      AI小侦探：机器如何像人类一样学习？
-    </h1>
-  
-
-      </header>
+          
+  <div class="mt-3">
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-10 00:00" pubdate>
+          March 10, 2026 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
       
-        <h2 id="开篇提问"><a href="#开篇提问" class="headerlink" title="开篇提问"></a>开篇提问</h2><p>你有没有想过——<strong>机器人也需要上学吗</strong>？</p>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">AI小侦探：机器如何像人类一样学习？</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="开篇提问"><a href="#开篇提问" class="headerlink" title="开篇提问"></a>开篇提问</h2><p>你有没有想过——<strong>机器人也需要上学吗</strong>？</p>
 <p>如果你教小狗握手，它可能要练 100 次才会。但如果你教一个 AI 识别猫的照片，它只需要看 <strong>几千张</strong> 就能学会，而且永远不会忘记！</p>
 <p>今天，我们就来当一回”AI小侦探”，看看机器是怎样学习的。</p>
 <h2 id="一、学习的三种方式"><a href="#一、学习的三种方式" class="headerlink" title="一、学习的三种方式"></a>一、学习的三种方式</h2><p>人类学习有三种主要方式，AI 也一样：</p>
@@ -238,159 +515,446 @@
 </tr>
 </tbody></table>
 <p><strong>简单说</strong>：数据是燃料，模型是发动机，算法是驾驶技术。</p>
-<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgODAwIDMwMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNmZmY7IHN0cm9rZTogIzMzMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogNjsgfQogICAgLmljb24geyBmb250LXNpemU6IDQ4cHg7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICMxOTc2ZDI7IH0KICAgIC5sYWJlbCB7IGZvbnQtc2l6ZTogMTZweDsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZpbGw6ICMzMzM7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgIC5kZXNjIHsgZm9udC1zaXplOiAxM3B4OyBmaWxsOiAjNjY2OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAuYXJyb3cgeyBzdHJva2U6ICM2NjY7IHN0cm9rZS13aWR0aDogMjsgbWFya2VyLWVuZDogdXJsKCNhcnJvd2hlYWQpOyBmaWxsOiBub25lOyB9CiAgICB0ZXh0IHsgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmOyB9CiAgPC9zdHlsZT4KICA8ZGVmcz4KICAgIDxtYXJrZXIgaWQ9ImFycm93aGVhZCIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjciIHJlZlg9IjkiIHJlZlk9IjMuNSIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwIDAsIDEwIDMuNSwgMCA3IiBmaWxsPSIjNjY2Ii8+CiAgICA8L21hcmtlcj4KICA8L2RlZnM+CgogIDwhLS0g5qCH6aKYIC0tPgogIDx0ZXh0IHg9IjQwMCIgeT0iMzAiIGNsYXNzPSJsYWJlbCIgZm9udC1zaXplPSIxOCI+5py65Zmo5a2m5Lmg55qE5LiJ5Liq5qC45b+D5oiQ5YiGPC90ZXh0PgoKICA8IS0tIOaVsOaNriAtLT4KICA8cmVjdCB4PSI1MCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZTNmMmZkIi8+CiAgPHRleHQgeD0iMTQwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7wn5OKPC90ZXh0PgogIDx0ZXh0IHg9IjE0MCIgeT0iMTQwIiBjbGFzcz0ibGFiZWwiPuaVsOaNrjwvdGV4dD4KICA8dGV4dCB4PSIxNDAiIHk9IjE2NSIgY2xhc3M9ImRlc2MiPueHg+aWmTwvdGV4dD4KICA8dGV4dCB4PSIxNDAiIHk9IjIwMCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTEiPui2iuWkmui2iuWlvTwvdGV4dD4KCiAgPCEtLSDnrq3lpLQgLS0+CiAgPGxpbmUgeDE9IjIzMCIgeTE9IjE0MCIgeDI9IjI5MCIgeTI9IjE0MCIgY2xhc3M9ImFycm93Ii8+CiAgPHRleHQgeD0iMjYwIiB5PSIxNTUiIGNsYXNzPSJkZXNjIiBmb250LXNpemU9IjEyIj7ovpPlhaU8L3RleHQ+CgogIDwhLS0g5qih5Z6LIC0tPgogIDxyZWN0IHg9IjMxMCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZThmNWU5Ii8+CiAgPHRleHQgeD0iNDAwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7wn6egPC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iMTQwIiBjbGFzcz0ibGFiZWwiPuaooeWeizwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjE2NSIgY2xhc3M9ImRlc2MiPuWPkeWKqOacujwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjIwMCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTEiPuelnue7j+e9kee7nOe7k+aehDwvdGV4dD4KCiAgPCEtLSDnrq3lpLQgLS0+CiAgPGxpbmUgeDE9IjQ5MCIgeTE9IjE0MCIgeDI9IjU1MCIgeTI9IjE0MCIgY2xhc3M9ImFycm93Ii8+CiAgPHRleHQgeD0iNTIwIiB5PSIxNTUiIGNsYXNzPSJkZXNjIiBmb250LXNpemU9IjEyIj7lpITnkIY8L3RleHQ+CgogIDwhLS0g566X5rOVIC0tPgogIDxyZWN0IHg9IjU3MCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZmZmM2UwIi8+CiAgPHRleHQgeD0iNjYwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7impnvuI88L3RleHQ+CiAgPHRleHQgeD0iNjYwIiB5PSIxNDAiIGNsYXNzPSJsYWJlbCI+566X5rOVPC90ZXh0PgogIDx0ZXh0IHg9IjY2MCIgeT0iMTY1IiBjbGFzcz0iZGVzYyI+6am+6am25oqA5pyvPC90ZXh0PgogIDx0ZXh0IHg9IjY2MCIgeT0iMjAwIiBjbGFzcz0iZGVzYyIgZm9udC1zaXplPSIxMSI+5aaC5L2V6LCD5pW05Y+C5pWwPC90ZXh0PgoKICA8IS0tIOW6lemDqOivtOaYjiAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjI5MCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTIiPuS4ieiAhee8uuS4gOS4jeWPr++8jOWFseWQjOWGs+WumiBBSSDnmoTog73lips8L3RleHQ+Cgo8L3N2Zz4=" alt="学习三要素">
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgODAwIDMwMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNmZmY7IHN0cm9rZTogIzMzMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogNjsgfQogICAgLmljb24geyBmb250LXNpemU6IDQ4cHg7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICMxOTc2ZDI7IH0KICAgIC5sYWJlbCB7IGZvbnQtc2l6ZTogMTZweDsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZpbGw6ICMzMzM7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgIC5kZXNjIHsgZm9udC1zaXplOiAxM3B4OyBmaWxsOiAjNjY2OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAuYXJyb3cgeyBzdHJva2U6ICM2NjY7IHN0cm9rZS13aWR0aDogMjsgbWFya2VyLWVuZDogdXJsKCNhcnJvd2hlYWQpOyBmaWxsOiBub25lOyB9CiAgICB0ZXh0IHsgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmOyB9CiAgPC9zdHlsZT4KICA8ZGVmcz4KICAgIDxtYXJrZXIgaWQ9ImFycm93aGVhZCIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjciIHJlZlg9IjkiIHJlZlk9IjMuNSIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwIDAsIDEwIDMuNSwgMCA3IiBmaWxsPSIjNjY2Ii8+CiAgICA8L21hcmtlcj4KICA8L2RlZnM+CgogIDwhLS0g5qCH6aKYIC0tPgogIDx0ZXh0IHg9IjQwMCIgeT0iMzAiIGNsYXNzPSJsYWJlbCIgZm9udC1zaXplPSIxOCI+5py65Zmo5a2m5Lmg55qE5LiJ5Liq5qC45b+D5oiQ5YiGPC90ZXh0PgoKICA8IS0tIOaVsOaNriAtLT4KICA8cmVjdCB4PSI1MCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZTNmMmZkIi8+CiAgPHRleHQgeD0iMTQwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7wn5OKPC90ZXh0PgogIDx0ZXh0IHg9IjE0MCIgeT0iMTQwIiBjbGFzcz0ibGFiZWwiPuaVsOaNrjwvdGV4dD4KICA8dGV4dCB4PSIxNDAiIHk9IjE2NSIgY2xhc3M9ImRlc2MiPueHg+aWmTwvdGV4dD4KICA8dGV4dCB4PSIxNDAiIHk9IjIwMCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTEiPui2iuWkmui2iuWlvTwvdGV4dD4KCiAgPCEtLSDnrq3lpLQgLS0+CiAgPGxpbmUgeDE9IjIzMCIgeTE9IjE0MCIgeDI9IjI5MCIgeTI9IjE0MCIgY2xhc3M9ImFycm93Ii8+CiAgPHRleHQgeD0iMjYwIiB5PSIxNTUiIGNsYXNzPSJkZXNjIiBmb250LXNpemU9IjEyIj7ovpPlhaU8L3RleHQ+CgogIDwhLS0g5qih5Z6LIC0tPgogIDxyZWN0IHg9IjMxMCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZThmNWU5Ii8+CiAgPHRleHQgeD0iNDAwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7wn6egPC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iMTQwIiBjbGFzcz0ibGFiZWwiPuaooeWeizwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjE2NSIgY2xhc3M9ImRlc2MiPuWPkeWKqOacujwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjIwMCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTEiPuelnue7j+e9kee7nOe7k+aehDwvdGV4dD4KCiAgPCEtLSDnrq3lpLQgLS0+CiAgPGxpbmUgeDE9IjQ5MCIgeTE9IjE0MCIgeDI9IjU1MCIgeTI9IjE0MCIgY2xhc3M9ImFycm93Ii8+CiAgPHRleHQgeD0iNTIwIiB5PSIxNTUiIGNsYXNzPSJkZXNjIiBmb250LXNpemU9IjEyIj7lpITnkIY8L3RleHQ+CgogIDwhLS0g566X5rOVIC0tPgogIDxyZWN0IHg9IjU3MCIgeT0iNjAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZmZmM2UwIi8+CiAgPHRleHQgeD0iNjYwIiB5PSIxMDAiIGNsYXNzPSJpY29uIj7impnvuI88L3RleHQ+CiAgPHRleHQgeD0iNjYwIiB5PSIxNDAiIGNsYXNzPSJsYWJlbCI+566X5rOVPC90ZXh0PgogIDx0ZXh0IHg9IjY2MCIgeT0iMTY1IiBjbGFzcz0iZGVzYyI+6am+6am25oqA5pyvPC90ZXh0PgogIDx0ZXh0IHg9IjY2MCIgeT0iMjAwIiBjbGFzcz0iZGVzYyIgZm9udC1zaXplPSIxMSI+5aaC5L2V6LCD5pW05Y+C5pWwPC90ZXh0PgoKICA8IS0tIOW6lemDqOivtOaYjiAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjI5MCIgY2xhc3M9ImRlc2MiIGZvbnQtc2l6ZT0iMTIiPuS4ieiAhee8uuS4gOS4jeWPr++8jOWFseWQjOWGs+WumiBBSSDnmoTog73lips8L3RleHQ+Cgo8L3N2Zz4=" srcset="/img/loading.gif" lazyload alt="学习三要素">
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/" data-id="cuidCXErCtdsouWl1N6YgHljE" data-title="AI小侦探：机器如何像人类一样学习？" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" rel="tag">机器学习, 深度学习, 儿童科普</a></li></ul>
+<div id="gitalk-container"></div>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-    </footer>
-  </div>
+		<script>
+		var gitalkConfig = {"enable":true,"clientID":"Ov23liw93hKgxDUFkxDD","clientSecret":"477b6ef2d351bfce008dd9aa3e1ef66e57592c4f","repo":"wanzaixiaoxin.github.io","owner":"wanzaixiaoxin","admin":["wanzaixiaoxin"],"id":"location.pathname","title":"page.title","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","createIssueManually":false,"language":"zh-CN","proxy":"","distractionFreeMode":false};
+	    gitalkConfig.id = md5(location.pathname);
+		var gitalk = new Gitalk(gitalkConfig);
+	    gitalk.render("gitalk-container");
+	    </script>
+                
+              </div>
+            
+            <hr>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
   
     
-<nav id="article-nav">
+      <span class="category-chain">
+        
+  <a href="/categories/AI%E7%A7%91%E6%99%AE/" class="category-chain-item">AI科普</a>
   
-    <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          人工智能科普系列：孩子也能听懂的AI术语课
-        
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" class="print-no-link">#机器学习, 深度学习, 儿童科普</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>AI小侦探：机器如何像人类一样学习？</div>
+      <div>https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-AI小侦探：机器如何像人类一样学习？/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>小新</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>March 10, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="AI小侦探：机器如何像人类一样学习？" title="AI小侦探：机器如何像人类一样学习？">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/" title="人工智能科普系列：孩子也能听懂的AI术语课">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">人工智能科普系列：孩子也能听懂的AI术语课</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/10/2026-03-10-%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%A7%89%E9%86%92%EF%BC%9A%E5%BD%93AI%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E4%B8%8E%E7%BB%98%E7%94%BB/" title="创造力的觉醒：当AI开始写作与绘画">
+                        <span class="hidden-mobile">创造力的觉醒：当AI开始写作与绘画</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2026/03/10/2026-03-10-%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%A7%89%E9%86%92%EF%BC%9A%E5%BD%93AI%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E4%B8%8E%E7%BB%98%E7%94%BB/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">创造力的觉醒：当AI开始写作与绘画</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%8A%80%E6%9C%AF/">AI技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%94%9F%E6%80%81/">AI生态</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">AIGC, 生成式AI, 大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%85%A5%E9%97%A8/" rel="tag">AI入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BA%94%E7%94%A8/" rel="tag">AI应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/" rel="tag">RAG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">向量数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, AI产品, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" rel="tag">大模型, 机遇, 副业, 创业, 技能提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" rel="tag">大模型, 社会变革, 未来工作, AI教育, 智能生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 编程助手, 软件开发, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 行业应用, 产业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" rel="tag">机器学习, 深度学习, 儿童科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" rel="tag">知识库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" rel="tag">神经网络, 深度学习, 机器学习原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">AIGC, 生成式AI, 大模型</a> <a href="/tags/AI%E5%85%A5%E9%97%A8/" style="font-size: 10px;">AI入门</a> <a href="/tags/AI%E5%BA%94%E7%94%A8/" style="font-size: 10px;">AI应用</a> <a href="/tags/RAG/" style="font-size: 10px;">RAG</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">向量数据库</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, AI产品, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" style="font-size: 10px;">大模型, 机遇, 副业, 创业, 技能提升</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">大模型, 社会变革, 未来工作, AI教育, 智能生活</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 编程助手, 软件开发, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 行业应用, 产业变革</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" style="font-size: 10px;">机器学习, 深度学习, 儿童科普</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 10px;">知识库</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" style="font-size: 10px;">神经网络, 深度学习, 机器学习原理</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 10px;">科普</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/03/10/test-post/">Test Post</a>
-          </li>
-        
-          <li>
-            <a href="/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）</a>
-          </li>
-        
-          <li>
-            <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/">人工智能科普系列：孩子也能听懂的AI术语课</a>
-          </li>
-        
-          <li>
-            <a href="/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/">AI小侦探：机器如何像人类一样学习？</a>
-          </li>
-        
-          <li>
-            <a href="/2026/03/10/2026-03-10-%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%A7%89%E9%86%92%EF%BC%9A%E5%BD%93AI%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E4%B8%8E%E7%BB%98%E7%94%BB/">创造力的觉醒：当AI开始写作与绘画</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2026 小新<br>
-      Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="AI小侦探：机器如何像人类一样学习？" title="AI小侦探：机器如何像人类一样学习？">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="AI小侦探：机器如何像人类一样学习？" title="AI小侦探：机器如何像人类一样学习？"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="AI小侦探：机器如何像人类一样学习？" title="AI小侦探：机器如何像人类一样学习？"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" >
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-  </div>
+
+
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>
