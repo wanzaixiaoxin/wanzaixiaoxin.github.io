@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-news/0.9 http://www.google.com/schemas/sitemap-news/0.9/sitemap-news.xsd">
   <url>
-    <loc>https://wanzaixiaoxin.github.io/2026/03/10/test-post/</loc>
-    <news:news>
-      <news:publication>
-        <news:language>zh-Hans</news:language>
-        <news:name>Unknown Author</news:name>
-      </news:publication>
-      <news:title>Test Post</news:title>
-      <news:publication_date>2026-03-10T23:59:59+08:00</news:publication_date>
-    </news:news>
-  </url>
-  <url>
     <loc>https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</loc>
     <news:news>
       <news:publication>
