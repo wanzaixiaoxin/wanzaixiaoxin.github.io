@@ -1,0 +1,68 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="300" fill="#f8f9fa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">RAG 完整优化链路</text>
+  
+  <!-- 第一阶段：文档处理 -->
+  <rect x="20" y="60" width="140" height="80" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="90" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#1976d2">文档预处理</text>
+  <text x="90" y="115" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">智能切片</text>
+  <text x="90" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">去重清洗</text>
+  <text x="90" y="155" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">元数据增强</text>
+  
+  <!-- 箭头 1 -->
+  <path d="M160 100 L200 100" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 第二阶段：向量化 -->
+  <rect x="210" y="60" width="140" height="80" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="280" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#388e3c">向量化</text>
+  <text x="280" y="115" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">领域微调</text>
+  <text x="280" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">多模型融合</text>
+  <text x="280" y="155" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">维度优化</text>
+  
+  <!-- 箭头 2 -->
+  <path d="M350 100 L390 100" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 第三阶段：检索 -->
+  <rect x="400" y="60" width="140" height="80" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="470" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#f57c00">智能检索</text>
+  <text x="470" y="115" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">混合搜索</text>
+  <text x="470" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">重排序(Rerank)</text>
+  <text x="470" y="155" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">多路召回</text>
+  
+  <!-- 箭头 3 -->
+  <path d="M540 100 L580 100" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 第四阶段：生成 -->
+  <rect x="590" y="60" width="140" height="80" rx="8" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+  <text x="660" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#c2185b">智能生成</text>
+  <text x="660" y="115" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">Prompt工程</text>
+  <text x="660" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">上下文压缩</text>
+  <text x="660" y="155" text-anchor="middle" font-family="Arial" font-size="11" fill="#666">引用追踪</text>
+  
+  <!-- 评估指标 -->
+  <rect x="200" y="180" width="400" height="100" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" opacity="0.9"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#7b1fa2">优化效果评估</text>
+  
+  <!-- 指标条目 -->
+  <circle cx="260" cy="235" r="6" fill="#ff5722"/>
+  <text x="280" y="239" font-family="Arial" font-size="12" fill="#333">召回率提升: +50%</text>
+  
+  <circle cx="260" cy="255" r="6" fill="#4caf50"/>
+  <text x="280" y="259" font-family="Arial" font-size="12" fill="#333">响应延迟: -30%</text>
+  
+  <circle cx="460" cy="235" r="6" fill="#2196f3"/>
+  <text x="480" y="239" font-family="Arial" font-size="12" fill="#333">答案准确率: +40%</text>
+  
+  <circle cx="460" cy="255" r="6" fill="#ff9800"/>
+  <text x="480" y="259" font-family="Arial" font-size="12" fill="#333">成本节约: -25%</text>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

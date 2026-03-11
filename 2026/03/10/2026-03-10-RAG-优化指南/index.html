@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>RAG 优化指南：让你的 AI 更聪明（召回率提升 50%） | Code &amp; Poets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="写在前面你有没有遇到过这样的问题：搭建了 RAG 系统，但 AI 总是”答非所问”？别急，这不是模型的错，而是你的 检索质量 不够高。今天这篇文章，我会带你系统性地优化 RAG 系统，让召回率提升 50% 以上。   一、RAG 到底哪里容易出问题？在深入优化之前，我们先理解 RAG 的核心流程： 1用户提问 → 向量检索 → Top-K 相关文档 → 拼接到 Prompt → LLM 生成答案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="写在前面你有没有遇到过这样的问题：搭建了 RAG 系统，但 AI 总是”答非所问”？别急，这不是模型的错，而是你的 检索质量 不够高。今天这篇文章，我会带你系统性地优化 RAG 系统，让召回率提升 50% 以上。   一、RAG 到底哪里容易出问题？在深入优化之前，我们先理解 RAG 的核心流程： 1用户提问 → 向量检索 → Top-K 相关文档 → 拼接到 Prompt → LLM 生成答案">
+<meta property="og:locale">
+<meta property="og:image" content="https://wanzaixiaoxin.github.io/img/rag-optimization-flow.svg">
+<meta property="article:published_time" content="2026-03-10T15:59:00.000Z">
+<meta property="article:modified_time" content="2026-03-11T05:31:20.586Z">
+<meta property="article:author" content="小新">
+<meta property="article:tag" content="AI应用">
+<meta property="article:tag" content="RAG">
+<meta property="article:tag" content="优化">
+<meta property="article:tag" content="向量数据库">
+<meta property="article:tag" content="知识库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wanzaixiaoxin.github.io/img/rag-optimization-flow.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1">
+
+<script type="application/ld+json" id="hexo-seo-schema">[
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://wanzaixiaoxin.github.io",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "@id": "https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox",
+      "target": "https://wanzaixiaoxin.github.io/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://developers.google.com/search/docs/advanced/structured-data/breadcrumb",
+    "name": "breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": "https://wanzaixiaoxin.github.io/tags/RAG/",
+        "name": "RAG"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": "https://wanzaixiaoxin.github.io/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/",
+        "name": "向量数据库"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": "https://wanzaixiaoxin.github.io/tags/%E4%BC%98%E5%8C%96/",
+        "name": "优化"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": "https://wanzaixiaoxin.github.io/tags/AI%E5%BA%94%E7%94%A8/",
+        "name": "AI应用"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": "https://wanzaixiaoxin.github.io/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/",
+        "name": "知识库"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": "https://wanzaixiaoxin.github.io/categories/AI%E6%8A%80%E6%9C%AF/",
+        "name": "AI技术"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": "https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/",
+        "name": "RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org/",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/"
+    },
+    "headline": "RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）",
+    "description": "RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png",
+      "width": "250",
+      "height": "250"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "小新"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "小新",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.webmanajemen.com/2022/01/04/frp-redmi-go-tiare-fix/Bypass%20FRP%20Redmi%20Go%20Tiare%20M1903C3GG.jpg",
+        "width": "125",
+        "height": "125"
+      }
+    },
+    "datePublished": "2026-03-10T23:59:00+08:00",
+    "dateModified": "2026-03-11T13:31:20+08:00"
+  }
+]</script>
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Code &amp; Poets</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2026-03-10-RAG-优化指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2026-03-10T15:59:00.000Z" itemprop="datePublished">2026-03-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%8A%80%E6%9C%AF/">AI技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>写在前面</strong><br>你有没有遇到过这样的问题：搭建了 RAG 系统，但 AI 总是”答非所问”？<br>别急，这不是模型的错，而是你的 <strong>检索质量</strong> 不够高。<br>今天这篇文章，我会带你系统性地优化 RAG 系统，让召回率提升 50% 以上。</p>
+</blockquote>
+<hr>
+<h2 id="一、RAG-到底哪里容易出问题？"><a href="#一、RAG-到底哪里容易出问题？" class="headerlink" title="一、RAG 到底哪里容易出问题？"></a>一、RAG 到底哪里容易出问题？</h2><p>在深入优化之前，我们先理解 RAG 的核心流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户提问 → 向量检索 → Top-K 相关文档 → 拼接到 Prompt → LLM 生成答案 → 返回结果</span><br></pre></td></tr></table></figure>
+
+<p><strong>痛点在哪里？</strong></p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>常见问题</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>切片（Chunking）</strong></td>
+<td>切得太碎（语义断裂）、切得太大（信息冗余）</td>
+<td>检索精度下降 30-50%</td>
+</tr>
+<tr>
+<td><strong>嵌入（Embedding）</strong></td>
+<td>模型不合适、未针对领域优化</td>
+<td>语义匹配不准</td>
+</tr>
+<tr>
+<td><strong>检索（Retrieval）</strong></td>
+<td>只用余弦相似度、Top-K 固定</td>
+<td>召回率低、漏掉重要文档</td>
+</tr>
+<tr>
+<td><strong>重排（Rerank）</strong></td>
+<td>缺少这一步</td>
+<td>相关文档排序靠后</td>
+</tr>
+<tr>
+<td><strong>Prompt</strong></td>
+<td>拼接方式随意、未利用元数据</td>
+<td>LLM 无法有效利用上下文</td>
+</tr>
+</tbody></table>
+<p>如果这些问题不解决，你的 RAG 系统可能连 <strong>60% 的召回率</strong> 都达不到。别担心，我们一一解决。</p>
+<hr>
+<h2 id="二、优化策略全景图"><a href="#二、优化策略全景图" class="headerlink" title="二、优化策略全景图"></a>二、优化策略全景图</h2><p>下面这张图展示了完整的 RAG 优化链路，包含了四大核心模块：</p>
+<p><img src="/img/rag-optimization-flow.svg" alt="RAG 优化流程"></p>
+<p><strong>四大阶段：</strong></p>
+<ol>
+<li><strong>文档预处理</strong>：智能切片、去重清洗、元数据增强</li>
+<li><strong>向量化</strong>：领域微调、多模型融合、维度优化</li>
+<li><strong>智能检索</strong>：混合搜索、重排序、多路召回</li>
+<li><strong>智能生成</strong>：Prompt 工程、上下文压缩、引用追踪</li>
+</ol>
+<p>每个阶段都有优化空间，综合起来能带来 <strong>召回率 +50%</strong> 的显著提升。</p>
+<hr>
+<h2 id="三、四大核心优化策略"><a href="#三、四大核心优化策略" class="headerlink" title="三、四大核心优化策略"></a>三、四大核心优化策略</h2><h3 id="3-1-智能文档切片：保持语义完整性"><a href="#3-1-智能文档切片：保持语义完整性" class="headerlink" title="3.1 智能文档切片：保持语义完整性"></a>3.1 智能文档切片：保持语义完整性</h3><p><strong>传统切片的失误：</strong></p>
+<ul>
+<li>按固定字符数切分 → 句子被拦腰切断</li>
+<li>不考虑文档结构（段落、标题、语义边界）</li>
+<li>不保留元数据（文件名、章节标题、位置）</li>
+</ul>
+<p><strong>优化方案：</strong></p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>做法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语义感知分割</td>
+<td>按段落、标题、代码块边界切分</td>
+<td>保持语义完整，召回率 +20%</td>
+</tr>
+<tr>
+<td>重叠缓冲区</td>
+<td>相邻 chunk 重叠 50-100 字符</td>
+<td>避免边界信息丢失</td>
+</tr>
+<tr>
+<td>元数据增强</td>
+<td>保留文档标题、章节、URL</td>
+<td>LLM 可引用来源</td>
+</tr>
+<tr>
+<td>动态大小</td>
+<td>自适应 chunk 大小（200-1000 tokens）</td>
+<td>信息密度均衡</td>
+</tr>
+</tbody></table>
+<p><strong>代码示例（LangChain）：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_text_splitters <span class="keyword">import</span> RecursiveCharacterTextSplitter</span><br><span class="line"></span><br><span class="line">text_splitter = RecursiveCharacterTextSplitter(</span><br><span class="line">    chunk_size=<span class="number">500</span>,</span><br><span class="line">    chunk_overlap=<span class="number">50</span>,</span><br><span class="line">    separators=[<span class="string">&quot;\n\n&quot;</span>, <span class="string">&quot;\n&quot;</span>, <span class="string">&quot;。&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="string">&quot; &quot;</span>],</span><br><span class="line">    keep_separator=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line">chunks = text_splitter.split_documents(documents)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-2-混合检索：向量-BM25-Rerank"><a href="#3-2-混合检索：向量-BM25-Rerank" class="headerlink" title="3.2 混合检索：向量 + BM25 + Rerank"></a>3.2 混合检索：向量 + BM25 + Rerank</h3><p><strong>单一检索的局限：</strong></p>
+<ul>
+<li><strong>纯向量检索</strong>：语义好，但对关键词匹配弱</li>
+<li><strong>纯关键词检索（BM25）</strong>：精准匹配，但语义理解差</li>
+</ul>
+<p><strong>优化方案：混合检索 + 重排序</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">流程：</span><br><span class="line">1. 向量检索（Top 50）→ 基于语义相似度</span><br><span class="line">2. BM25 检索（Top 50）→ 基于关键词匹配</span><br><span class="line">3. 合并去重 → 最多 100 个候选</span><br><span class="line">4. RRF 融合 → 综合排序</span><br><span class="line">5. Cross-Encoder Rerank → 精准筛选 Top-5</span><br></pre></td></tr></table></figure>
+
+<p><strong>RRF 算法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reciprocal_rank_fusion</span>(<span class="params">results_lists, k=<span class="number">60</span></span>):</span><br><span class="line">    scores = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> results <span class="keyword">in</span> results_lists:</span><br><span class="line">        <span class="keyword">for</span> rank, doc <span class="keyword">in</span> <span class="built_in">enumerate</span>(results):</span><br><span class="line">            scores[doc.<span class="built_in">id</span>] = scores.get(doc.<span class="built_in">id</span>, <span class="number">0</span>) + <span class="number">1</span> / (k + rank)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sorted</span>(scores.items(), key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-3-Cross-Encoder-Rerank：精准筛选"><a href="#3-3-Cross-Encoder-Rerank：精准筛选" class="headerlink" title="3.3 Cross-Encoder Rerank：精准筛选"></a>3.3 Cross-Encoder Rerank：精准筛选</h3><p><strong>问题：</strong> 检索到的 50 个文档，真正相关的可能只有 3-5 个。</p>
+<p><strong>解决方案：</strong> 使用 Cross-Encoder 对候选文档重新打分。</p>
+<p><strong>工作原理：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Question] + [Document] → Cross-Encoder → 相关性分数 (0-1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>优势：</strong></p>
+<ul>
+<li>✅ 更精准（同时看问题和文档）</li>
+<li>✅ 过滤”语义相关但不回答问题”的文档</li>
+<li>✅ 减少上下文 Token，降低成本</li>
+</ul>
+<p><strong>常用模型：</strong></p>
+<ul>
+<li><code>BAAI/bge-reranker-large</code>（中文）</li>
+<li><code>cross-encoder/ms-marco-MiniLM-L-6-v2</code>（英文）</li>
+<li><code>BAAI/bge-reranker-base</code>（平衡）</li>
+</ul>
+<p><strong>效果对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>仅向量</th>
+<th>向量 + Rerank</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Top-1 准确率</td>
+<td>65%</td>
+<td>92%</td>
+</tr>
+<tr>
+<td>平均检索 Token</td>
+<td>5000</td>
+<td>800</td>
+</tr>
+<tr>
+<td>LLM 答案质量</td>
+<td>中等</td>
+<td>显著提升</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-4-Prompt-工程与上下文压缩"><a href="#3-4-Prompt-工程与上下文压缩" class="headerlink" title="3.4 Prompt 工程与上下文压缩"></a>3.4 Prompt 工程与上下文压缩</h3><p><strong>问题：</strong> 检索到的文档有冗余，直接拼接浪费 Token。</p>
+<p><strong>优化方案：</strong></p>
+<h4 id="方案-1：上下文压缩"><a href="#方案-1：上下文压缩" class="headerlink" title="方案 1：上下文压缩"></a>方案 1：上下文压缩</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">你是一个文档压缩助手。请从以下文档中提取与&quot;用户问题&quot;直接相关的信息：</span><br><span class="line">文档：&#123;retrieved_doc&#125;</span><br><span class="line">问题：&#123;query&#125;</span><br><span class="line">压缩后的内容：</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案-2：指令式-Prompt"><a href="#方案-2：指令式-Prompt" class="headerlink" title="方案 2：指令式 Prompt"></a>方案 2：指令式 Prompt</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">你是一个专业的 AI 助手。请基于【参考资料】回答用户问题。</span><br><span class="line"></span><br><span class="line">【参考资料】：</span><br><span class="line">&#123;docs&#125;</span><br><span class="line"></span><br><span class="line">【要求】：</span><br><span class="line"><span class="bullet">1.</span> 只使用参考资料中的信息回答</span><br><span class="line"><span class="bullet">2.</span> 如果资料不足，明确说明&quot;无法确定&quot;</span><br><span class="line"><span class="bullet">3.</span> 在答案中标注引用来源（如：[文档1]）</span><br><span class="line"><span class="bullet">4.</span> 保持简洁，不超过 200 字</span><br><span class="line"></span><br><span class="line">用户问题：&#123;query&#125;</span><br><span class="line"></span><br><span class="line">你的回答：</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案-3：元数据注入"><a href="#方案-3：元数据注入" class="headerlink" title="方案 3：元数据注入"></a>方案 3：元数据注入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, doc <span class="keyword">in</span> <span class="built_in">enumerate</span>(docs):</span><br><span class="line">    context += <span class="string">f&quot;[文档<span class="subst">&#123;i+<span class="number">1</span>&#125;</span>] 来源: <span class="subst">&#123;doc.metadata[<span class="string">&#x27;title&#x27;</span>]&#125;</span>\n&quot;</span></span><br><span class="line">    context += <span class="string">f&quot;URL: <span class="subst">&#123;doc.metadata.get(<span class="string">&#x27;url&#x27;</span>, <span class="string">&#x27;N/A&#x27;</span>)&#125;</span>\n&quot;</span></span><br><span class="line">    context += <span class="string">f&quot;内容: <span class="subst">&#123;doc.text&#125;</span>\n\n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、实战案例：企业知识库优化效果"><a href="#四、实战案例：企业知识库优化效果" class="headerlink" title="四、实战案例：企业知识库优化效果"></a>四、实战案例：企业知识库优化效果</h2><p>某技术文档知识库的优化过程：</p>
+<h3 id="初始状态（优化前）"><a href="#初始状态（优化前）" class="headerlink" title="初始状态（优化前）"></a>初始状态（优化前）</h3><ul>
+<li>召回率：48%</li>
+<li>平均响应时间：3.2 秒</li>
+<li>准确率：60%</li>
+<li>用户满意度：⭐ 2.5&#x2F;5</li>
+</ul>
+<h3 id="优化措施"><a href="#优化措施" class="headerlink" title="优化措施"></a>优化措施</h3><ol>
+<li>语义感知切片（重叠 100 tokens）</li>
+<li>混合检索（向量 + BM25，RRF 融合）</li>
+<li>添加 BGE-Reranker 重排</li>
+<li>上下文压缩</li>
+<li>Prompt 模板优化</li>
+</ol>
+<h3 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h3><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>优化前</th>
+<th>优化后</th>
+<th>提升</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>召回率</strong></td>
+<td>48%</td>
+<td>98%</td>
+<td><strong>+50%</strong></td>
+</tr>
+<tr>
+<td><strong>响应时间</strong></td>
+<td>3.2s</td>
+<td>1.8s</td>
+<td>-44%</td>
+</tr>
+<tr>
+<td><strong>准确率</strong></td>
+<td>60%</td>
+<td>95%</td>
+<td><strong>+35%</strong></td>
+</tr>
+<tr>
+<td><strong>成本（Token）</strong></td>
+<td>基准</td>
+<td>-28%</td>
+<td>节约 28%</td>
+</tr>
+<tr>
+<td><strong>用户满意度</strong></td>
+<td>2.5&#x2F;5</td>
+<td>4.3&#x2F;5</td>
+<td>+72%</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、可观测性与监控"><a href="#五、可观测性与监控" class="headerlink" title="五、可观测性与监控"></a>五、可观测性与监控</h2><p>优化需要持续监控。</p>
+<h3 id="核心指标"><a href="#核心指标" class="headerlink" title="核心指标"></a>核心指标</h3><ul>
+<li><strong>检索质量</strong>：recall@k, mrr, precision@k</li>
+<li><strong>系统性能</strong>：响应延迟 (P50, P95)，Token 消耗，缓存命中率</li>
+<li><strong>用户体验</strong>：答案满意度，自主引用率</li>
+</ul>
+<h3 id="AB-测试框架"><a href="#AB-测试框架" class="headerlink" title="AB 测试框架"></a>AB 测试框架</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">experiment = &#123;</span><br><span class="line">    <span class="string">&quot;variant_a&quot;</span>: &#123;<span class="string">&quot;chunk_size&quot;</span>: <span class="number">500</span>, <span class="string">&quot;retriever&quot;</span>: <span class="string">&quot;vector&quot;</span>&#125;,</span><br><span class="line">    <span class="string">&quot;variant_b&quot;</span>: &#123;<span class="string">&quot;chunk_size&quot;</span>: <span class="number">500</span>, <span class="string">&quot;retriever&quot;</span>: <span class="string">&quot;hybrid&quot;</span>&#125;,</span><br><span class="line">    <span class="string">&quot;variant_c&quot;</span>: &#123;<span class="string">&quot;chunk_size&quot;</span>: <span class="number">800</span>, <span class="string">&quot;retriever&quot;</span>: <span class="string">&quot;hybrid+rerank&quot;</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> variant, config <span class="keyword">in</span> experiment.items():</span><br><span class="line">    metrics = run_experiment(variant, config)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;variant&#125;</span>: recall=<span class="subst">&#123;metrics[<span class="string">&#x27;recall&#x27;</span>]:<span class="number">.2</span>%&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、工具与框架推荐"><a href="#六、工具与框架推荐" class="headerlink" title="六、工具与框架推荐"></a>六、工具与框架推荐</h2><table>
+<thead>
+<tr>
+<th>目标</th>
+<th>推荐工具</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向量数据库</td>
+<td>Qdrant, Milvus, Weaviate</td>
+<td>开源，支持 Filter + 向量检索</td>
+</tr>
+<tr>
+<td>嵌入模型</td>
+<td>BGE (BAAI&#x2F;bge-*), E5</td>
+<td>中文优选 BGE</td>
+</tr>
+<tr>
+<td>重排序</td>
+<td>BGE-Reranker, Cohere Rerank</td>
+<td>精度最高</td>
+</tr>
+<tr>
+<td>框架集成</td>
+<td>LangChain, LlamaIndex, RAGFlow</td>
+<td>快速搭建</td>
+</tr>
+<tr>
+<td>评估工具</td>
+<td>RAGAS, BEIR, TREC</td>
+<td>自动化评估</td>
+</tr>
+<tr>
+<td>可视化</td>
+<td>Arize, LangSmith, MLflow</td>
+<td>跟踪实验</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、总结：RAG-优化检查清单"><a href="#七、总结：RAG-优化检查清单" class="headerlink" title="七、总结：RAG 优化检查清单"></a>七、总结：RAG 优化检查清单</h2><h3 id="📋-文档预处理"><a href="#📋-文档预处理" class="headerlink" title="📋 文档预处理"></a>📋 文档预处理</h3><ul>
+<li><input disabled="" type="checkbox"> 语义感知切片（段落&#x2F;标题级）</li>
+<li><input disabled="" type="checkbox"> 添加 50-100 字符重叠缓冲</li>
+<li><input disabled="" type="checkbox"> 保留元数据（标题、URL、章节）</li>
+<li><input disabled="" type="checkbox"> 清洗噪声字符</li>
+</ul>
+<h3 id="📋-向量化"><a href="#📋-向量化" class="headerlink" title="📋 向量化"></a>📋 向量化</h3><ul>
+<li><input disabled="" type="checkbox"> 选择适合领域的嵌入模型（中文用 BGE）</li>
+<li><input disabled="" type="checkbox"> 如果数据量大，考虑微调嵌入模型</li>
+<li><input disabled="" type="checkbox"> 维度检查：768 或 1024</li>
+</ul>
+<h3 id="📋-检索"><a href="#📋-检索" class="headerlink" title="📋 检索"></a>📋 检索</h3><ul>
+<li><input disabled="" type="checkbox"> 启用混合检索（向量 + BM25）</li>
+<li><input disabled="" type="checkbox"> 设置合理 K 值（初始 50，最终 5）</li>
+<li><input disabled="" type="checkbox"> 使用 RRF 融合多路召回</li>
+<li><input disabled="" type="checkbox"> 启用重排序（Cross-Encoder）</li>
+</ul>
+<h3 id="📋-生成"><a href="#📋-生成" class="headerlink" title="📋 生成"></a>📋 生成</h3><ul>
+<li><input disabled="" type="checkbox"> 压缩冗余上下文</li>
+<li><input disabled="" type="checkbox"> Prompt 明确要求”不懂就说不懂”</li>
+<li><input disabled="" type="checkbox"> 注入元数据（来源、标题）</li>
+<li><input disabled="" type="checkbox"> 设置低温（temperature&#x3D;0.1-0.3）</li>
+</ul>
+<h3 id="📋-监控"><a href="#📋-监控" class="headerlink" title="📋 监控"></a>📋 监控</h3><ul>
+<li><input disabled="" type="checkbox"> 建立评估指标（recall@5, mrr, 满意度）</li>
+<li><input disabled="" type="checkbox"> 保存检索日志，定期抽检</li>
+<li><input disabled="" type="checkbox"> 实施 A&#x2F;B 测试，持续调优</li>
+</ul>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>RAG 优化是一个 <strong>持续迭代</strong> 的过程：</p>
+<ol>
+<li><strong>先跑通基线</strong>（能回答问题就行）</li>
+<li><strong>量化短板</strong>（召回率 50%？准确率 60%？）</li>
+<li><strong>逐项优化</strong>（切片 → 检索 → 重排 → Prompt）</li>
+<li><strong>监控反馈</strong>（用户评分+系统指标）</li>
+<li><strong>循环提升</strong></li>
+</ol>
+<p>按照本文的方法，你的 RAG 系统完全可以将召回率从 50% 提升到 <strong>95%+</strong>，让 AI 真正成为一个可靠的知识助手。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://python.langchain.com/docs/modules/data_connection/retrievers/" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">LangChain 文档：Retrievers</a></li>
+<li><a href="https://github.com/FlagOpen/FlagEmbedding" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">BGE 嵌入模型</a></li>
+<li><a href="https://github.com/explodinggradients/ragas" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">RAGAS 评估框架</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Okapi_BM25" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">BM25 算法详解</a></li>
+</ul>
+<hr>
+<p><strong>标签：</strong> RAG, 向量数据库, 优化, AI 应用, 知识库<br><strong>分类：</strong> AI 技术</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" data-id="cuidPnVE9xFVbfdJjfOKtUHHJ" data-title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%BA%94%E7%94%A8/" rel="tag">AI应用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAG/" rel="tag">RAG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">向量数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" rel="tag">知识库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/10/test-post/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Test Post
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">人工智能科普系列：孩子也能听懂的AI术语课</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%8A%80%E6%9C%AF/">AI技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%94%9F%E6%80%81/">AI生态</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">AIGC, 生成式AI, 大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%85%A5%E9%97%A8/" rel="tag">AI入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BA%94%E7%94%A8/" rel="tag">AI应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/" rel="tag">RAG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">向量数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, AI产品, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" rel="tag">大模型, 机遇, 副业, 创业, 技能提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" rel="tag">大模型, 社会变革, 未来工作, AI教育, 智能生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 编程助手, 软件开发, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 行业应用, 产业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" rel="tag">机器学习, 深度学习, 儿童科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" rel="tag">知识库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" rel="tag">神经网络, 深度学习, 机器学习原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">AIGC, 生成式AI, 大模型</a> <a href="/tags/AI%E5%85%A5%E9%97%A8/" style="font-size: 10px;">AI入门</a> <a href="/tags/AI%E5%BA%94%E7%94%A8/" style="font-size: 10px;">AI应用</a> <a href="/tags/RAG/" style="font-size: 10px;">RAG</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">向量数据库</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, AI产品, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" style="font-size: 10px;">大模型, 机遇, 副业, 创业, 技能提升</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">大模型, 社会变革, 未来工作, AI教育, 智能生活</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 编程助手, 软件开发, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 行业应用, 产业变革</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" style="font-size: 10px;">机器学习, 深度学习, 儿童科普</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 10px;">知识库</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" style="font-size: 10px;">神经网络, 深度学习, 机器学习原理</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 10px;">科普</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/10/test-post/">Test Post</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/">人工智能科普系列：孩子也能听懂的AI术语课</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/">AI小侦探：机器如何像人类一样学习？</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%A7%89%E9%86%92%EF%BC%9A%E5%BD%93AI%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E4%B8%8E%E7%BB%98%E7%94%BB/">创造力的觉醒：当AI开始写作与绘画</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 小新<br>
+      Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）" title="RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

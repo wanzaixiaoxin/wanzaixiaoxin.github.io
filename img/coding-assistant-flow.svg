@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <style>
+    .box { fill: #fff; stroke: #333; stroke-width: 2; rx: 6; }
+    .header { fill: #1976d2; }
+    .label { font-size: 14px; font-weight: bold; fill: #333; text-anchor: middle; }
+    .desc { font-size: 12px; fill: #666; text-anchor: middle; }
+    .arrow { stroke: #666; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
+    .io { fill: #e3f2fd; }
+    .process { fill: #e8f5e9; }
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="30" class="label" font-size="18">AI 编程助手工作流</text>
+
+  <!-- 开发者输入 -->
+  <rect x="50" y="60" width="200" height="80" class="box io"/>
+  <text x="150" y="90" class="label">开发者</text>
+  <text x="150" y="110" class="desc">写注释 / 描述需求</text>
+  <text x="150" y="130" class="desc">或选中代码</text>
+
+  <!-- 箭头 -->
+  <line x1="250" y1="100" x2="300" y2="100" class="arrow"/>
+  <text x="275" y="115" class="desc" font-size="11">发送</text>
+
+  <!-- AI 模型 -->
+  <rect x="320" y="60" width="200" height="80" class="box process"/>
+  <text x="420" y="90" class="label">AI 模型</text>
+  <text x="420" y="110" class="desc">代码生成引擎</text>
+  <text x="420" y="130" class="desc">(Copilot/Cursor)</text>
+
+  <!-- 箭头 -->
+  <line x1="520" y1="100" x2="570" y2="100" class="arrow"/>
+  <text x="545" y="115" class="desc" font-size="11">返回代码</text>
+
+  <!-- 输出结果 -->
+  <rect x="590" y="60" width="160" height="80" class="box io"/>
+  <text x="670" y="90" class="label">生成结果</text>
+  <text x="670" y="110" class="desc">代码片段</text>
+  <text x="670" y="130" class="desc">或完整函数</text>
+
+  <!-- 下方循环 -->
+  <text x="400" y="200" class="label" font-size="14">互动循环</text>
+  <path d="M 200 220 L 600 220 L 600 320 L 200 320 Z" fill="none" stroke="#ddd" stroke-dasharray="5,5"/>
+  <text x="400" y="250" class="desc">开发者审查 → 修改提示 → AI 重生成</text>
+  <text x="400" y="280" class="desc">直到满意为止（通常 3-5 轮）</text>
+
+  <!-- 底部统计 -->
+  <rect x="150" y="360" width="500" height="100" class="box" fill="#f5f5f5"/>
+  <text x="400" y="390" class="label" font-size="16">效果提升</text>
+  <text x="400" y="420" class="desc">效率提升 30-50% | 代码质量提升 | 学习成本降低</text>
+  <text x="400" y="450" class="desc">适用范围：前端、后端、测试、文档</text>
+
+</svg>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>人工智能科普系列：孩子也能听懂的AI术语课 | Code &amp; Poets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="写在前面你是否曾被一堆术语吓退：AI、ML、LLM、RAG、AIGC…它们听起来像密码一样。别担心，这篇文章会像讲故事一样，让你轻轻松松理解AI世界的”行话”。准备好了吗？我们出发吧。   一、从零开始：AI 到底是什么？先问你一个问题：你觉得「让机器变聪明」有多难？ 想象一下，你教一个小朋友认字。你不会给他一本字典说”字都在里面了”，而是指着图片说”这是苹果”、”那是汽车”。一遍遍地重复，慢慢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能科普系列：孩子也能听懂的AI术语课">
+<meta property="og:url" content="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/index.html">
+<meta property="og:site_name" content="Code &amp; Poets">
+<meta property="og:description" content="写在前面你是否曾被一堆术语吓退：AI、ML、LLM、RAG、AIGC…它们听起来像密码一样。别担心，这篇文章会像讲故事一样，让你轻轻松松理解AI世界的”行话”。准备好了吗？我们出发吧。   一、从零开始：AI 到底是什么？先问你一个问题：你觉得「让机器变聪明」有多难？ 想象一下，你教一个小朋友认字。你不会给他一本字典说”字都在里面了”，而是指着图片说”这是苹果”、”那是汽车”。一遍遍地重复，慢慢">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-03-10T07:58:00.000Z">
+<meta property="article:modified_time" content="2026-03-10T08:30:00.000Z">
+<meta property="article:author" content="小新">
+<meta property="article:tag" content="AI入门">
+<meta property="article:tag" content="科普">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Code & Poets" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1">
+
+<script type="application/ld+json" id="hexo-seo-schema">[
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://wanzaixiaoxin.github.io",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "@id": "https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox",
+      "target": "https://wanzaixiaoxin.github.io/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://developers.google.com/search/docs/advanced/structured-data/breadcrumb",
+    "name": "breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": "https://wanzaixiaoxin.github.io/tags/%E7%A7%91%E6%99%AE/",
+        "name": "科普"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": "https://wanzaixiaoxin.github.io/tags/AI%E5%85%A5%E9%97%A8/",
+        "name": "AI入门"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": "https://wanzaixiaoxin.github.io/categories/AI%E7%A7%91%E6%99%AE/",
+        "name": "AI科普"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": "https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/",
+        "name": "人工智能科普系列：孩子也能听懂的AI术语课"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org/",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/"
+    },
+    "headline": "人工智能科普系列：孩子也能听懂的AI术语课",
+    "description": "人工智能科普系列：孩子也能听懂的AI术语课",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png",
+      "width": "250",
+      "height": "250"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "小新"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "小新",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.webmanajemen.com/2022/01/04/frp-redmi-go-tiare-fix/Bypass%20FRP%20Redmi%20Go%20Tiare%20M1903C3GG.jpg",
+        "width": "125",
+        "height": "125"
+      }
+    },
+    "datePublished": "2026-03-10T15:58:00+08:00",
+    "dateModified": "2026-03-10T16:30:00+08:00"
+  }
+]</script>
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Code &amp; Poets</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wanzaixiaoxin.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2026-03-10-人工智能科普系列：孩子也能听懂的AI术语课" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/" class="article-date">
+  <time class="dt-published" datetime="2026-03-10T07:58:00.000Z" itemprop="datePublished">2026-03-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      人工智能科普系列：孩子也能听懂的AI术语课
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>写在前面</strong><br>你是否曾被一堆术语吓退：AI、ML、LLM、RAG、AIGC…它们听起来像密码一样。<br>别担心，这篇文章会像讲故事一样，让你轻轻松松理解AI世界的”行话”。<br>准备好了吗？我们出发吧。</p>
+</blockquote>
+<hr>
+<h2 id="一、从零开始：AI-到底是什么？"><a href="#一、从零开始：AI-到底是什么？" class="headerlink" title="一、从零开始：AI 到底是什么？"></a>一、从零开始：AI 到底是什么？</h2><p>先问你一个问题：你觉得「让机器变聪明」有多难？</p>
+<p>想象一下，你教一个小朋友认字。你不会给他一本字典说”字都在里面了”，而是指着图片说”这是苹果”、”那是汽车”。一遍遍地重复，慢慢地，他就认得了。</p>
+<p><strong>AI 就是这样一门学问</strong>——它不要求我们写死规则，而是让机器从大量的例子中自己学会。</p>
+<blockquote>
+<p>💡 <strong>一句话说清楚</strong><br>AI &#x3D; 让机器完成那些需要「智能」才能做到的事。</p>
+</blockquote>
+<p>而实现 AI 的方式有很多种，最主流的一种叫做…</p>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgODAwIDEyMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNlM2YyZmQ7IHN0cm9rZTogIzIxOTZmMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogODsgfQogICAgLmFycm93IHsgZmlsbDogbm9uZTsgc3Ryb2tlOiAjNjY2OyBzdHJva2Utd2lkdGg6IDI7IG1hcmtlci1lbmQ6IHVybCgjYXJyb3doZWFkKTsgfQogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBmaWxsOiAjMzMzOyB9CiAgICAubGFiZWwgeyBmb250LXdlaWdodDogYm9sZDsgfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQiIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSI3IiByZWZYPSI5IiByZWZZPSIzLjUiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCAxMCAzLjUsIDAgNyIgZmlsbD0iIzY2NiIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjUwIiB5PSIzNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI1MCIgY2xhc3M9ImJveCIvPgogIDx0ZXh0IHg9IjExMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+5aSn6YeP5pWw5o2uPC90ZXh0PgogIDxwYXRoIGQ9Ik0xNzAgNjAgTDIzMCA2MCIgY2xhc3M9ImFycm93Ii8+CiAgPHJlY3QgeD0iMjUwIiB5PSIzNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI1MCIgY2xhc3M9ImJveCIvPgogIDx0ZXh0IHg9IjMxMCIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+QUkg5qih5Z6LPC90ZXh0PgogIDx0ZXh0IHg9IjMxMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+5LuO5pWw5o2u5Lit5a2m5Lmg6KeE5b6LPC90ZXh0PgogIDxwYXRoIGQ9Ik0zNzAgNjAgTDQzMCA2MCIgY2xhc3M9ImFycm93Ii8+CiAgPHJlY3QgeD0iNDUwIiB5PSIzNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI1MCIgY2xhc3M9ImJveCIgZmlsbD0iI2U4ZjVlOSIgc3Ryb2tlPSIjNGNhZjUwIi8+CiAgPHRleHQgeD0iNTEwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7mmbrog73og73lips8L3RleHQ+CiAgPHRleHQgeD0iNTEwIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7or4bliKvjgIHpooTmtYvjgIHnlJ/miJAuLi48L3RleHQ+Cjwvc3ZnPgo=" alt="学习概念">
+
+<hr>
+<h2 id="二、机器学习：让机器自己「悟」"><a href="#二、机器学习：让机器自己「悟」" class="headerlink" title="二、机器学习：让机器自己「悟」"></a>二、机器学习：让机器自己「悟」</h2><h3 id="传统编程-vs-机器学习"><a href="#传统编程-vs-机器学习" class="headerlink" title="传统编程 vs 机器学习"></a>传统编程 vs 机器学习</h3><ul>
+<li><p><strong>传统方式</strong>：你写规则。<br>「如果图片有胡须、有猫耳朵、会喵喵叫，那就是猫」<br>问题：世界上有成千上万种猫，你写得完吗？</p>
+</li>
+<li><p><strong>机器学习</strong>：你给例子，让它自己总结。<br>你扔给机器 1000 张猫和非猫的图片，说”你看着办”。<br>机器会自己找出规律：「原来猫大概长这样…」</p>
+</li>
+</ul>
+<p>这就是机器学习的核心：<strong>从数据中自動发现模式</strong>。</p>
+<blockquote>
+<p>🌟 <strong>记住这个比喻</strong><br>机器学习 ≈ 学生刷题<br>刷得越多，考试越在行。<br>老师不用告诉它「每道题该怎么解」，他自己会举一反三。</p>
+</blockquote>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNmZmY7IHN0cm9rZTogIzMzMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogNjsgfQogICAgLmhlYWRlciB7IGZpbGw6ICMxOTc2ZDI7IH0KICAgIC5pdGVtIHsgZmlsbDogI2Y1ZjVmNTsgc3Ryb2tlOiAjZGRkOyB9CiAgICB0ZXh0IHsgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDEzcHg7IH0KICAgIC50aXRsZSB7IGZvbnQtc2l6ZTogMTZweDsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZpbGw6IHdoaXRlOyB9CiAgICAubGFiZWwgeyBmb250LXNpemU6IDEzcHg7IGZpbGw6ICMzMzM7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgIC5kZXNjIHsgZm9udC1zaXplOiAxMXB4OyBmaWxsOiAjNjY2OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgPC9zdHlsZT4KICA8ZGVmcz4KICAgIDxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCAxMCA1LCAwIDEwIiBmaWxsPSIjNjY2Ii8+CiAgICA8L21hcmtlcj4KICA8L2RlZnM+CgogIDwhLS0g5Lyg57uf57yW56iLIC0tPgogIDxyZWN0IHg9IjUwIiB5PSIyMCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNjAiIGNsYXNzPSJib3giLz4KICA8cmVjdCB4PSI1MCIgeT0iMjAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAiIGNsYXNzPSJoZWFkZXIiLz4KICA8dGV4dCB4PSIyMDAiIHk9IjM4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0idGl0bGUiPuS8oOe7n+e8lueoizwvdGV4dD4KICA8cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSIyNjAiIGhlaWdodD0iNDAiIGNsYXNzPSJpdGVtIi8+CiAgPHRleHQgeD0iMjAwIiB5PSI5NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7ovpPlhaXvvJrop4TliJkgKyDmlbDmja48L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIxMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJkZXNjIj7kvovlpoLvvJrjgIzlpoLmnpzog6Hpobsr6ICz5py1PeeMq+OAjTwvdGV4dD4KICA8cGF0aCBkPSJNMjAwIDExMCBMMjAwIDEzMCIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIG1hcmtlci1lbmQ9InVybCgjYXJyb3cpIi8+CiAgPHJlY3QgeD0iNzAiIHk9IjEzMCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIzMCIgY2xhc3M9Iml0ZW0iIGZpbGw9IiNlM2YyZmQiLz4KICA8dGV4dCB4PSIyMDAiIHk9IjE1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7ovpPlh7rvvJrnrZTmoYg8L3RleHQ+CgogIDwhLS0g566t5aS0IC0tPgogIDxwYXRoIGQ9Ik0zNjAgMTAwIEwzODAgMTAwIiBjbGFzcz0iYXJyb3ciIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLWRhc2hhcnJheT0iNSw1Ii8+CgogIDwhLS0g5py65Zmo5a2m5LmgIC0tPgogIDxyZWN0IHg9IjQ1MCIgeT0iMjAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTYwIiBjbGFzcz0iYm94Ii8+CiAgPHJlY3QgeD0iNDUwIiB5PSIyMCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMCIgY2xhc3M9ImhlYWRlciIgZmlsbD0iIzM4OGUzYyIvPgogIDx0ZXh0IHg9IjYwMCIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJ0aXRsZSI+5py65Zmo5a2m5LmgPC90ZXh0PgogIDxyZWN0IHg9IjQ3MCIgeT0iNzAiIHdpZHRoPSIyNjAiIGhlaWdodD0iNDAiIGNsYXNzPSJpdGVtIi8+CiAgPHRleHQgeD0iNjAwIiB5PSI5NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7ovpPlhaXvvJrmlbDmja4gKyDnrZTmoYg8L3RleHQ+CiAgPHRleHQgeD0iNjAwIiB5PSIxMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJkZXNjIj7kvovlpoLvvJoxMDAw5byg5qCH5rOo5aW955qE54yrL+mdnueMq+WbvjwvdGV4dD4KICA8cGF0aCBkPSJNNjAwIDExMCBMNjAwIDEzMCIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiIG1hcmtlci1lbmQ9InVybCgjYXJyb3cpIi8+CiAgPHJlY3QgeD0iNDcwIiB5PSIxMzAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMzAiIGNsYXNzPSJpdGVtIiBmaWxsPSIjZThmNWU5Ii8+CiAgPHRleHQgeD0iNjAwIiB5PSIxNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+6L6T5Ye677ya6KeE5YiZ77yI5qih5Z6L77yJPC90ZXh0PgoKPC9zdmc+Cg==" alt="机器学习 vs 传统编程">
+
+<hr>
+<h2 id="三、深度学习：更「深」的理解"><a href="#三、深度学习：更「深」的理解" class="headerlink" title="三、深度学习：更「深」的理解"></a>三、深度学习：更「深」的理解</h2><p>深度学习是机器学习的一种，但它用的方法更高级——<strong>神经网络</strong>。</p>
+<p>你可以把神经网络想象成一个「洋葱结构」：</p>
+<ul>
+<li>第一层：学简单的特征（边缘、角、颜色）</li>
+<li>第二层：组合成简单形状（圆形、三角形）</li>
+<li>第三层：组合成物体（眼睛、轮子）</li>
+<li>最后一层：组合成完整的概念（猫的脸、汽车的车身）</li>
+</ul>
+<p>每多层都在做更高级的抽象。</p>
+<blockquote>
+<p>🧠 <strong>打个比方</strong><br>你教小孩认猫：<br>普通机器学习：给他 100 张猫图，让他背住。<br>深度学习：让他先看线条，再看形状，再看整体——自己「构建」出猫的概念。<br>这就是为什么深度学习在图像、语音、文本上特别强。</p>
+</blockquote>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgODAwIDMwMCI+CiAgPHN0eWxlPgogICAgLmxheWVyIHsgZmlsbDogI2JiZGVmYjsgc3Ryb2tlOiAjMjE5NmYzOyBzdHJva2Utd2lkdGg6IDI7IH0KICAgIC5sYXllci0xIHsgZmlsbDogI2ZmY2RkMjsgc3Ryb2tlOiAjZjQ0MzM2OyB9CiAgICAubGF5ZXItMiB7IGZpbGw6ICNjOGU2Yzk7IHN0cm9rZTogIzRjYWY1MDsgfQogICAgLmxheWVyLTMgeyBmaWxsOiAjZmZmOWM0OyBzdHJva2U6ICNmZmViM2I7IH0KICAgIC5sYXllci00IHsgZmlsbDogI2UxYmVlNzsgc3Ryb2tlOiAjOWMyN2IwOyB9CiAgICB0ZXh0IHsgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmOyB9CiAgICAubGFiZWwgeyBmb250LXNpemU6IDE0cHg7IGZvbnQtd2VpZ2h0OiBib2xkOyBmaWxsOiAjMzMzOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAuZGVzYyB7IGZvbnQtc2l6ZTogMTFweDsgZmlsbDogIzY2NjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgfQogIDwvc3R5bGU+CgogIDwhLS0gTGF5ZXIgNCAtIFRvcCAtLT4KICA8cmVjdCB4PSIzMDAiIHk9IjMwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjUwIiBjbGFzcz0ibGF5ZXItNCIvPgogIDx0ZXh0IHg9IjQwMCIgeT0iNTgiIGNsYXNzPSJsYWJlbCI+5a6M5pW05qaC5b+1PC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iNzIiIGNsYXNzPSJkZXNjIj7jgIznjKvnmoTohLjjgI3jgIzmsb3ovabjgI3jgIzkurrohLjjgI08L3RleHQ+CgogIDwhLS0gTGF5ZXIgMyAtLT4KICA8cmVjdCB4PSIyODAiIHk9IjEwMCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSI1MCIgY2xhc3M9ImxheWVyLTMiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjEyOCIgY2xhc3M9ImxhYmVsIj7niankvZPnu4TlkIg8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIxNDIiIGNsYXNzPSJkZXNjIj7nnLznnZvjgIHogLPmnLXjgIHova7lrZDjgIHovabouqs8L3RleHQ+CgogIDwhLS0gTGF5ZXIgMiAtLT4KICA8cmVjdCB4PSIyNjAiIHk9IjE3MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSI1MCIgY2xhc3M9ImxheWVyLTIiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjE5OCIgY2xhc3M9ImxhYmVsIj7lvaLnirbnibnlvoE8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIyMTIiIGNsYXNzPSJkZXNjIj7lnIblvaLjgIHkuInop5LlvaLjgIHmm7Lnur/jgIHovrnnvJg8L3RleHQ+CgogIDwhLS0gTGF5ZXIgMSAtIEJvdHRvbSAtLT4KICA8cmVjdCB4PSIyNDAiIHk9IjI0MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSI0MCIgY2xhc3M9ImxheWVyLTEiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjI2MyIgY2xhc3M9ImxhYmVsIj7lupXlsYLnibnlvoE8L3RleHQ+CiAgPHRleHQgeD0iNDAwIiB5PSIyNzYiIGNsYXNzPSJkZXNjIj7lg4/ntKDngrnjgIHnur/mnaHjgIHpopzoibLjgIHnurnnkIY8L3RleHQ+CgogIDwhLS0gQ29ubmVjdGlvbiBhcnJvd3MgLS0+CiAgPHBhdGggZD0iTTM1MCAxMDAgTDM0MCAxMDUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHBhdGggZD0iTTM1MCAxNzAgTDM0MCAxNzUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHBhdGggZD0iTTQwMCAyNDAgTDQwMCAyNDUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93KSIvPgoKICA8IS0tIEJvdHRvbSBsYWJlbCAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjI5NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMnB4OyBmaWxsOiM5OTkiPui+k+WFpe+8muWOn+Wni+WDj+e0oOaVsOaNrjwvdGV4dD4KPC9zdmc+Cg==" alt="深度学习层次">
+
+<hr>
+<h2 id="四、大模型（基础模型）：读过「几亿本书」的大脑"><a href="#四、大模型（基础模型）：读过「几亿本书」的大脑" class="headerlink" title="四、大模型（基础模型）：读过「几亿本书」的大脑"></a>四、大模型（基础模型）：读过「几亿本书」的大脑</h2><p>当神经网络变得特别特别大（参数达到千亿甚至万亿级别），训练数据达到数万亿token时，我们就得到了——<strong>大模型</strong>（也叫基础模型）。</p>
+<p>它的特点：</p>
+<ul>
+<li><strong>知识面极广</strong>：因为它「看过」互联网上大量的文本</li>
+<li><strong>通用性强</strong>：不需要针对每个任务单独训练，直接「聊」就行</li>
+<li><strong>能力涌现</strong>：规模到一定程度，它突然会做题、会编程、会推理…</li>
+</ul>
+<p><strong>例子</strong>：GPT-4、Claude、Doubao、Qwen、DeepSeek、Kimi…</p>
+<blockquote>
+<p>🚀 <strong>关键理解</strong><br>大模型 &#x3D; 用超多数据 + 超大神经网络，训练出来的「通才大脑」<br>在这个大脑的基础上，我们可以做很多事——比如 AIGC。</p>
+</blockquote>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNlM2YyZmQ7IHN0cm9rZTogIzIxOTZmMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogODsgfQogICAgLmRhdGEgeyBmaWxsOiAjZmZmM2UwOyBzdHJva2U6ICNmZjk4MDA7IH0KICAgIC5tb2RlbCB7IGZpbGw6ICNmM2U1ZjU7IHN0cm9rZTogIzljMjdiMDsgfQogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxM3B4OyB9CiAgICAubGFiZWwgeyBmb250LXdlaWdodDogYm9sZDsgZmlsbDogIzMzMzsgdGV4dC1hbmNob3I6IG1pZGRsZTsgfQogICAgLmFycm93IHsgc3Ryb2tlOiAjNjY2OyBzdHJva2Utd2lkdGg6IDI7IG1hcmtlci1lbmQ6IHVybCgjYXJyb3doZWFkKTsgZmlsbDogbm9uZTsgfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQiIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSI3IiByZWZYPSI5IiByZWZZPSIzLjUiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCAxMCAzLjUsIDAgNyIgZmlsbD0iIzY2NiIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgoKICA8IS0tIERhdGEgLS0+CiAgPHJlY3QgeD0iNTAiIHk9IjQwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjYwIiBjbGFzcz0iZGF0YSIvPgogIDx0ZXh0IHg9IjEzMCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+5rW36YeP6K6t57uD5pWw5o2uPC90ZXh0PgogIDx0ZXh0IHg9IjEzMCIgeT0iOTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+5LiH5Lq/IHRva2VuIOaWh+acrDwvdGV4dD4KICA8dGV4dCB4PSIxMzAiIHk9IjEwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7kupLogZTnvZHop4TmqKE8L3RleHQ+CgogIDxwYXRoIGQ9Ik0yMTAgNzAgTDI2MCA3MCIgY2xhc3M9ImFycm93Ii8+CgogIDwhLS0gUHJvY2Vzc2luZyAtLT4KICA8cmVjdCB4PSIyODAiIHk9IjQwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiBjbGFzcz0iYm94Ii8+CiAgPHRleHQgeD0iMzQwIiB5PSI3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7orq3nu4Pov4fnqIs8L3RleHQ+CiAgPHRleHQgeD0iMzQwIiB5PSI5MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7mt7HluqblrabkuaA8L3RleHQ+CiAgPHRleHQgeD0iMzQwIiB5PSIxMDciIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+5Y2D5Lq/5Y+C5pWwPC90ZXh0PgoKICA8cGF0aCBkPSJNNDAwIDcwIEw0NTAgNzAiIGNsYXNzPSJhcnJvdyIvPgoKICA8IS0tIE1vZGVsIC0tPgogIDxyZWN0IHg9IjQ3MCIgeT0iNDAiIHdpZHRoPSIxNjAiIGhlaWdodD0iNjAiIGNsYXNzPSJtb2RlbCIvPgogIDx0ZXh0IHg9IjU1MCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+5aSn5qih5Z6LPC90ZXh0PgogIDx0ZXh0IHg9IjU1MCIgeT0iOTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+6YCa55So55+l6K+GPC90ZXh0PgogIDx0ZXh0IHg9IjU1MCIgeT0iMTA3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjExcHgiPua2jOeOsOiDveWKmzwvdGV4dD4KCiAgPHBhdGggZD0iTTYzMCA3MCBMNjgwIDcwIiBjbGFzcz0iYXJyb3ciLz4KCiAgPCEtLSBPdXRwdXQgLS0+CiAgPHJlY3QgeD0iNzAwIiB5PSI0MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiBjbGFzcz0iYm94IiBmaWxsPSIjZThmNWU5IiBzdHJva2U9IiM0Y2FmNTAiLz4KICA8dGV4dCB4PSI3NDAiIHk9Ijc1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPkFJR0M8L3RleHQ+CiAgPHRleHQgeD0iNzQwIiB5PSI5MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7lr7nor508L3RleHQ+CiAgPHRleHQgeD0iNzQwIiB5PSIxMDciIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+55Sf5oiQPC90ZXh0PgoKICA8IS0tIEJvdHRvbSBzdGF0cyAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjE2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMnB4OyBmaWxsOiM2NjYiPgogICAg8J+SoSDlj4LmlbDop4TmqKHvvJrnmb7kur8g4oaSIOS4h+S6vyB8IOaVsOaNrumHj++8mkdCIOKGkiBUQi9QQgogIDwvdGV4dD4KPC9zdmc+Cg==" alt="大模型训练">
+
+<hr>
+<h2 id="五、AIGC：让-AI-创造内容"><a href="#五、AIGC：让-AI-创造内容" class="headerlink" title="五、AIGC：让 AI 创造内容"></a>五、AIGC：让 AI 创造内容</h2><p>AIGC 意思是 <strong>AI Generated Content</strong> —— 由 AI 生成的内容：文章、图片、代码、音乐、视频…</p>
+<p>它是怎么做到的？</p>
+<blockquote>
+<p>大模型已经「读懂」了人类语言的规律，你给它一个开头，它就能接着写；你给它一段描述，它就能画出对应的图。</p>
+</blockquote>
+<p><strong>例子</strong>：  </p>
+<ul>
+<li>你写「帮我写一封辞职信」，AI 秒出一封礼貌得体的信</li>
+<li>你写「一只戴着墨镜的柴犬在海滩晒太阳」，AI 生成对应图片</li>
+</ul>
+<p>这就是 AIGC 的魅力：<strong>不是搜索，而是创造</strong>。</p>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjgwIiB2aWV3Qm94PSIwIDAgODAwIDI4MCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNlM2YyZmQ7IHN0cm9rZTogIzIxOTZmMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogODsgfQogICAgLmlucHV0IHsgZmlsbDogI2ZmZjNlMDsgc3Ryb2tlOiAjZmY5ODAwOyB9CiAgICAub3V0cHV0IHsgZmlsbDogI2U4ZjVlOTsgc3Ryb2tlOiAjNGNhZjUwOyB9CiAgICAucHJvY2VzcyB7IGZpbGw6ICNmM2U1ZjU7IHN0cm9rZTogIzljMjdiMDsgfQogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxM3B4OyB9CiAgICAubGFiZWwgeyBmb250LXdlaWdodDogYm9sZDsgZmlsbDogIzMzMzsgdGV4dC1hbmNob3I6IG1pZGRsZTsgfQogICAgLmFycm93IHsgc3Ryb2tlOiAjNjY2OyBzdHJva2Utd2lkdGg6IDI7IG1hcmtlci1lbmQ6IHVybCgjYXJyb3doZWFkKTsgZmlsbDogbm9uZTsgfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQiIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSI3IiByZWZYPSI5IiByZWZZPSIzLjUiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCAxMCAzLjUsIDAgNyIgZmlsbD0iIzY2NiIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgoKICA8IS0tIElucHV0IC0tPgogIDxyZWN0IHg9IjUwIiB5PSIxMDAiIHdpZHRoPSIxNDAiIGhlaWdodD0iODAiIGNsYXNzPSJpbnB1dCIvPgogIDx0ZXh0IHg9IjEyMCIgeT0iMTQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPueUqOaIt+i+k+WFpTwvdGV4dD4KICA8dGV4dCB4PSIxMjAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7jgIzlhpnkuIDpppbor5fjgI08L3RleHQ+CiAgPHRleHQgeD0iMTIwIiB5PSIxNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+44CM55S75LiA5Y+q54yr44CNPC90ZXh0PgoKICA8cGF0aCBkPSJNMTkwIDE0MCBMMjQwIDE0MCIgY2xhc3M9ImFycm93Ii8+CgogIDwhLS0gUHJvY2VzcyAtLT4KICA8cmVjdCB4PSIyNjAiIHk9IjEwMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI4MCIgY2xhc3M9InByb2Nlc3MiLz4KICA8dGV4dCB4PSIzNDAiIHk9IjE0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7lpKfmqKHlnosgQUlHQzwvdGV4dD4KICA8dGV4dCB4PSIzNDAiIHk9IjE2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7nkIbop6PmhI/lm748L3RleHQ+CiAgPHRleHQgeD0iMzQwIiB5PSIxNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+55Sf5oiQ5YaF5a65PC90ZXh0PgoKICA8cGF0aCBkPSJNNDIwIDE0MCBMNDcwIDE0MCIgY2xhc3M9ImFycm93Ii8+CgogIDwhLS0gT3V0cHV0IC0tPgogIDxyZWN0IHg9IjQ5MCIgeT0iMTAwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjgwIiBjbGFzcz0ib3V0cHV0Ii8+CiAgPHRleHQgeD0iNTYwIiB5PSIxNDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+6L6T5Ye65YaF5a65PC90ZXh0PgogIDx0ZXh0IHg9IjU2MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjExcHgiPuOAjOaYpeecoOS4jeinieaZky4uLuOAjTwvdGV4dD4KICA8dGV4dCB4PSI1NjAiIHk9IjE3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij5b5Zu+54mHXTwvdGV4dD4KCiAgPCEtLSBCb3R0b20gbm90ZSAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjI0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMnB4OyBmaWxsOiM4ODgiPgogICAg8J+UhCBBSUdDIOS4jeaYr+aQnOe0ouW3suacieWGheWuue+8jOiAjOaYr+WIm+mAoOaWsOWGheWuuQogIDwvdGV4dD4KPC9zdmc+Cg==" alt="AIGC 工作流">
+
+<hr>
+<h2 id="六、强化学习：在「玩游戏」中变强"><a href="#六、强化学习：在「玩游戏」中变强" class="headerlink" title="六、强化学习：在「玩游戏」中变强"></a>六、强化学习：在「玩游戏」中变强</h2><p>前面说的机器学习都是「老师给答案」式的——你给数据和正确答案，AI 学习。</p>
+<p>但有些任务，没有「标准答案」。比如走迷宫、打游戏、下棋。</p>
+<p>这时候，我们就用<strong>强化学习</strong>。</p>
+<h3 id="怎么学？"><a href="#怎么学？" class="headerlink" title="怎么学？"></a>怎么学？</h3><ol>
+<li>AI 在一个环境里不断尝试各种动作</li>
+<li>做对了，给奖励（+1 分）</li>
+<li>做错了，给惩罚（-1 分）</li>
+<li>AI 的目标很简单：<strong>累计得分最大化</strong></li>
+</ol>
+<p>它会在失败中总结哪些动作好、哪些不好，慢慢变得超级强。</p>
+<p><strong>经典案例</strong>：</p>
+<ul>
+<li>AlphaGo 下围棋：自己跟自己下几百万盘，越练越强</li>
+<li>机器人走路：摔了再爬起来，直到走得很稳</li>
+</ul>
+<blockquote>
+<p>🎮 <strong>一句话</strong><br>强化学习 &#x3D; 「试错 + 奖励」的自学模式<br>适合游戏、控制、自动驾驶等没有固定答案的任务。</p>
+</blockquote>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjYwIiB2aWV3Qm94PSIwIDAgODAwIDI2MCI+CiAgPHN0eWxlPgogICAgLmNpcmNsZSB7IGZpbGw6ICNlM2YyZmQ7IHN0cm9rZTogIzIxOTZmMzsgc3Ryb2tlLXdpZHRoOiAyOyB9CiAgICAuYWdlbnQgeyBmaWxsOiAjZjNlNWY1OyBzdHJva2U6ICM5YzI3YjA7IH0KICAgIC5lbnYgeyBmaWxsOiAjZThmNWU5OyBzdHJva2U6ICM0Y2FmNTA7IH0KICAgIC5yZXdhcmQgeyBmaWxsOiAjZmZmM2UwOyBzdHJva2U6ICNmZjk4MDA7IH0KICAgIHRleHQgeyBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTNweDsgfQogICAgLmxhYmVsIHsgZm9udC13ZWlnaHQ6IGJvbGQ7IGZpbGw6ICMzMzM7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgIC5hcnJvdyB7IHN0cm9rZTogIzY2Njsgc3Ryb2tlLXdpZHRoOiAyOyBtYXJrZXItZW5kOiB1cmwoI2Fycm93aGVhZCk7IGZpbGw6IG5vbmU7IH0KICA8L3N0eWxlPgogIDxkZWZzPgogICAgPG1hcmtlciBpZD0iYXJyb3doZWFkIiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iNyIgcmVmWD0iOSIgcmVmWT0iMy41IiBvcmllbnQ9ImF1dG8iPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAgMCwgMTAgMy41LCAwIDciIGZpbGw9IiM2NjYiLz4KICAgIDwvbWFya2VyPgogIDwvZGVmcz4KCiAgPCEtLSBFbnZpcm9ubWVudCAtLT4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMzAiIHI9IjYwIiBjbGFzcz0iZW52Ii8+CiAgPHRleHQgeD0iMjAwIiB5PSIxMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+546v5aKDPC90ZXh0PgogIDx0ZXh0IHg9IjIwMCIgeT0iMTM4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjExcHgiPua4uOaIjy/kuJbnlYw8L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+54q25oCB44CB5Y+N6aaIPC90ZXh0PgoKICA8IS0tIEFnZW50IC0tPgogIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEzMCIgcj0iNjAiIGNsYXNzPSJhZ2VudCIvPgogIDx0ZXh0IHg9IjYwMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0ibGFiZWwiPkFJIOaZuuiDveS9kzwvdGV4dD4KICA8dGV4dCB4PSI2MDAiIHk9IjEzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMXB4Ij7lhrPnrZY8L3RleHQ+CiAgPHRleHQgeD0iNjAwIiB5PSIxNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweCI+5a2m5LmgPC90ZXh0PgoKICA8IS0tIEFycm93cyAtLT4KICA8IS0tIEFjdGlvbjogQWdlbnQgLT4gRW52IC0tPgogIDxwYXRoIGQ9Ik02MjAgMTMwIEw3MDAgMTMwIEw3MDAgMTAwIEw3NTAgMTAwIiBjbGFzcz0iYXJyb3ciLz4KICA8dGV4dCB4PSI3MjAiIHk9IjkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjExcHg7IGZpbGw6IzY2NiI+6KGM5YqoPC90ZXh0PgoKICA8IS0tIFN0YXRlOiBFbnYgLT4gQWdlbnQgLS0+CiAgPHBhdGggZD0iTTE4MCAxMzAgTDEwMCAxMzAgTDEwMCAxNjAgTDUwIDE2MCIgY2xhc3M9ImFycm93Ii8+CiAgPHRleHQgeD0iMTAwIiB5PSIxODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTFweDsgZmlsbDojNjY2Ij7nirbmgIE8L3RleHQ+CgogIDwhLS0gUmV3YXJkOiBFbnYgLT4gQWdlbnQgLS0+CiAgPHBhdGggZD0iTTIwMCA3MCBMMjAwIDIwIEw2MDAgMjAgTDYwMCA0MCIgY2xhc3M9ImFycm93IiBzdHJva2UtZGFzaGFycmF5PSI1LDUiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjExcHg7IGZpbGw6IzY2NiI+5aWW5YqxL+aDqee9mjwvdGV4dD4KCiAgPCEtLSBCb3R0b20gZXhwbGFuYXRpb24gLS0+CiAgPHRleHQgeD0iNDAwIiB5PSIyMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTRweDsgZmlsbDojMzMzIj4KICAgIPCfkqEg5b6q546v77ya6KeC5a+fIOKGkiDooYzliqgg4oaSIOiOt+W+l+WlluWKsSDihpIg6LCD5pW0562W55WlCiAgPC90ZXh0Pgo8L3N2Zz4K" alt="强化学习循环">
+
+<hr>
+<h2 id="七、RAG：让-AI-会「查资料」"><a href="#七、RAG：让-AI-会「查资料」" class="headerlink" title="七、RAG：让 AI 会「查资料」"></a>七、RAG：让 AI 会「查资料」</h2><p>大模型有个问题：它的知识只到训练数据截止日期，而且会「编造」内容（AI 幻觉）。</p>
+<p>怎么解决？让 AI 先「查资料」再回答——这就是 <strong>RAG</strong>（Retrieval-Augmented Generation）。</p>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ol>
+<li>你问一个问题</li>
+<li>系统先去知识库里找相关的文档</li>
+<li>把找到的内容 + 你的问题，一起交给大模型</li>
+<li>大模型<strong>基于资料</strong>生成答案</li>
+</ol>
+<p><strong>好处</strong>：</p>
+<ul>
+<li>答案更准确（有依据）</li>
+<li>知识可以随时更新（更新知识库就行）</li>
+<li>避免幻觉</li>
+</ul>
+<p><strong>应用</strong>：企业知识库问答、客服机器人、搜索引擎…</p>
+<blockquote>
+<p>📚 <strong>比喻</strong><br>大模型像一个「读过很多书但记不清细节」的学霸。<br>RAG 就是在他回答前，先递给他一本参考书——他翻一翻，再给出有根据的答案。</p>
+</blockquote>
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjIwIiB2aWV3Qm94PSIwIDAgODAwIDIyMCI+CiAgPHN0eWxlPgogICAgLmJveCB7IGZpbGw6ICNmZmY7IHN0cm9rZTogIzMzMzsgc3Ryb2tlLXdpZHRoOiAyOyByeDogODsgfQogICAgLnF1ZXJ5IHsgZmlsbDogI2UzZjJmZDsgc3Ryb2tlOiAjMjE5NmYzOyB9CiAgICAucmV0cmlldmVyIHsgZmlsbDogI2YzZTVmNTsgc3Ryb2tlOiAjOWMyN2IwOyB9CiAgICAuY29udGV4dCB7IGZpbGw6ICNlOGY1ZTk7IHN0cm9rZTogIzRjYWY1MDsgfQogICAgLmdlbmVyYXRvciB7IGZpbGw6ICNmZmYzZTA7IHN0cm9rZTogI2ZmOTgwMDsgfQogICAgLmFuc3dlciB7IGZpbGw6ICNmZmViZWU7IHN0cm9rZTogI2Y0NDMzNjsgfQogICAgdGV4dCB7IGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMnB4OyB9CiAgICAubGFiZWwgeyBmb250LXdlaWdodDogYm9sZDsgZmlsbDogIzMzMzsgdGV4dC1hbmNob3I6IG1pZGRsZTsgfQogICAgLmFycm93IHsgc3Ryb2tlOiAjNjY2OyBzdHJva2Utd2lkdGg6IDI7IG1hcmtlci1lbmQ6IHVybCgjYXJyb3doZWFkKTsgZmlsbDogbm9uZTsgfQogIDwvc3R5bGU+CiAgPGRlZnM+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQiIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSI3IiByZWZYPSI5IiByZWZZPSIzLjUiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCAxMCAzLjUsIDAgNyIgZmlsbD0iIzY2NiIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgoKICA8IS0tIFF1ZXJ5IC0tPgogIDxyZWN0IHg9IjMwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI2MCIgY2xhc3M9InF1ZXJ5Ii8+CiAgPHRleHQgeD0iODAiIHk9IjExNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7pl67popg8L3RleHQ+CiAgPHRleHQgeD0iODAiIHk9IjEzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMHB4Ij7jgIzlpoLkvZXlrabkuaBBSe+8n+OAjTwvdGV4dD4KCiAgPHBhdGggZD0iTTEzMCAxMTAgTDE2MCAxMTAiIGNsYXNzPSJhcnJvdyIvPgoKICA8IS0tIFJldHJpZXZlciAtLT4KICA8cmVjdCB4PSIxODAiIHk9IjgwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiBjbGFzcz0icmV0cmlldmVyIi8+CiAgPHRleHQgeD0iMjQwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+5qOA57Si5ZmoPC90ZXh0PgogIDx0ZXh0IHg9IjI0MCIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPuafpeaJvuefpeivhuW6kzwvdGV4dD4KCiAgPHBhdGggZD0iTTMwMCAxMTAgTDMzMCAxMTAiIGNsYXNzPSJhcnJvdyIvPgoKICA8IS0tIENvbnRleHQgLS0+CiAgPHJlY3QgeD0iMzUwIiB5PSI4MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI2MCIgY2xhc3M9ImNvbnRleHQiLz4KICA8dGV4dCB4PSI0MTAiIHk9IjEwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9ImxhYmVsIj7nm7jlhbPmlofmoaM8L3RleHQ+CiAgPHRleHQgeD0iNDEwIiB5PSIxMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6MTBweCI+5py65Zmo5a2m5Lmg5a6a5LmJLi4uPC90ZXh0PgogIDx0ZXh0IHg9IjQxMCIgeT0iMTM1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPua3seW6puWtpuS5oOS7i+e7jS4uLjwvdGV4dD4KCiAgPHBhdGggZD0iTTQ3MCAxMTAgTDUwMCAxMTAiIGNsYXNzPSJhcnJvdyIvPgoKICA8IS0tIEdlbmVyYXRvciAtLT4KICA8cmVjdCB4PSI1MjAiIHk9IjgwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiBjbGFzcz0iZ2VuZXJhdG9yIi8+CiAgPHRleHQgeD0iNTgwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+5aSn5qih5Z6LPC90ZXh0PgogIDx0ZXh0IHg9IjU4MCIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPue7k+WQiOWbnuetlDwvdGV4dD4KCiAgPHBhdGggZD0iTTY0MCAxMTAgTDY3MCAxMTAiIGNsYXNzPSJhcnJvdyIvPgoKICA8IS0tIEFuc3dlciAtLT4KICA8cmVjdCB4PSI2OTAiIHk9IjgwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjYwIiBjbGFzcz0iYW5zd2VyIi8+CiAgPHRleHQgeD0iNzQwIiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJsYWJlbCI+562U5qGIPC90ZXh0PgogIDx0ZXh0IHg9Ijc0MCIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPuWHhuehruOAgeacieS+neaNrjwvdGV4dD4KCiAgPCEtLSBCb3R0b20gbm90ZSAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjE5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgc3R5bGU9ImZvbnQtc2l6ZToxMnB4OyBmaWxsOiM2NjYiPgogICAg8J+OryBSQUcgPSDmo4DntKIgKFJldHJpZXZlKSArIOeUn+aIkCAoR2VuZXJhdGUpCiAgPC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZm9udC1zaXplOjEycHg7IGZpbGw6Izg4OCI+CiAgICDpgb/lhY3lubvop4nvvJrnrZTmoYjln7rkuo7lrp7pmYXmlofmoaPvvIzogIzpnZ7mqKHlnovjgIznvJbpgKDjgI0KICA8L3RleHQ+Cjwvc3ZnPgo=" alt="RAG 架构">
+
+<hr>
+<h2 id="八、Skills-插件：给-AI-配上「工具包」"><a href="#八、Skills-插件：给-AI-配上「工具包」" class="headerlink" title="八、Skills &#x2F; 插件：给 AI 配上「工具包」"></a>八、Skills &#x2F; 插件：给 AI 配上「工具包」</h2><p>大模型虽然聪明，但它只能「说话」，不能直接操作外部世界。</p>
+<p>比如：</p>
+<ul>
+<li>你想让它订机票？它不会访问航空公司 API</li>
+<li>你想让它查天气？它不会调用气象数据</li>
+<li>你想让它画画？它不会打开画图软件</li>
+</ul>
+<p><strong>解决方案</strong>：给大模型配上「技能包」——也就是各种插件和工具。</p>
+<p><strong>例子</strong>：</p>
+<ul>
+<li>计算器技能：让它算数学题，精度更高</li>
+<li>搜索技能：让它上网搜最新信息</li>
+<li>代码执行：让它运行代码并返回结果</li>
+<li>图像生成：连接 Midjourney、DALL-E</li>
+</ul>
+<blockquote>
+<p>🔧 <strong>核心作用</strong><br>Skills &#x3D; 让大模型「能动手，别只动嘴」<br>它负责「意图理解」和「结果整合」，技能负责「具体执行」。</p>
+</blockquote>
+<hr>
+<h2 id="九、一张图看懂关系（文字版）"><a href="#九、一张图看懂关系（文字版）" class="headerlink" title="九、一张图看懂关系（文字版）"></a>九、一张图看懂关系（文字版）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">            ┌──────────┐</span><br><span class="line">            │  人工智能  │</span><br><span class="line">            │   (AI)   │</span><br><span class="line">            └─────┬────┘</span><br><span class="line">                  │</span><br><span class="line">      ┌───────────┼───────────┐</span><br><span class="line">      ↓           ↓           ↓</span><br><span class="line">┌─────────┐ ┌─────────┐ ┌────────────┐</span><br><span class="line">│机器学习  │ │强化学习  │ │  AIGC      │</span><br><span class="line">│ (ML)    │ │ (RL)    │ │            │</span><br><span class="line">└────┬────┘ └────┬────┘ └────────────┘</span><br><span class="line">     │           │</span><br><span class="line">     ↓           ↓</span><br><span class="line">┌─────────────┐ │</span><br><span class="line">│  深度学习    │ │</span><br><span class="line">│ (Deep Learning)│</span><br><span class="line">└──────┬──────┘ │</span><br><span class="line">       │        │</span><br><span class="line">       ↓        │</span><br><span class="line">┌─────────────────┐</span><br><span class="line">│    大模型        │</span><br><span class="line">│ (Large Models)  │</span><br><span class="line">└────────┬────────┘</span><br><span class="line">         │</span><br><span class="line">    ┌────┴────┐</span><br><span class="line">    ↓         ↓</span><br><span class="line">┌─────┐   ┌─────┐</span><br><span class="line">│ RAG │   │Skills│</span><br><span class="line">└─────┘   └─────┘</span><br></pre></td></tr></table></figure>
+
+<p><strong>一句话总结</strong>：</p>
+<blockquote>
+<p><strong>大模型是 AI 时代的「超级引擎」，而 RAG 和 Skills 是让这个引擎更精准、更能干的两大外挂。</strong></p>
+</blockquote>
+<hr>
+<h2 id="十、总结：AI-术语其实不难"><a href="#十、总结：AI-术语其实不难" class="headerlink" title="十、总结：AI 术语其实不难"></a>十、总结：AI 术语其实不难</h2><table>
+<thead>
+<tr>
+<th>术语</th>
+<th>一句话解释</th>
+<th>比喻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AI</strong></td>
+<td>让机器变聪明</td>
+<td>机器人学校</td>
+</tr>
+<tr>
+<td><strong>机器学习</strong></td>
+<td>从数据中自己学</td>
+<td>学生刷题</td>
+</tr>
+<tr>
+<td><strong>深度学习</strong></td>
+<td>用多层神经网络学</td>
+<td>洋葱式知识构建</td>
+</tr>
+<tr>
+<td><strong>大模型</strong></td>
+<td>超大数据训练的通用大脑</td>
+<td>读了几亿书的学霸</td>
+</tr>
+<tr>
+<td><strong>AIGC</strong></td>
+<td>用 AI 创造内容</td>
+<td>学霸写作文&#x2F;画画</td>
+</tr>
+<tr>
+<td><strong>强化学习</strong></td>
+<td>试错+奖励的学习</td>
+<td>宠物训练</td>
+</tr>
+<tr>
+<td><strong>RAG</strong></td>
+<td>先查资料再回答</td>
+<td>开卷考试</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>让大模型能用工具</td>
+<td>给学霸配计算器&#x2F;网络</td>
+</tr>
+</tbody></table>
+<p>这些术语不是孤立的，<strong>它们是一套组合拳</strong>：</p>
+<ol>
+<li><strong>深度学习</strong> 训练出 <strong>大模型</strong></li>
+<li><strong>大模型</strong> 支持 <strong>AIGC</strong></li>
+<li>加上 <strong>RAG</strong> 和 <strong>Skills</strong>，大模型变得更可靠、更能干</li>
+<li><strong>强化学习</strong> 适合训练 AI 玩游戏或控制机器人</li>
+<li>所有这些都是 <strong>AI</strong> 的一部分</li>
+</ol>
+<hr>
+<h3 id="最后说一句"><a href="#最后说一句" class="headerlink" title="最后说一句"></a>最后说一句</h3><p>AI 再厉害，也只是工具。真正重要的是——<strong>你想用它来做什么</strong>？</p>
+<blockquote>
+<p>下一篇，我们来做点有意思的：<br>我会让当前最热门的几个大模型（Doubao、Qwen、DeepSeek、Claude、GPT）<br>分别写一篇科普文章，看看谁更会「说人话」。<br>敬请期待！</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>💬 <strong>互动</strong><br>你对哪个术语最感兴趣？或者你有其他想了解的 AI 概念？<br>留言告诉我，我可能会在后续文章中展开。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wanzaixiaoxin.github.io/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/" data-id="cuidHj_6KcS64nBX14J6ByzC3" data-title="人工智能科普系列：孩子也能听懂的AI术语课" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%85%A5%E9%97%A8/" rel="tag">AI入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AI小侦探：机器如何像人类一样学习？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%8A%80%E6%9C%AF/">AI技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%94%9F%E6%80%81/">AI生态</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%A7%91%E6%99%AE/">AI科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">AIGC, 生成式AI, 大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%85%A5%E9%97%A8/" rel="tag">AI入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BA%94%E7%94%A8/" rel="tag">AI应用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RAG/" rel="tag">RAG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">向量数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, AI产品, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" rel="tag">大模型, 机遇, 副业, 创业, 技能提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" rel="tag">大模型, 社会变革, 未来工作, AI教育, 智能生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 编程助手, 软件开发, 行业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" rel="tag">大模型, 行业应用, 产业变革</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" rel="tag">机器学习, 深度学习, 儿童科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" rel="tag">知识库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" rel="tag">神经网络, 深度学习, 机器学习原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AIGC-%E7%94%9F%E6%88%90%E5%BC%8FAI-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">AIGC, 生成式AI, 大模型</a> <a href="/tags/AI%E5%85%A5%E9%97%A8/" style="font-size: 10px;">AI入门</a> <a href="/tags/AI%E5%BA%94%E7%94%A8/" style="font-size: 10px;">AI应用</a> <a href="/tags/RAG/" style="font-size: 10px;">RAG</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">向量数据库</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-AI%E4%BA%A7%E5%93%81-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, AI产品, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E6%9C%BA%E9%81%87-%E5%89%AF%E4%B8%9A-%E5%88%9B%E4%B8%9A-%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" style="font-size: 10px;">大模型, 机遇, 副业, 创业, 技能提升</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A4%BE%E4%BC%9A%E5%8F%98%E9%9D%A9-%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C-AI%E6%95%99%E8%82%B2-%E6%99%BA%E8%83%BD%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">大模型, 社会变革, 未来工作, AI教育, 智能生活</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91-%E8%A1%8C%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 编程助手, 软件开发, 行业变革</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%A1%8C%E4%B8%9A%E5%BA%94%E7%94%A8-%E4%BA%A7%E4%B8%9A%E5%8F%98%E9%9D%A9/" style="font-size: 10px;">大模型, 行业应用, 产业变革</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%84%BF%E7%AB%A5%E7%A7%91%E6%99%AE/" style="font-size: 10px;">机器学习, 深度学习, 儿童科普</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 10px;">知识库</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86/" style="font-size: 10px;">神经网络, 深度学习, 机器学习原理</a> <a href="/tags/%E7%A7%91%E6%99%AE/" style="font-size: 10px;">科普</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/10/test-post/">Test Post</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-RAG-%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">RAG 优化指南：让你的 AI 更聪明（召回率提升 50%）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%B3%BB%E5%88%97%EF%BC%9A%E5%AD%A9%E5%AD%90%E4%B9%9F%E8%83%BD%E5%90%AC%E6%87%82%E7%9A%84AI%E6%9C%AF%E8%AF%AD%E8%AF%BE/">人工智能科普系列：孩子也能听懂的AI术语课</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-AI%E5%B0%8F%E4%BE%A6%E6%8E%A2%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%A6%82%E4%BD%95%E5%83%8F%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%A0%B7%E5%AD%A6%E4%B9%A0%EF%BC%9F/">AI小侦探：机器如何像人类一样学习？</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/10/2026-03-10-%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%A7%89%E9%86%92%EF%BC%9A%E5%BD%93AI%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E4%B8%8E%E7%BB%98%E7%94%BB/">创造力的觉醒：当AI开始写作与绘画</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 小新<br>
+      Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="人工智能科普系列：孩子也能听懂的AI术语课" title="人工智能科普系列：孩子也能听懂的AI术语课">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

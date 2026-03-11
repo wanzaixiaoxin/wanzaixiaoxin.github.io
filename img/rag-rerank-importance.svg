@@ -1,0 +1,77 @@
+<svg width="800" height="320" viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="320" fill="#fafafa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">为什么 Rerank 是 RAG 优化的关键？</text>
+  
+  <!-- 用户问题 -->
+  <rect x="100" y="50" width="600" height="50" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="400" y="82" text-anchor="middle" font-family="Arial" font-size="14" fill="#1976d2">
+    <tspan x="150" dy="0">用户问题：</tspan>
+    <tspan x="150" dy="20" font-weight="bold">"如何在 Windows 上配置 Python 开发环境？"</tspan>
+  </text>
+  
+  <!-- 检索到的 5 个文档 -->
+  <g font-family="Arial" font-size="11">
+    <!-- 文档 1 -->
+    <rect x="100" y="110" width="600" height="35" rx="4" fill="#ffcdd2" stroke="#e57373" stroke-width="1"/>
+    <text x="120" y="130" fill="#c62828">
+      <tspan x="120" dy="0">[得分: 0.92]</tspan>
+      <tspan x="200" dy="0">📄 Python 在 Windows 10/11 上的完整安装指南（包含环境变量配置）</tspan>
+    </text>
+    
+    <!-- 文档 2 -->
+    <rect x="100" y="145" width="600" height="35" rx="4" fill="#ffecb3" stroke="#ffd54f" stroke-width="1"/>
+    <text x="120" y="165" fill="#ff8f00">
+      <tspan x="120" dy="0">[得分: 0.78]</tspan>
+      <tspan x="200" dy="0">📄 Ubuntu 下 Python 环境配置教程（与 Windows 无关）</tspan>
+    </text>
+    
+    <!-- 文档 3 -->
+    <rect x="100" y="180" width="600" height="35" rx="4" fill="#ffcdd2" stroke="#e57373" stroke-width="1"/>
+    <text x="120" y="200" fill="#c62828">
+      <tspan x="120" dy="0">[得分: 0.72]</tspan>
+      <tspan x="200" dy="0">📄 macOS Python 开发环境搭建（非目标平台）</tspan>
+    </text>
+    
+    <!-- 文档 4 -->
+    <rect x="100" y="215" width="600" height="35" rx="4" fill="#c8e6c9" stroke="#81c784" stroke-width="1"/>
+    <text x="120" y="235" fill="#2e7d32">
+      <tspan x="120" dy="0">[得分: 0.68]</tspan>
+      <tspan x="200" dy="0">📄 Windows 上配置 Java 开发环境（与 Python 无关）</tspan>
+    </text>
+    
+    <!-- 文档 5 -->
+    <rect x="100" y="250" width="600" height="35" rx="4" fill="#e1bee7" stroke="#ba68c8" stroke-width="1"/>
+    <text x="120" y="270" fill="#6a1b9a">
+      <tspan x="120" dy="0">[得分: 0.55]</tspan>
+      <tspan x="200" dy="0">📄 Linux 服务器部署 Python 项目（不涉及本地配置）</tspan>
+    </text>
+  </g>
+  
+  <!-- 箭头向下 -->
+  <path d="M400 295 L400 330" stroke="#666" stroke-width="2" marker-end="url(#arrowDown)"/>
+  
+  <!-- 重排序后结果 -->
+  <rect x="100" y="340" width="600" height="40" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="400" y="367" text-anchor="middle" font-family="Arial" font-size="13" fill="#2e7d32">
+    <tspan x="150" dy="0">✅ Rerank 重排后：仅保留最相关文档（Windows Python 安装）</tspan>
+    <tspan x="150" dy="18" fill="#666">丢弃不相关文档（Linux/macOS/Java），减少 60% 上下文 Token 消耗</tspan>
+  </text>
+  
+  <!-- 标注 -->
+  <text x="400" y="400" text-anchor="middle" font-family="Arial" font-size="11" fill="#999">
+    纯向量检索可能返回"平台不匹配"的文档，Rerank 通过交叉编码精确筛选
+  </text>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,8 L0,16 z" fill="#666"/>
+    </marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

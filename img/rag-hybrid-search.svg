@@ -1,0 +1,92 @@
+<svg width="800" height="340" viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="340" fill="#fafafa"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">混合检索：向量搜索 + BM25 + Rerank</text>
+  
+  <!-- 用户问题 -->
+  <rect x="80" y="50" width="640" height="45" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="400" y="78" text-anchor="middle" font-family="Arial" font-size="14" fill="#1976d2">
+    <tspan x="130" dy="0">用户问题："如何在 Linux 上安装 Docker？"</tspan>
+  </text>
+  
+  <!-- 三条检索路径 -->
+  <!-- 路径 1: 向量搜索 -->
+  <g transform="translate(80, 110)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#2e7d32">向量搜索</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Embedding Similarity</text>
+    
+    <!-- 结果列表 -->
+    <rect x="15" y="60" width="150" height="25" fill="#c8e6c9" stroke="#81c784" stroke-width="1" rx="2"/>
+    <text x="90" y="77" text-anchor="middle" font-family="Arial" font-size="9" fill="#1b5e20">Doc-1 (得分: 0.92)</text>
+    
+    <rect x="15" y="88" width="150" height="25" fill="#c8e6c9" stroke="#81c784" stroke-width="1" rx="2"/>
+    <text x="90" y="105" text-anchor="middle" font-family="Arial" font-size="9" fill="#1b5e20">Doc-3 (得分: 0.78)</text>
+    
+    <rect x="15" y="116" width="150" height="25" fill="#c8e6c9" stroke="#81c784" stroke-width="1" rx="2"/>
+    <text x="90" y="133" text-anchor="middle" font-family="Arial" font-size="9" fill="#1b5e20">Doc-7 (得分: 0.65)</text>
+    
+    <text x="90" y="175" text-anchor="middle" font-family="Arial" font-size="9" fill="#666">基于语义相似度</text>
+  </g>
+  
+  <!-- 路径 2: BM25 -->
+  <g transform="translate(310, 110)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#f57c00">BM25</text>
+    <text x="90" y="50" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Keyword TF-IDF</text>
+    
+    <!-- 结果列表 -->
+    <rect x="15" y="60" width="150" height="25" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1" rx="2"/>
+    <text x="90" y="77" text-anchor="middle" font-family="Arial" font-size="9" fill="#e65100">Doc-2 (得分: 12.5)</text>
+    
+    <rect x="15" y="88" width="150" height="25" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1" rx="2"/>
+    <text x="90" y="105" text-anchor="middle" font-family="Arial" font-size="9" fill="#e65100">Doc-1 (得分: 9.3)</text>
+    
+    <rect x="15" y="116" width="150" height="25" fill="#ffe0b2" stroke="#ffb74d" stroke-width="1" rx="2"/>
+    <text x="90" y="133" text-anchor="middle" font-family="Arial" font-size="9" fill="#e65100">Doc-5 (得分: 8.7)</text>
+    
+    <text x="90" y="175" text-anchor="middle" font-family="Arial" font-size="9" fill="#666">基于关键词匹配</text>
+  </g>
+  
+  <!-- 合并与重排 -->
+  <g transform="translate(540, 110)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+    <text x="90" y="25" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#6a1b9a">Reciprocal<br/>Rank Fusion</text>
+    
+    <!-- 合并结果 -->
+    <rect x="15" y="60" width="150" height="25" fill="#e1bee7" stroke="#ba68c8" stroke-width="1" rx="2"/>
+    <text x="90" y="77" text-anchor="middle" font-family="Arial" font-size="9" fill="#4a148c">Doc-1 (RRF: 0.95)</text>
+    
+    <rect x="15" y="88" width="150" height="25" fill="#e1bee7" stroke="#ba68c8" stroke-width="1" rx="2"/>
+    <text x="90" y="105" text-anchor="middle" font-family="Arial" font-size="9" fill="#4a148c">Doc-2 (RRF: 0.73)</text>
+    
+    <rect x="15" y="116" width="150" height="25" fill="#e1bee7" stroke="#ba68c8" stroke-width="1" rx="2"/>
+    <text x="90" y="133" text-anchor="middle" font-family="Arial" font-size="9" fill="#4a148c">Doc-3 (RRF: 0.68)</text>
+    
+    <text x="90" y="175" text-anchor="middle" font-family="Arial" font-size="9" fill="#666">合并 + 重排序</text>
+  </g>
+  
+  <!-- 箭头 -->
+  <path d="M260 210 L310 210" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M490 210 L540 210" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Rerank 步骤 -->
+  <rect x="200" y="320" width="400" height="25" rx="4" fill="#e0f2f1" stroke="#26a69a" stroke-width="1"/>
+  <text x="400" y="338" text-anchor="middle" font-family="Arial" font-size="11" fill="#00897b">
+    交叉编码器 Rerank（可选）：精准筛选 Top-5 → Top-3
+  </text>
+  
+  <!-- 底部说明 -->
+  <text x="400" y="325" text-anchor="middle" font-family="Arial" font-size="11" fill="#999">
+    向量检索召回率高但精度低，BM25 精度高但召回率低，混合两者并重排达到最佳效果
+  </text>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

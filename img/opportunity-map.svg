@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    .box { fill: #fff; stroke: #333; stroke-width: 2; rx: 8; }
+    .center { fill: #fff3e0; stroke: #f57c00; stroke-width: 3; }
+    .sector { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+    .item { fill: #e8f5e9; stroke: #43a047; stroke-width: 1; rx: 4; }
+    .label { font-size: 16px; font-weight: bold; fill: #333; text-anchor: middle; }
+    .small { font-size: 12px; fill: #666; text-anchor: middle; }
+    .arrow { stroke: #999; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="30" class="label" font-size="20">普通人抓住 AI 红利的五大路径</text>
+  <text x="400" y="55" class="small">机会地图 · 从个人到创业者</text>
+
+  <!-- 中心 -->
+  <rect x="340" y="80" width="120" height="60" class="center"/>
+  <text x="400" y="110" class="label" font-size="14">AI 红利</text>
+  <text x="400" y="125" class="small">机会核心</text>
+
+  <!-- 路径1：技能提升 -->
+  <rect x="60" y="200" width="140" height="100" class="sector"/>
+  <text x="130" y="230" class="label" font-size="14">技能提升</text>
+  <rect x="70" y="250" width="120" height="20" class="item"/>
+  <text x="130" y="265" class="small">提示工程</text>
+  <rect x="70" y="275" width="120" height="20" class="item"/>
+  <text x="130" y="290" class="small">AI 工具精通</text>
+  <rect x="70" y="300" width="120" height="20" class="item"/>
+  <text x="130" y="315" class="small">批判性评估</text>
+
+  <!-- 路径2：副业创收 -->
+  <rect x="220" y="200" width="140" height="100" class="sector"/>
+  <text x="290" y="230" class="label" font-size="14">副业创收</text>
+  <rect x="230" y="250" width="120" height="20" class="item"/>
+  <text x="290" y="265" class="small">AI 代写作</text>
+  <rect x="230" y="275" width="120" height="20" class="item"/>
+  <text x="290" y="290" class="small">AI 生成内容</text>
+  <rect x="230" y="300" width="120" height="20" class="item"/>
+  <text x="290" y="315" class="small">AI 咨询服务</text>
+
+  <!-- 路径3：小生意 -->
+  <rect x="440" y="200" width="140" height="100" class="sector"/>
+  <text x="510" y="230" class="label" font-size="14">小生意</text>
+  <rect x="450" y="250" width="120" height="20" class="item"/>
+  <text x="510" y="265" class="small">垂直领域 AI 应用</text>
+  <rect x="450" y="275" width="120" height="20" class="item"/>
+  <text x="510" y="290" class="small">本地 AI 服务</text>
+  <rect x="450" y="300" width="120" height="20" class="item"/>
+  <text x="510" y="315" class="small">AI + 传统行业</text>
+
+  <!-- 路径4：投资 -->
+  <rect x="600" y="200" width="140" height="100" class="sector"/>
+  <text x="670" y="230" class="label" font-size="14">投资</text>
+  <rect x="610" y="250" width="120" height="20" class="item"/>
+  <text x="670" y="265" class="small">AI 股票/基金</text>
+  <rect x="610" y="275" width="120" height="20" class="item"/>
+  <text x="670" y="290" class="small">AI 初创公司</text>
+  <rect x="610" y="300" width="120" height="20" class="item"/>
+  <text x="670" y="315" class="small">算力基础设施</text>
+
+  <!-- 路径5：学习路径 -->
+  <rect x="290" y="360" width="220" height="100" class="sector"/>
+  <text x="400" y="390" class="label" font-size="14">系统学习路径</text>
+  <rect x="300" y="410" width="200" height="20" class="item"/>
+  <text x="400" y="425" class="small">基础：AI 概念 + Python</text>
+  <rect x="300" y="435" width="200" height="20" class="item"/>
+  <text x="400" y="450" class="small">进阶：大模型 API + 实战</text>
+  <rect x="300" y="460" width="200" height="20" class="item"/>
+  <text x="400" y="475" class="small">高级：微调 + 垂直领域</text>
+
+  <!-- 箭头 -->
+  <line x1="130" y1="160" x2="130" y2="200" class="arrow"/>
+  <line x1="290" y1="160" x2="290" y2="200" class="arrow"/>
+  <line x1="400" y1="160" x2="400" y2="360" class="arrow"/>
+  <line x1="510" y1="160" x2="510" y2="200" class="arrow"/>
+  <line x1="670" y1="160" x2="670" y2="200" class="arrow"/>
+
+  <!-- 底部统计 -->
+  <rect x="50" y="500" width="700" height="80" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="400" y="525" class="label" font-size="16">关键成功要素</text>
+  <text x="400" y="550" class="small">• 早入场：AI 红利期还有 3-5 年，先到先得</text>
+  <text x="400" y="575" class="small">• 垂直化：通用领域竞争激烈，细分场景有机会</text>
+
+</svg>

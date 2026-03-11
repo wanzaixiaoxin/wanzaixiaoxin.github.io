@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    .box { fill: #fff; stroke: #333; stroke-width: 2; rx: 8; }
+    .industry { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+    .app { fill: #e8f5e9; stroke: #43a047; stroke-width: 1; rx: 4; }
+    .label { font-size: 16px; font-weight: bold; fill: #333; text-anchor: middle; }
+    .small { font-size: 12px; fill: #666; text-anchor: middle; }
+    .arrow { stroke: #999; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="30" class="label" font-size="20">大模型在各行各业的落地</text>
+  <text x="400" y="55" class="small">AI 应用全景图</text>
+
+  <!-- 中心大模型 -->
+  <rect x="340" y="80" width="120" height="60" class="box" fill="#fff3e0" stroke="#f57c00"/>
+  <text x="400" y="110" class="label" font-size="14">大模型</text>
+  <text x="400" y="125" class="small">Foundation Model</text>
+
+  <!-- 教育 -->
+  <rect x="60" y="180" width="140" height="80" class="industry"/>
+  <text x="130" y="210" class="label" font-size="16">教育</text>
+  <rect x="70" y="230" width="120" height="20" class="app"/>
+  <text x="130" y="244" class="small">个性化学习</text>
+  <rect x="70" y="255" width="120" height="20" class="app"/>
+  <text x="130" y="269" class="small">自动批改</text>
+
+  <!-- 医疗 -->
+  <rect x="220" y="180" width="140" height="80" class="industry"/>
+  <text x="290" y="210" class="label" font-size="16">医疗</text>
+  <rect x="230" y="230" width="120" height="20" class="app"/>
+  <text x="290" y="244" class="small">诊断辅助</text>
+  <rect x="230" y="255" width="120" height="20" class="app"/>
+  <text x="290" y="269" class="small">药物研发</text>
+
+  <!-- 金融 -->
+  <rect x="440" y="180" width="140" height="80" class="industry"/>
+  <text x="510" y="210" class="label" font-size="16">金融</text>
+  <rect x="450" y="230" width="120" height="20" class="app"/>
+  <text x="510" y="244" class="small">风控</text>
+  <rect x="450" y="255" width="120" height="20" class="app"/>
+  <text x="510" y="269" class="small">智能投顾</text>
+
+  <!-- 法律 -->
+  <rect x="600" y="180" width="140" height="80" class="industry"/>
+  <text x="670" y="210" class="label" font-size="16">法律</text>
+  <rect x="610" y="230" width="120" height="20" class="app"/>
+  <text x="670" y="244" class="small">合同审查</text>
+  <rect x="610" y="255" width="120" height="20" class="app"/>
+  <text x="670" y="269" class="small">案例检索</text>
+
+  <!-- 创意 -->
+  <rect x="60" y="320" width="140" height="80" class="industry"/>
+  <text x="130" y="350" class="label" font-size="16">创意</text>
+  <rect x="70" y="370" width="120" height="20" class="app"/>
+  <text x="130" y="384" class="small">写作助手</text>
+  <rect x="70" y="395" width="120" height="20" class="app"/>
+  <text x="130" y="409" class="small">图像/视频生成</text>
+
+  <!-- 制造 -->
+  <rect x="600" y="320" width="140" height="80" class="industry"/>
+  <text x="670" y="350" class="label" font-size="16">制造</text>
+  <rect x="610" y="370" width="120" height="20" class="app"/>
+  <text x="670" y="384" class="small">质检自动化</text>
+  <rect x="610" y="395" width="120" height="20" class="app"/>
+  <text x="670" y="409" class="small">预测性维护</text>
+
+  <!-- arrows -->
+  <line x1="400" y1="140" x2="130" y2="180" class="arrow"/>
+  <line x1="400" y1="140" x2="290" y2="180" class="arrow"/>
+  <line x1="400" y1="140" x2="510" y2="180" class="arrow"/>
+  <line x1="400" y1="140" x2="670" y2="180" class="arrow"/>
+  <line x1="400" y1="140" x2="130" y2="320" class="arrow"/>
+  <line x1="400" y1="140" x2="670" y2="320" class="arrow"/>
+
+  <!-- 底部说明 -->
+  <rect x="100" y="480" width="600" height="100" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="400" y="510" class="label" font-size="16">行业变革的核心驱动力</text>
+  <text x="400" y="535" class="small">• 降低专业门槛：普通人也能完成过去专家的工作</text>
+  <text x="400" y="560" class="small">• 提升效率：部分场景提升 10-100 倍</text>
+  <text x="400" y="585" class="small">• 创造新岗位：AI 训练师、提示工程师、AI 伦理顾问</text>
+
+</svg>

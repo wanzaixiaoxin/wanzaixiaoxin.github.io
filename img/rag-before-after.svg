@@ -1,0 +1,63 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#ffffff"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">优化前后对比</text>
+  
+  <!-- 左侧：优化前 -->
+  <rect x="30" y="70" width="350" height="300" rx="10" fill="#ffebee" stroke="#f44336" stroke-width="2"/>
+  <text x="205" y="100" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#c62828">优化前（问题丛生）</text>
+  
+  <!-- 优化前问题列表 -->
+  <g font-family="Arial" font-size="13" fill="#666">
+    <circle cx="60" cy="140" r="5" fill="#f44336"/>
+    <text x="75" y="144">切片不当：语义断裂，关键信息丢失</text>
+    
+    <circle cx="60" cy="170" r="5" fill="#f44336"/>
+    <text x="75" y="174">检索单一：仅用余弦相似度，召回率 45%</text>
+    
+    <circle cx="60" cy="200" r="5" fill="#f44336"/>
+    <text x="75" y="204">无重排：相关文档排在第 5 位之后</text>
+    
+    <circle cx="60" cy="230" r="5" fill="#f44336"/>
+    <text x="75" y="234">Prompt 简陋：未利用元数据，上下文混乱</text>
+    
+    <circle cx="60" cy="260" r="5" fill="#f44336"/>
+    <text x="75" y="264">答案质量：准确率仅 55%，幻觉严重</text>
+    
+    <circle cx="60" cy="290" r="5" fill="#f44336"/>
+    <text x="75" y="294">用户体验：响应慢（3-5秒），答案不可信</text>
+  </g>
+  
+  <!-- 右侧：优化后 -->
+  <rect x="420" y="70" width="350" height="300" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+  <text x="595" y="100" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#2e7d32">优化后（表现卓越）</text>
+  
+  <!-- 优化后优势列表 -->
+  <g font-family="Arial" font-size="13" fill="#2e7d32">
+    <circle cx="495" cy="140" r="5" fill="#4caf50"/>
+    <text x="510" y="144">智能切片：语义保持 + 重叠缓冲，信息完整</text>
+    
+    <circle cx="495" cy="170" r="5" fill="#4caf50"/>
+    <text x="510" y="174">混合检索：向量 + BM25 + 重排，召回率 95%</text>
+    
+    <circle cx="495" cy="200" r="5" fill="#4caf50"/>
+    <text x="510" y="204">Rerank 重排：相关文档置顶，精度提升 40%</text>
+    
+    <circle cx="495" cy="230" r="5" fill="#4caf50"/>
+    <text x="510" y="234">Prompt 优化：元数据注入，生成更精准</text>
+    
+    <circle cx="495" cy="260" r="5" fill="#4caf50"/>
+    <text x="510" y="264">答案品质：准确率 95%，幻觉几乎消失</text>
+    
+    <circle cx="495" cy="290" r="5" fill="#4caf50"/>
+    <text x="510" y="294">用户体验：响应快（1-2秒），带来源引用</text>
+  </g>
+  
+  <!-- 中间 VS -->
+  <text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="#ff9800">VS</text>
+  
+  <!-- 底部总结 -->
+  <text x="400" y="360" text-anchor="middle" font-family="Arial" font-size="13" fill="#999">综合提升：召回率 +50% | 准确率 +40% | 响应速度 +40%</text>
+</svg>
